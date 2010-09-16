@@ -35,6 +35,7 @@
 LATEX	= latex
 BIBTEX	= bibtex
 MAKEINDEX = makeindex
+MAKEGLOSSARIES = makeglossaries
 XDVI	= xdvi -gamma 4
 DVIPS	= dvips
 DVIPDF  = dvipdft
@@ -44,6 +45,7 @@ GH	= gv
 RERUN = "(There were undefined references|Rerun to get (cross-references|the bars) right)"
 RERUNBIB = "No file.*\.bbl|Citation.*undefined"
 MAKEIDX = "^[^%]*\\makeindex"
+MAKEGLS = "^[^%]*\\makeglossaries"
 MPRINT = "^[^%]*print"
 USETHUMBS = "^[^%]*thumbpdf"
 
@@ -69,7 +71,7 @@ PDF	= $(SRC:%.tex=%.pdf)
 
 define run-latex
 	$(COPY);$(LATEX) $<
-	egrep $(MAKEIDX) $< && ($(MAKEINDEX) $(<:%.tex=%);$(COPY);$(LATEX) $<) >/dev/null; true
+	egrep $(MAKEGLS) $< && ($(MAKEGLOSSARIES) $(<:%.tex=%);$(COPY);$(LATEX) $<) >/dev/null; true
 	egrep -c $(RERUNBIB) $(<:%.tex=%.log) && ($(BIBTEX) $(<:%.tex=%);$(COPY);$(LATEX) $<) ; true
 	egrep $(RERUN) $(<:%.tex=%.log) && ($(COPY);$(LATEX) $<) >/dev/null; true
 	egrep $(RERUN) $(<:%.tex=%.log) && ($(COPY);$(LATEX) $<) >/dev/null; true
@@ -128,7 +130,7 @@ $(TRG)	: %.dvi : %.tex
 $(PSF)	: %.ps : %.dvi
 	  @$(DVIPS) $< -o $@
 
-$(PDF)  : %.pdf : %.dvi
+$(PDF)  : %.pdf : %.dvi glossary
 	  @$(DVIPDF) -o $@ $<
 # To use pdflatex, comment the two lines above and uncomment the lines below
 #$(PDF) : %.pdf : %.tex
@@ -143,11 +145,14 @@ showps	: $(PSF)
 
 ps	: $(PSF) 
 
-nomenclature : $(PSF)
-		@$(MAKEINDEX) rdr1.nlo -s nomencl.ist -o thesis.nls
+#nomenclature : $(PSF)
+#		@$(MAKEINDEX) rdr1.nlo -s nomencl.ist -o rdr1.nls
 
-glossary : $(PSF)
-		@$(MAKEINDEX) rdr1.glo -s thesis.ist -t thesis.gig -o thesis.gls
+glossary:
+		@$(MAKEGLOSSARIES) rdr1
+
+#glossary : $(PSF)
+#		@$(MAKEINDEX) rdr1.glo -s rdr1.ist -t rdr1.gig -o rdr1.gls
 
 booklet : $(PSF)
 		@psbook ./rdr1.ps ./out2.ps

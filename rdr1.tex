@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage{color,graphicx,url,wrapfig,glossary,nomencl,appendix,epigraph}
+%\usepackage[dvips, bookmarks=true, unicode=true, breaklinks=true, pdftitle={Environment execution service}, pdfauthor={Aram Verstegen}, pdfsubject={Technical Computer Science - Bachelor's thesis}, pdfkeywords={NFC, mobile phones}]{hyperref}
+\makenomenclature
+\makeglossary
+\begin{document}
+\newcommand{\mytitle}{Environment execution service}
+\newcommand{\myauthor}{Aram Verstegen}
+\newcommand{\mycourse}{Research \& Development - Research 1}
+\pagenumbering{Roman}
+\input{title}
+%\input{abstract}
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+\listoftables
+%\printnomenclature
+
+\cleardoublepage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\input{introduction}
+%\input{n}
+\input{conclusions}
+
+\input{appendices}
+
+\bibliographystyle{h-physrev3}
+\bibliography{rdr1}
+\printglossary
+\end{document}
+

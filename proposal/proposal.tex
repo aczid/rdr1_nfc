@@ -62,7 +62,7 @@ We will conduct a literature study into NFC-enabled mobile devices.
 
 These days most people have at least two things in their pocket, a mobile device (this can be a mobile phone, PDA or now a days a combination of those two, called a smartphone) and a wallet. In the wallet there is a certain amount of money, either in the form of cash or bankcard, or both. And with this everything is payed, from small micropayments (candy from a machine) to big purchases in a shop.
 \\ Recently a few pilots have been started \textbf { [bron noemen]} to combine the wallet and the mobile device into one thing. This is done by taking a mobile device and adding a NFC implementation. NFC stands for Near Field Communication, which allows a device to communicate wirelessly which an other device. A result of this will be several implementations, for example one implementation will allow people to pay with their mobile device and an other will use tickets for publictransport and events. 
-\\ While these applications will bring a lot of possibillities, it will also introduce security risks. In our paper we will focus on the known and forseen vulnerabilities of NFC, by answering the following main research question.
+\\ While these applications will bring a lot of possibillities, it will also introduce security risks. In our paper we will focus on the known and forseen vulnerabilities of NFC, by answering the following research question.
 
 \subsection{Research question}
 
@@ -72,16 +72,20 @@ What are the known and forseen vulnerabilities of NFC applications for mobile de
 
 In order to answer the main research question, we'll answer the following sub-questions.
 \begin{itemize}
-\item [-] What is the architecture of NFC-enabled mobile phones?
+\item [-] What is the architecture of NFC-enabled mobile device?
 
 \item [-] What are some of the known vulnerabilities in NFC or NFC-like applications?
 
 \item [-] Based on the architecture and known vulnerabilities, what will the forseen vulnerabilities be?
 
+\item [-] How do these vulnerabilities work?
+
+\item [-] What might be possible countermeassures against these vulnerabilities?
+
 \end{itemize}
 
 \section{Scope}
-We are aware that because of the time restrictions in place, we won't be able to cover the entire breadth and depth of NFC-systems. In some implementations of a NFC-system, a back-end is used to handle requests, transactions and traffic. The back-end is different for each implementation. Therefore, we will scope down for the majority of our research, to the technical details of a generic NFC device, and document the security mechanisms in place. 
+We are aware that because of the time restrictions in place, we won't be able to cover the entire breadth and depth of NFC-systems. In some implementations of a NFC-system, a back-end is used to handle requests, transactions and traffic. Because the back-end is different for each implementation, we will scope down for the majority of our research to the technical details of a generic NFC device. First we will focus on the architecture of a mobile device with NFC.  Then we will try to find vulnerabilities in a NFC application, where the attention will be on the mobile device and the device it will be communicating with. After we have found vulnerabilities we will try to find countermeassures against them. 
 
 \section{Motivation}
 

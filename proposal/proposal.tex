@@ -69,17 +69,18 @@ These days most people have at least two things in their pocket, a mobile device
 At the end of our research we will try to answer to following research question. 
 \\
 
-\noindent What are the known and forseen vulnerabilities of NFC applications for mobile devices and what are the countermeassures against them? % Moet nog aangepast
+\noindent What is the security architecture of NFC applications for mobile devices and what are some of the known and forseen vulnerabilities? % Moet nog aangepast
 \\
 
 \noindent We are able to give the following hypothesis:
 \\
 
-\noindent We think that the most vulnerabilities will be found in the wireless communication and the implementation of secure elements. % Even geen idee hoe ik hier verder kan
+\noindent We think that the most vulnerabilities will be found in the transmission of wireless data and the implementation of secure elements. % Even geen idee hoe ik hier verder kan
 
 \subsubsection{Sub-questions}
 
 In order to answer the main research question, we'll answer the following sub-questions.
+
 \begin{itemize}
 \item [-] What is the architecture of NFC-enabled mobile device?
 
@@ -94,13 +95,18 @@ In order to answer the main research question, we'll answer the following sub-qu
 \end{itemize}
 
 \section{Scope}
-We are aware that because of the time restrictions in place, we won't be able to cover the entire breadth and depth of NFC-systems. In some implementations of a NFC-system, a back-end is used to handle requests, transactions and traffic. Because the back-end is different for each implementation, we will scope down for the majority of our research to the technical details of a generic NFC device. First we will focus on the architecture of a mobile device with NFC, mainly on the implementation of secure elements. Then we will try to find vulnerabilities in a NFC application, where the attention will be on the mobile device and the device it will be communicating with. After we have found vulnerabilities we will try to find countermeassures against them. 
+We are aware that because of the time restrictions in place, we won't be able to cover the entire breadth and depth of NFC systems.
+In some implementations of an NFC system, a back-end is used to handle transactions.
+Because the back-end is likely to be different for each implementation, we will scope our research down to the technical details of a generalized NFC interaction.
+We will provide an up-to-date introduction on the architecture of an NFC-enabled mobile device, focusing mainly on security-related components.
+Using this work as a guideline we will document some known vulnerabilities in NFC applications, examining their technical details.
+After we have found vulnerabilities we will try to find countermeassures against them. 
 
 \section{Motivation}
 
 \section{Deliverables}
 We hope to present a clear introduction on the state of NFC-enabled devices, citing some notable deployments and prospective uses.
-After this groundwork, we will focus on the technical details of the NFC-enabled devices ighlighting some of the security vulnerabilities and risks involved.
+After this groundwork, we will focus on the technical details of the NFC-enabled devices highlighting some of the security vulnerabilities and risks involved.
 
 \section{Strategy}
 In our study we want to investigate the architecture of NFC-enabled devices with a focus on the technical details of the security model. We first hope to reach a general, high-level understanding of the system's capabilities and uses, and write a solid introduction before delving into the more technical details. After this high-level introduction which illustrates the context of our research, we will limit our scope to the NFC devices themselves.
@@ -109,7 +115,7 @@ We would like to also include a case study of an NFC system implementation. This
 
 \section{Time schedule}
 \begin{center}
-  \begin{tabular}{ | r | l| l || l | }
+  \begin{tabular}{ | r | l | l || l | }
     \hline
     Week & Date & Activity & Deliverable \\ \hline
     39 &  & Researching NFC &  \\ \hline

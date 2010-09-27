@@ -55,7 +55,7 @@
 
 \abstract{
 
-Near Field Communication is a short-range, low-power wireless communication system that uses the same principles as various RFID implementations.
+Near Field Communication \cite{nfcstd} is a short-range, low-power wireless communication system that uses the same principles as various \textit{RFID} implementations.
 It's intended to be integrated into mobile devices, allowing for \textit{contactless} payment applications.
 NFC is a relatively new technology which might have a big impact on the way we pay and gain access to buildings, computer systems or even public transport.
 Because of these applications and the number of people that will be using it, it is necessary to research how secure NFC really is.
@@ -67,23 +67,16 @@ These days most people have at least two things in their pocket, a mobile device
 In the wallet there is a certain amount of money, either in the form of cash or a bankcard, or both.
 And with this everything is paid, from small \textit{micropayments} (e.g. candy from a machine) to big purchases in a shop.
 
-Recently a pilot has started \cite{payter} that integrates a person's payment card(s) into their mobile device using the NFC standard \cite{nfcstandard}.
-A result of this will be several implementations, for example one implementation will allow people to pay with their mobile device and an other will use tickets for public transport and events. 
-While these applications will bring a lot of possibilities, it will also introduce security risks. For example, as mentioned before the communication between the mobile device and a payment system will be wireless. As with any wireless communication, it is possible to capture this traffic, if you have the right equipment. Another interesting aspect, is that a mobile device is in hands of a user, who might start tampering the hardware. It is still unknown to us what these vulnerabilities are and if there are some countermeasures present to prevent them. Therefore we will focus, we will focus on the known and foreseen vulnerabilities of NFC, by answering the research question below.
+Recently a pilot has started \cite{payter} that integrates a person's payment card(s) into their mobile device using the NFC standard \cite{nfcstd}.
 
 \newpage
 \subsection{Research question}
 
-At the end of our research we will try to answer to following research question. 
+At the end of our research we will try to answer to following research question: 
 
 \begin{quote}
 What is the security architecture of NFC applications for mobile devices and what are some of the known and foreseen vulnerabilities? % Moet nog aangepast
 \end{quote}
-
-\noindent We are able to give the following hypothesis:
-\\
-
-\noindent We think that the most vulnerabilities will be found in the transmission of wireless data and the implementation of secure elements. % Even geen idee hoe ik hier verder kan
 
 \subsubsection{Sub-questions}
 
@@ -104,27 +97,35 @@ In order to answer the main research question, we'll answer the following sub-qu
 
 \end{itemize}
 
+\subsubsection{Hypothesis}
+We are able to give the following hypothesis:
+
+We think that most new vulnerabilities will be found in applications built on top of NFC systems, rather than in the NFC architecture itself.
+We envision vendors might try to apply existing business rules to this new system, even if their understanding of it is oversimplified. % Even geen idee hoe ik hier verder kan
+
 \section{Scope}
 We are aware that because of the time restrictions in place, we won't be able to cover the entire breadth and depth of NFC systems.
 In some implementations of an NFC system, a back-end is used to handle transactions.
 Because the back-end is likely to be different for each implementation, we will scope our research down to the technical details of a generalized NFC interaction.
-We will provide an up-to-date introduction on the architecture of an NFC-enabled mobile device, focusing mainly on security-related components.
-Using this work as a guideline we will document some known vulnerabilities in NFC applications, examining their technical details.
-We will document known countermeasures for any vulnerabilities that we become aware of.
-If time permits, we hope to illustrate these vulnerabilities by including a case study or explore the possibilities of the NFC architecture.
+We will provide an up-to-date introduction to the possibilities of an NFC-enabled mobile device and the architecture it's built upon, focussing on the security model.
+%focusing mainly on security-related components.
+Using this work as a guideline we will document known vulnerabilities in NFC applications, examining their technical details.
+We will mention known countermeasures for any vulnerabilities that we discuss.
+If time permits, we hope to illustrate these vulnerabilities by including a case study. %or explore the possibilities of the NFC architecture.
 
 \section{Motivation}
 
 With the current technology it is possible to make everyday jobs or actions easier and more comfortable.
 It is now possible to take your phone with you, instead of calling from a house, as was the case a few years ago.
 Instead of paying with coins and bills, we now pay using a bankcard.
-But in this century, the evolution of technology does not stop, so ideas like paying with your phone comes to mind.
-These days the development schedules are so tight, some details may be overlooked.
-For systems dealing with security, these oversights can be devastating.
+But in this century, the evolution of technology does not stop. So applications like paying with your phone come to mind.
+These days the development schedules are so tight, some details may be overlooked because companies may simply try to apply old methods to new technology.
+For systems requiring a high level of security, these kinds of oversights can be devastating.
 %In IT this is mostly security related. 
 \\
 
-\noindent In our opinion security issues should be addressed in any ICT project. Especially when the system will be open to the public and a lot of people will depend on it.
+\noindent In our opinion security issues should be addressed in any ICT project.
+Especially when the system will be exposed to the general public and a lot of people will depend on it for their day-to-day lives.
 When NFC-enabled devices take off and people start using NFC-based applications, it will be too late to makes significant changes that will improve security.
 Therefore we think it's very important to research and document the known security issues regarding NFC-enabled devices.
 

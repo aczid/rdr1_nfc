@@ -1,47 +1,65 @@
 \chapter{Introduction}
-\addcontentsline{toc}{chapter}{Introduction}
 \newglossaryentry{PKI}{name={Public Key Infrastructure},description={A cryptographic methode for encrypting messages over untrusted networks.}}
 \glsadd{PKI}
 
-\section*{Purpose}
+%\section*{Purpose}
 
-%\section{Introduction} %(beetje dubbel)
-Near Field Communication (NFC)  is an upcoming technology and will add a new way of communication on mobile devices. It will allow a mobile device, e.g. a smartphone, to communicate wirelessly over a short distance with other devices or some form of terminal. There are two major incentives for development, one is mobile payment and the other is gaining access. For users of a mobile device (e.g. smartphone, PDA), NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to gain access to the public transport system. This way the user doesn't have to take a wallet with them, but just use the mobile device. For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your backaccount. 
+\section{Near Field Communication} %(beetje dubbel)
+Near Field Communication (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices.
+It will allow a mobile device, e.g. a smartphone, to communicate wirelessly over a short distance with other NFC-capable devices like another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
+There are two major use cases that sparked its development, namely mobile payments and access control.
+For users of a mobile device (e.g. smartphone, PDA), NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to gain access to the public transport system.
+Theoretically the user doesn't have to carry a wallet anymore, only the mobile device.
+For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your bank account. 
 
 %plaatje van een NFC betaling
 
-NFC will be exploited by different stakeholders of the NFC Forum, which was started in 2004 to advance NFC technology. Stakeholders are manufacturers, application developers, financial service institutions. Currently the Forum has a 140 members, who all work together to promote the use of NFC. 
-Recently a few pilots have started in the Netherlands which allow users to pay with their mobile device and gain access…%(misschien hier het voorbeeld noemen van OV chipkaart op de telefoon van Erik Poll).
+\section{Stakeholders}
+NFC will be exploited by different stakeholders of the NFC Forum, which was started in 2004 to advance NFC technology.
+Stakeholders are manufacturers, application developers and financial service institutions.
+Currently the Forum has 140 members, who all work together to promote the use of NFC. 
+Recently a few pilots have started in the Netherlands which allow users to pay with their mobile device and gain access.
+%(misschien hier het voorbeeld noemen van OV chipkaart op de telefoon van Erik Poll).
+The Dutch infrastructure provider \textit{Trans Link Systems} (TLS), which was created as a joint venture between Dutch public transport companies to realise an electronic payment system for their services, have been investigating the feasibility of mobile phone-based payment applications using NFC. %referentie naar TLS
 
+\section{Pilot programs}
 % /* promising secure element alternatives for NFC technology.
-But also in London there has been a pilot between November 2007 and May 2008. During this trial 78 percent participants were interested in using this technique. According to Juniper, 700 million of NFC-enabled mobile phones will be in use by 2013. 
-One of the reasons why NFC hasn't been in use yet, is because stakeholders (e.g. banks, mobile providers, public transport companies) can not agree on which secure element to use. 
-The secure element consists of hardware, software, interfaces and protocols in a mobile device. It provides a secure area for storage, running of applications, protection of payments and can be used for authentication  and for applications which need security mechanism.
+% door wie, hoeveel participanten etc is wel nuttig om te weten
+In London there has been a pilot between November 2007 and May 2008, during which 78 percent participants were interested in using this technique.
+According to networking hardware vendor \textit{Juniper Networks}, 700 million of NFC-enabled mobile phones will be in use by 2013. 
+One of the factors holding back the widespread adoption of NFC, is stakeholders (e.g. banks, mobile providers and public transport companies) have so far been unable to agree on standardization of the required security implements. 
+% sorry maar even herschreven om niet meteen heel specifiek te gaan.
+%The secure element consists of hardware, software, interfaces and protocols in a mobile device.
+%It provides a secure area for storage, running of applications, protection of payments and can be used for authentication  and for applications which need security mechanism.
+% dit stukje is niet zo precies, en moet in de introductie minder technisch uitgelegd worden denk ik
 
-%plaatje van een secure element
+\section{Security research}
+While consumers might see these applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.
+Because NFC will be used in payment and gaining access, it should be assumed that attackers will try to exploit this technology for their own gain. 
+Research has been done on the security of NFC in several areas, among which:
 
-The distance at which the NFC communication takes place is 10 cm, operates at the 13.56 MHz frequency and it has a transfer speed of 106, 216, 424 kbit/s. NFC has been described by NFCIP-1 (Near Field Communication Interface Protocol 1) first on ISO18092, ECMA340 and ETSI TS102 and also NFCIP-2 defiined in ISO 21481, ECMA352 and ETSI TS102 312. With NFCIP-2, NFC become compliant with the RFID standards of ISO14443 and ISO15693.
-%promising secure element alternatives for NFC technology. */
- 
-While the user sees this as new features or a gadget, it also raises a lot of questions on the security perspective. Because NFC will be used in payment and gaining access, we assume that people will try to exploit this technology for their own gain. 
-Research has been done on the security of NFC in serveral area's. In "Promising secure element alternatives for NFC technology" four different secure elements are proposed of which one is suggested to be used. The secure element to be used is a Universal Integrated Circuit Card, this is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. UICC is suggested because it's secured, already in use and thus tried, removable which means a user can switch phones and standardized. 
+\begin{itemize}
+\item Creating secure off-line payment applications
+\item Trusted computing using mobile applications which are managed remotely
+\item Network attacks against \textit{Wireless Personal Area Networks} (e.g \textit{Denial of Service}, \textit{Snooping}, \textit{Man-in-the-middle}, etc.) \footnote{Even though NFC isn't strictly a WPAN system as it only allows for 2 communicating parties, this paper also covers network attacks against NFC.}
+\item Intrusion detection mechanisms for \textit{Wireless Personal Area Networks} (WPAN)
+\item Mitigations agains privacy issues related to wireless payment systems
+\end{itemize}
 
-In "Picking Virtual pockets using Relay Attacks on Contactless Smartcard Systems" the working of a relay attack on  a RFID system are explained. This is also interesting for NFC, because it resembles RFID. In the article,  an attacker will have a device that fakes a card (ghost) (e.g. backcard) and a device that fakes a reader (leech). The ghost will be used to communicate with a genuine reader and the leech will communicate with a genuine card. The trick is, that the attacker will try to pay for something, but the victim is the one paying. The attacker must have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 cm, because then the attack will go unnoticed.
+To our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
+What we hope to accomplish with this paper is to provide the reader with an introduction to NFC security-related research currently ongoing.
+%In addition to this we hope to be able to identify specific applications in which we foresee vulnerabilities.
 
-%plaatje relay attack
+\newpage
 
-In "Vulnerability analysis and attacks on NFC-enabled Mobile phones" a few attacks with Smart Posters (posters withNFC-tags that have some infomartion) are explained. Here the information in NFC-tag will direct the mobile device to a malicious site where the user is tricked into making, for example a financial transaction.
+\section{Overview}
+In chapter \ref{chap:applications} we will briefly summarize some of the applications NFC will likely be used for.
+In chapter \ref{chap:hardware_architecture} we will present an overview of the hardware, software and communication architecture of a NFC-enabled mobile device.
+%\section{...}
+%Further we will look into the possibilities that NFC offers.
+In chapter \ref{chap:known_vulnerabilities} we will summarize existing research on vulnerabilities in NFC or NFC-like applications.
 
-To our knowledge there has been no succinct, definitive overview of the security architecture and the known and vulnerabilities. In this paper we will present an overview of the security architecture of NFC applications for mobile devices.
-In addition to this we hope to be able to identify specific applications in which we foresee vulnerabilities.
-In section ... we will discuss an overview of the hardware, software and communication architecture of a NFC-enabled mobile device and some known vulnerabilities in NFC or NFC-like applications.
- 
-\section{...}
-Further we will look into the possibilities that NFC offers.
- 
-\section{...}
-Further we will look into the possibilities that NFC offers.
-Then we will explain how known vulnerabilities work and based on the architecture and these vulnerabilities, we will try to present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities.
+Based on the architecture and these vulnerabilities, we present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities in chapter \ref{chap:foreseen_vulnerabilities}.
 
 
 %Bronnen:

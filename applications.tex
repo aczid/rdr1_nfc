@@ -1,12 +1,15 @@
 \chapter{NFC Applications}
 \label{chap:applications}
+% Hoe hebben we deze lijst gevonden. Is het bedoeld exhaustive te zijn?
 
 While NFC is an emerging technology, there are some obvious areas in which it is likely to be applied.
+% Dit is slechts een kleine greep en bedoeld ter illustratie
 
 \section{Payment}
 Japanese telecom provider \textit{Mobile Felicia} has initiated wide deployment of NFC technology in Japan, where virtually every issuer of payment cards supports the \textit{Felicia Mobile Wallet}.
-In these applications the mobile device emulates the behaviour of an RFID card, but much more is possible by making use of the active communication possibilities of NFC.
+In these applications the mobile device emulates the behaviour of an RFID card, but much more is possible by making use of the active communication possibilities of NFC. % TODO much more, zoals?
 
+% Referenties voor maken
 In "mFerio: The Design and Evaluation of a Peer-to-Peer Mobile Payment System" the authors investigate the security and usability, and as a whole the feasibility of NFC technology as a replacement for cash.
 The authors concluded that their system is "highly usable and is even faster than cash under various common scenarios".
 
@@ -15,12 +18,26 @@ The authors concluded that their system is "highly usable and is even faster tha
 
 \section{Access control}
 
-
+% Vermijd term TC, heeft beladen betekenis
 \section{Trusted computing}
 Strongly related to the progression of payment applications towards 'electronic cash' is the requirement to run trusted code on a user's machine.
 This poses several problems as the mobile devices are liable to tampering by the user.
 This problem can be mitigated by making use of a \textit{Secure Element}, which can be part of the \textit{Subscriber Identify Module} (SIM) card in users mobile phone.
+% In de telefoons die 'we' hebben is de SE geen onderdeel van de SIM, maar een los (al dan niet trusted) component.
 Because of its sheer microscopic scale, it's very difficult and costly for an attacker to tamper with the function of this device.
+%TODO Referenties
 In "A mobile trusted computing architecture for a Near Field Communication ecosystem" the authors investigate the possibility of running trusted code in mobile devices and concluded that while such a system is technically feasible, its widespread adoption is hampered by the certification process payment card companies impose on their payment products.
 Payment card companies' current standards dictate that their cards may not be modified after production, which poses a problem as this is exactly what makes NFC an enticing alternative to conventional bank cards.
 
+% Kip & ei probleem
+% Genoeg NFC handsets <-> apps
+% trust: telco <-> bank <-> telefoonmaker
+% kosten voor payment -> nfc reader bij alle kassa's
+% iedereen moet mee doen
+
+% SIM - 4k ram 16k rom 64k eeprom
+
+%            trust
+% security <             afluister
+%            aanvaller < relay attacks
+%                        malware

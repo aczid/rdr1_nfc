@@ -2,7 +2,12 @@
 \label{chap:hardware_architecture}
 
 % diagram van NFC communicatie
+%TODO Beschrijf eerst bestaande telefoon architectuur (zonder NFC) en de mogelijke architecturen -met- NFC
 
+%TODO RFiD card vs NFC - verschil vd terminal
+%                      - live GSM verbinding met de bank
+%TODO Online vs Offline
+%                      - privacy gevoeligheid
 \section{Wireless communication}
 The distance at which the NFC communication takes place is 10 cm, operates at the 13.56 MHz frequency and it has a transfer speed of 106, 216, 424 kbit/s.
 %promising secure element alternatives for NFC technology. */
@@ -11,12 +16,26 @@ The distance at which the NFC communication takes place is 10 cm, operates at th
 
 \section{Secure elements}
 In "Promising secure element alternatives for NFC technology" four different secure elements are proposed, of which one is suggested as the most likely candidate to be used.
-The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC), this is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary
+The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC), this is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 UICC is suggested because it's secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
 
+% TODO hoort bij Wireless communication, terwijl 3.2 (Secure Elements) heel ergens anders over gaat
 \section{Standardization}
 NFC has been described by NFCIP-1 (Near Field Communication Interface Protocol 1) first on ISO18092, ECMA340 and ETSI TS102 and also NFCIP-2 defined in ISO 21481, ECMA352 and ETSI TS102 312.
 With NFCIP-2, NFC became compliant with the RFID standards of ISO14443 and ISO15693.
 
 \section{Limitations}
 
+% Toetsenbord en display feature (semi-trusted terminal, moeilijker te tamperen)
+
+% Voorbeeld telefoon met gewone sim en NFC SD card adapter
+% Bankier kan heir apps op installeren
+
+% Voorbeeld telefoon met meerdere sims
+
+% Vorobeeld SIM en losse SE, met trusted code
+
+% Voorbeeld SIM van KPN, met apps van de bank
+
+% Uitzoeken:
+% Rabomobiel - SIM vd rabobank

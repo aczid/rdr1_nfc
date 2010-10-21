@@ -4,16 +4,19 @@
 
 %\section*{Purpose}
 
+%TODO Twee keer mobile device e.g. smartphone. 1x introduceren daarna placeholder gebruiken
 \section{Near Field Communication} %(beetje dubbel)
 Near Field Communication (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices.
-It will allow a mobile device, e.g. a smartphone, to communicate wirelessly over a short distance with other NFC-capable devices like another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
+It will allow a mobile device, e.g. a smartphone, to communicate wirelessly over a short distance with other NFC-capable devices such as another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
 There are two major use cases that sparked its development, namely mobile payments and access control.
-For users of a mobile device (e.g. smartphone, PDA), NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to gain access to the public transport system.
+For users of a mobile device (e.g. smartphone, PDA), NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to pay for public transport.
 Theoretically the user doesn't have to carry a wallet anymore, only the mobile device.
 For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your bank account. 
 
 %plaatje van een NFC betaling
 
+%TODO Telco's en gebruikers er bij
+%TODO Manufacturers of what? - telefoons, NFC tags, ???
 \section{Stakeholders}
 NFC will be exploited by different stakeholders of the NFC Forum, which was started in 2004 to advance NFC technology.
 Stakeholders are manufacturers, application developers and financial service institutions.
@@ -22,9 +25,11 @@ Recently a few pilots have started in the Netherlands which allow users to pay w
 %(misschien hier het voorbeeld noemen van OV chipkaart op de telefoon van Erik Poll).
 The Dutch infrastructure provider \textit{Trans Link Systems} (TLS), which was created as a joint venture between Dutch public transport companies to realise an electronic payment system for their services, have been investigating the feasibility of mobile phone-based payment applications using NFC. %referentie naar TLS
 
+%TODO Hoort meer bij hoofdstuk 2
 \section{Pilot programs}
 % /* promising secure element alternatives for NFC technology.
-% door wie, hoeveel participanten etc is wel nuttig om te weten
+%TODO door wie, hoeveel participanten etc is wel nuttig om te weten
+%TODO Er wordt er ook maar 1 genoemd
 In London there has been a pilot between November 2007 and May 2008, during which 78 percent participants were interested in using this technique.
 According to networking hardware vendor \textit{Juniper Networks}, 700 million of NFC-enabled mobile phones will be in use by 2013. 
 One of the factors holding back the widespread adoption of NFC, is stakeholders (e.g. banks, mobile providers and public transport companies) have so far been unable to agree on standardization of the required security implements. 
@@ -35,20 +40,25 @@ One of the factors holding back the widespread adoption of NFC, is stakeholders 
 
 \section{Security research}
 While consumers might see these applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.
-Because NFC will be used in payment and gaining access, it should be assumed that attackers will try to exploit this technology for their own gain. 
+Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
 Research has been done on the security of NFC in several areas, among which:
 
+% TODO Referenties toevoegen
 \begin{itemize}
 \item Creating secure off-line payment applications
 \item Trusted computing using mobile applications which are managed remotely
-\item Network attacks against \textit{Wireless Personal Area Networks} (e.g \textit{Denial of Service}, \textit{Snooping}, \textit{Man-in-the-middle}, etc.) \footnote{Even though NFC isn't strictly a WPAN system as it only allows for 2 communicating parties, this paper also covers network attacks against NFC.}
+\item Network attacks against \textit{Wireless Personal Area Networks} (e.g \textit{Denial of Service}, \textit{Snooping}, \textit{Man-in-the-middle}, etc.) \footnote{Even though NFC isn't strictly a WPAN system as it only allows for 2 communicating parties, this paper also covers network attacks against NFC.} %TODO WPAN afkorting introduceren
 \item Intrusion detection mechanisms for \textit{Wireless Personal Area Networks} (WPAN)
 \item Mitigations agains privacy issues related to wireless payment systems
 \end{itemize}
 
 To our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
+% "Did you google scholar around for this?"
 What we hope to accomplish with this paper is to provide the reader with an introduction to NFC security-related research currently ongoing.
 %In addition to this we hope to be able to identify specific applications in which we foresee vulnerabilities.
+% "Introduction to NFC security _research_"
+% vs "Introduction to NFC security _issues/architecture_"
+% Naar welk aspect kijken wij? - Verderop in 1.5 geven jullie hier beter antwoord op
 
 \newpage
 
@@ -57,7 +67,7 @@ In chapter \ref{chap:applications} we will briefly summarize some of the applica
 In chapter \ref{chap:hardware_architecture} we will present an overview of the hardware, software and communication architecture of a NFC-enabled mobile device.
 %\section{...}
 %Further we will look into the possibilities that NFC offers.
-In chapter \ref{chap:known_vulnerabilities} we will summarize existing research on vulnerabilities in NFC or NFC-like applications.
+In chapter \ref{chap:known_vulnerabilities} we will summarize security issues on vulnerabilities in NFC or NFC-like applications.
 
 Based on the architecture and these vulnerabilities, we present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities in chapter \ref{chap:foreseen_vulnerabilities}.
 

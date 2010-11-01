@@ -15,6 +15,15 @@ The distance at which the NFC communication takes place is 10 cm, operates at th
 %plaatje van een secure element
 
 \section{Secure elements}
+Strongly related to the progression of payment applications towards 'electronic cash' is the requirement to run trusted code on a user's machine.
+This poses several problems as the mobile devices are liable to tampering by the user.
+This problem can be mitigated by making use of a \textit{Secure Element}, which can be part of the \textit{Subscriber Identify Module} (SIM) card in users mobile phone (see Chapter 3).
+% In de telefoons die 'we' hebben is de SE geen onderdeel van de SIM, maar een los (al dan niet trusted) component. MARK: zullen we dit verder uitbreiden in het architectuur hoofdstuk en dit hier niet noemen?
+
+Because of its sheer microscopic scale, it's very difficult and costly for an attacker to tamper with the function of this device.
+%TODO Referenties
+In \cite{1497411} the authors investigate the possibility of running trusted code in mobile devices and concluded that while such a system is technically feasible, its widespread adoption is hampered by the certification process payment card companies impose on their payment products.
+Payment card companies' current standards dictate that their cards may not be modified after production, which poses a problem as this is exactly what makes NFC an enticing alternative to conventional bank cards.
 In "Promising secure element alternatives for NFC technology" four different secure elements are proposed, of which one is suggested as the most likely candidate to be used.
 The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC), this is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 UICC is suggested because it's secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 

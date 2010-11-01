@@ -8,7 +8,7 @@
 \section{Near Field Communication} %(beetje dubbel)
 Near Field Communication (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices, e.g. smartphones.
 It will allow a mobile device to communicate wirelessly over a short distance with other NFC-capable devices such as another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
-There are two major use cases that sparked its development, namely mobile payments and access control.
+There are two major use cases that sparked its development, namely mobile payments and access control. %MARK we zouden access control toch niet meer gebruiken?
 For users of a mobile device NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to pay for public transport.
 Theoretically the user doesn't have to carry a wallet anymore, only the mobile device.
 For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your bank account. 
@@ -17,13 +17,59 @@ For example, instead of using coins to pay for candy, you'll just wave your smar
 
 %TODO Telco's en gebruikers er bij
 %TODO Manufacturers of what? - telefoons, NFC tags, ???
-\section{Stakeholders}
-NFC will be exploited by different stakeholders of the NFC Forum, which was started in 2004 to advance NFC technology.
-Stakeholders are hardware component manufacturers, mobile device assembling companies, SIM card producers, application developers and financial service institutions.
+%\section{Stakeholders} % was dit niet overbodig om te noemen? MARK: volgens mij zei erik of alles noemen of eruit?
+%NFC will be exploited by different stakeholders of the NFC Forum, which was started in 2004 to advance NFC technology.
+%Stakeholders are hardware component manufacturers, mobile device assembling companies, SIM card producers, application developers and financial service institutions.
 %And of course, let's not forget the user.
-Currently the Forum has 140 members, who all work together to promote the use of NFC. 
+%Currently the Forum has 140 members, who all work together to promote the use of NFC. 
 %Recently a few pilots have started in the Netherlands which allow users to pay with their mobile device and gain access.
 %(misschien hier het voorbeeld noemen van OV chipkaart op de telefoon van Erik Poll).
+
+\section{Applications}
+While NFC is an emerging technology, there are some obvious areas in which it is likely to be applied. There are different parties throughout these areas, that are willing to exploit NFC technology. Some of these parties (hardware component manufacturers, mobile device assembling companies, SIM card producers, application developers and financial service institutions) are part of the NFC Forum, which was started in 2004 to advance NFC technology. Also users should be considered a major party in NFC technology.
+For illustrative purposes a few applications in which NFC can be used are mentioned below.
+
+\subsection{Payment}
+Japanese telecommunications provider \textit{NTT DoCoMo} has initiated wide deployment of NFC technology in Japan, where virtually every issuer of payment cards supports the \textit{Sony}'s \textit{Felica Mobile Wallet} \cite{3g_japan}.
+In this de-facto standard for mobile payment the mobile device emulates the behaviour of an RFID card, but in the future much more is possible by making use of the active communication possibilities of NFC. % TODO much more, zoals? MARK: Geen bron voor felica? Of waar komt dit vandaan?
+
+% Referenties voor maken
+In \cite{1555846} the authors investigate the security and usability, and as a whole the feasibility of NFC technology as a replacement for cash.
+The authors concluded that their system is "highly usable and is even faster than cash under various common scenarios".
+
+%In "Offline payments with Electronic Vouchers", the authors investigate the technical challenges of a system using cryptographically secure vouchers which can be exchanged between beneficiaries.
+%They concluded the biggest limitation....
+%MARK het bovenstaande werd weggelaten of wat was hier ook de bedoeling weer van?
+
+\subsection{Public Transport}
+Another application for NFC is public transport.
+This way it is possible to use a mobile device to pay and gain access to i.e. a train, bus, or metro.
+The Dutch infrastructure provider \textit{Trans Link Systems} (TLS), which was created as a joint venture between Dutch public transport companies to realise an electronic payment system for their services, have been investigating the feasibility of mobile phone-based payment applications using NFC. %referentie naar TLS
+By holding your mobile device in front of a terminal you'll pay for a ticket or show your credit and a gate will open allowing you to enter.
+The public transport system in the Netherlands uses this principle, it hasn't been implemented on a mobile device yet, but plans are being made. A mobile device has some advantages above a card, i.e. you can check the balance on your mobile device and increase it immediately. %MARK niet zo lekker stukje kan een bron bij, maar wat voor IEEE, ACM, scholar? Nog geen pilot in nederland :(
+
+\subsection{Other applications}
+
+Smart posters can be used to let a user interact with some piece of advertising.
+For example it allows to transfer a URL or contact card to the receiving device.
+
+Another application for NFC is in the healthcare system.
+In \cite{RFIDHB} an application of NFC is used to measure the pressure in the eye.
+A look at Google Scholar gave us the impression that the use of NFC in the healthcare system, is still in the development stage.
+Therefore we will leave this application out of our research and recommend it for future work. %Mark niet zo sterk bewijs
+
+\subsection{Implementation}
+As mentioned above, there are different NFC applications (of which payment and public transport are the most important) and these applications are starting to be implemented. There are several reasons why NFC hasn't been implemented yet. First of all, the mobile devices that use NFC, still have to be made available to the consumer, but the consumer will only be interested if he or she can actually do something with NFC. So applications are needed, but therefore different parties have to work together. If i.e. a SIM-card is used as a secure element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card. Also the costs involved with trying to get all the shops using NFC, are quite large, because new payterminals have to be purchased.
+So all parties have to participate and create agreements to get NFC off the ground, which is what they have been doing, only this takes time. %niet zo sterke zin en gebaseerd op de meeting met erik
+
+
+
+
+
+
+
+
+
 
 \section{Security research}
 While consumers might see these applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.

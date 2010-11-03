@@ -14,10 +14,15 @@
 
 %plaatje van een secure element
 
+
+%ERIK Waarom is de architectuur van GSM zoals-ie is & hoe breidt NFC dat uit? Er zijn tig opties van NFC telefoons, dus we kunnen niet overal diep op ingaan.
+
 \section{Secure elements}
 Strongly related to the progression of payment applications towards 'electronic cash' is the requirement to run trusted code on a user's machine.
 This poses several problems as the mobile devices are liable to tampering by the user.
 This problem can be mitigated by making use of a \textit{Secure Element}, which can be part of the \textit{Subscriber Identify Module} (SIM) card in users mobile phone (see Chapter 3).
+% ERIK: SIM is een voorbeeld van een "Secure Element". Een Secure Element kan ook een andere smartcard chip in de telefoon zijn.
+
 % In de telefoons die 'we' hebben is de SE geen onderdeel van de SIM, maar een los (al dan niet trusted) component. MARK: zullen we dit verder uitbreiden in het architectuur hoofdstuk en dit hier niet noemen?
 
 Because of its sheer microscopic scale, it's very difficult and costly for an attacker to tamper with the function of this device.
@@ -48,3 +53,11 @@ With NFCIP-2, NFC became compliant with the RFID standards of ISO14443 and ISO15
 
 % Uitzoeken:
 % Rabomobiel - SIM vd rabobank
+
+
+%ERIK: figuren toevoegen van verschillende telefoon architecturen. 
+
+% SIM ---> telefoon		SIM = secure, tamper-resitent, authenticatie van telefoon aan het netwerk	marketing redenen (onderscheid welke onderdelen van wie zijn) SIM is van de telco
+% a SIM ---> telefoon ---> SE 	SmartMX contactless smartcard  (nokia)
+% b SD kaart als a maar vervangbaar SE
+% c NFC-SIM

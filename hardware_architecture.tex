@@ -33,6 +33,34 @@ In "Promising secure element alternatives for NFC technology" four different sec
 The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC), this is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 UICC is suggested because it's secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
 
+Below we will discuss a number of different ways a secure element can be implemented on a mobile device. 
+%\includegraphics{phone_with_SE_nokia.eps}
+
+
+Nokia released a phone (Nokia 6131 NFC) in 2006 with NFC as a feature. The architecture of this phone consists of a SIM card, antenna and a seperate Secure Element. The same layout of this architecture can also be used in other mobile devices, see \textit{figure xx}. The phone hardware consists of the usual (processor, memory), but also hardware to provide for NFC features and a secure element to enable payment and ticketing. The secure element stores sensitive data and enables tag and smart card emulation. In case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.
+
+%security problems for this architecture:
+
+An option similar to the Nokia one, is an external SD-card which houses all the hardware needed to enable NFC and also the secure element, see \textit{figure xx}.( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
+In this option a third party, e.g. a bank, can issue a SD card to it's customers so they can use the service offered by the bank. 
+
+%security problems for this architecture: SD card might get stolen and used by somebody else.
+
+Related to the above architecture, is the one in \textit{figure xx}. Here the architecture consist of a phone with multiple SIM cards and the usual hardware. In this case a telecom provider will own one SIM card and a bank or public transport company will own the other. This way there no problem with splitting the resources of one SIM card and the trust issue between different companies.
+
+%hier moet nog een bron voor gevonden worden
+%security problems for this architecture: SIM card might get stolen and used by somebody else
+
+Of course the option of splitting the resources is also possible, if different companies can find an agreement to share the same SIM card. This is possible, because smartcards in general are becoming more powerfull. This makes two different architectures possible. The first one, see \textit{figure xx}, uses the SIM card as secure element. A phone will have the usual hardware, hardware making NFC possible and SIM card with applications from the telecom provider and applications from a company chosen by the user, e.g. a bank for payment and a public transport company. 
+The second option resembles a combination of the first one and the one with the SD card architecture. Here a SIM card has all the hardware needed to make NFC possible and it also acts as a secure element, see \textit{figure xx}. Like the first option, the resources of the SIM card will be split among the involved parties.
+
+%hier moet nog een bron voor gevonden worden
+%security problems for this architecture: SIM card might get stolen and used by somebody else
+
+
+
+
+
 % TODO hoort bij Wireless communication, terwijl 3.2 (Secure Elements) heel ergens anders over gaat
 \section{Standardization}
 NFC has been described by NFCIP-1 (Near Field Communication Interface Protocol 1) first on ISO18092, ECMA340 and ETSI TS102 and also NFCIP-2 defined in ISO 21481, ECMA352 and ETSI TS102 312.

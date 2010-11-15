@@ -1,0 +1,12 @@
+To Do lijst RDR:
+
+- conclusie
+- antwoord op onderzoeksvragen
+- applications inkorten
+- 1.4 overview uitbreiden
+- figuren hardware architectuur toevoegen
+- kwetsbaarheden verschillende architecturen, schrijven /bronnen zoeken/ zelf verzinnen
+- future work uitbreiden
+- alles nalopen
+- hoofdstukken veranderen in paragrafen
+- indelen in twee kolommen

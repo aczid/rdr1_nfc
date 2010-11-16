@@ -12,13 +12,11 @@ To Do lijst RDR:
 	- zijn er niet, of alle configuraties hebben dezelfde kwetsbaarheden
 	- meer uitleggen dat het een politieke/bedrijfsmatige keuze is om 
 - 3.3 Adoption veranderen in Adoption of NFC
-	- This poses a problem for the implemention of NFC in general. As seen in (figure xx) the "demand" for NFC is a 	vicious circle. If the customer doesn't demand NFC from an issuer (bank, PT), the issuer won't request a TSM to 	create application, so nothing will be putt on a UICC by the MNO and the customer gets nothing. If one of the 		parties in this figure, refuses to cooperate, NFC will not launch.
-	What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers. The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element ( see hardware hoofdstuk). If customers like NFC because of the possibilities it will take off and demands for other applications will be made.
 
 	- verwijzen naar global platform doc over het kip / ei probleem
 
 
 - future work uitbreiden
 - alles nalopen
-- Standardization weghalen
+
 

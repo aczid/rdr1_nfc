@@ -87,11 +87,13 @@ Like the first option, the resources of the SIM card will be split among the inv
 In \cite{1497411} the authors investigate the possibility of running trusted code in mobile devices and concluded that while such a system is technically feasible, its widespread adoption is hampered by the certification process payment card companies impose on their payment products.
 Payment card companies' current standards dictate that their cards may not be modified after production, which poses a problem as this is exactly what makes NFC an enticing alternative to conventional bank cards.
 
+This poses a problem for the implemention of NFC in general. As seen in (figure xx, still to add) the "demand" for NFC is a circular dependency. If the customer doesn't demand NFC from an issuer (bank, PT), the issuer won't request a TSM to create application, so nothing will be putt on a UICC by the MNO and the customer gets nothing. If one of the parties in this figure, refuses to cooperate, NFC will not launch. What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers. The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element. With Nokia's 6131 NFC phone a first step was made for developers. But now also Google has announced that they will introduce a NFC phone and some rumours suggest that also Apple is developing a new Iphone with NFC, see \cite{nu_artikel}. If customers like NFC because of the possibilities it will take off and demands for other applications will be made. 
+
 
 % TODO hoort bij Wireless communication, terwijl 3.2 (Secure Elements) heel ergens anders over gaat
-\subsection{Standardization}
-NFC has been described by NFCIP-1 (Near Field Communication Interface Protocol 1) first on ISO18092, ECMA340 and ETSI TS102 and also NFCIP-2 defined in ISO 21481, ECMA352 and ETSI TS102 312.
-With NFCIP-2, NFC became compliant with the RFID standards of ISO14443 and ISO15693.
+%\subsection{Standardization}
+%NFC has been described by NFCIP-1 (Near Field Communication Interface Protocol 1) first on ISO18092, ECMA340 and ETSI %TS102 and also NFCIP-2 defined in ISO 21481, ECMA352 and ETSI TS102 312.
+%With NFCIP-2, NFC became compliant with the RFID standards of ISO14443 and ISO15693.
 
 
 % diagram van NFC communicatie

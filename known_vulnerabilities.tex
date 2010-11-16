@@ -1,7 +1,21 @@
-\chapter{Known Vulnerabilities}
+%\chapter{Known Vulnerabilities}
 \label{chap:known_vulnerabilities}
 
-\section{Relay attacks}
+\section{Security research}
+While consumers might see these applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.
+Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
+Research has been done on the security of NFC in several areas, among which:
+
+% TODO Referenties toevoegen
+%\begin{itemize}
+%\item Creating secure off-line payment applications \cite{1592613}
+%\item Trusted computing using mobile applications which are managed remotely
+%\item Network attacks against \textit{Wireless Personal Area} (WPAN) \textit{Networks} (e.g \textit{Denial of Service}, \textit{Snooping}, \textit{Man-in-the-middle}, etc.) \footnote{Even though NFC isn't strictly a WPAN system as it only allows for 2 communicating parties, this paper also covers network attacks against NFC.}  \cite{1506342}
+%\item Intrusion detection mechanisms for WPANs \cite{1361512}
+%\item Mitigations agains privacy issues related to wireless payment systems \cite{1527027}
+%\end{itemize}
+
+\subsection{Relay attacks}
 % TODO
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
 
@@ -18,7 +32,7 @@ The attacker must trick the user into making a legitimate purchase, and have the
 % I - stiekem met iemand z'n kaart praten
 % II - een frauduleus/gemhackte terminal neerzetten waar iemand - willens en wetens - z'n kaart tegenaan houdt.
 
-\section{Malware distribution vectors}
+\subsection{Malware distribution vectors}
 In \cite{10.1109/ARES.2009.46} a few attacks with Smart Posters are explained.
 % Smart poster hoort bij NFC applications (chapter 2) genoemd te worden
 Here the information in NFC-tag will direct the mobile device to a malicious site where the user is tricked into making, for example a financial transaction.

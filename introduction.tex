@@ -1,17 +1,21 @@
-\chapter{Introduction}
-\newglossaryentry{PKI}{name={Public Key Infrastructure},description={A cryptographic methode for encrypting messages over untrusted networks.}}
-\glsadd{PKI}
+\section{Introduction}
+%\newglossaryentry{PKI}{name={Public Key Infrastructure},description={A cryptographic methode for encrypting messages over untrusted networks.}}
+%\glsadd{PKI}
 
 %\section*{Purpose}
 
-%TODO Twee keer mobile device e.g. smartphone. 1x introduceren daarna placeholder gebruiken
-\section{Near Field Communication} %(beetje dubbel)
+\subsection{Near Field Communication} %(beetje dubbel)
 Near Field Communication (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices, e.g. smartphones.
-It will allow a mobile device to communicate wirelessly over a short distance with other NFC-capable devices such as another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
-There are two major use cases that sparked its development, namely mobile payments and access control. %MARK we zouden access control toch niet meer gebruiken?
-For users of a mobile device NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to pay for public transport.
-Theoretically the user doesn't have to carry a wallet anymore, only the mobile device.
-For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your bank account. 
+It is an extension of the RFID protocol which allows these devices to assume the capabilities of an RFID card or reader, or utilize an RFID connection interactively.
+ 
+NFC will allow a mobile device to communicate wirelessly over a short distance with other NFC-capable devices such as another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
+While \textit{Wireless Personal Area Network} (WPAN) technlogy for mobile devices is already widely deployed in the form of Bluetooth, NFC adds security features also relied upon by RFID which cause it to be considered applicable for security use cases.
+
+%There are two major use cases that sparked its development, namely mobile payments and access control. %MARK we zouden access control toch niet meer gebruiken?
+
+%For users of a mobile device NFC will increase the ease of use, because the user will be able to use a mobile device for paying (e.g. at a shop or candy machine) and use the same device to pay for public transport.
+%Theoretically the user doesn't have to carry a wallet anymore, only the mobile device.
+%For example, instead of using coins to pay for candy, you'll just wave your smartphone in front of the machine, you'll pay for the candy and the money will be taken out of your bank account. 
 
 %plaatje van een NFC betaling
 
@@ -25,61 +29,14 @@ For example, instead of using coins to pay for candy, you'll just wave your smar
 %Recently a few pilots have started in the Netherlands which allow users to pay with their mobile device and gain access.
 %(misschien hier het voorbeeld noemen van OV chipkaart op de telefoon van Erik Poll).
 
-\section{Applications}
-While NFC is an emerging technology, there are some obvious areas in which it is likely to be applied. There are different parties throughout these areas, that are willing to exploit NFC technology. Some of these parties (hardware component manufacturers, mobile device assembling companies, SIM card producers, application developers and financial service institutions) are part of the NFC Forum, which was started in 2004 to advance NFC technology. Also users should be considered a major party in NFC technology.
-For illustrative purposes a few applications in which NFC can be used are mentioned below.
+%\subsection{Implementation}
+This allows for new applications to be built on top of existing RFID technology, of which payment and public transport applications are the most important.
+RFID-based applications for access control and public transport payment are already in place, and are likely to make the transition to NFC-enabled mobile phones.
 
-\subsection{Payment}
-Japanese telecommunications provider \textit{NTT DoCoMo} has initiated wide deployment of NFC technology in Japan, where virtually every issuer of payment cards supports the \textit{Sony}'s \textit{Felica Mobile Wallet} \cite{3g_japan}.
-In this de-facto standard for mobile payment the mobile device emulates the behaviour of an RFID card, but in the future much more is possible by making use of the active communication possibilities of NFC. % ERIK: Wat bedoel je hiermee?
+\subsection{Motivation}
+In our opinion, this trend warrants some serious security research. To our delight, there is already a wealth of literature available on the subject.
 
-% TODO much more, zoals? MARK: Geen bron voor felica? Of waar komt dit vandaan?
-
-% Referenties voor maken
-In \cite{1555846} the authors investigate the security and usability, and as a whole the feasibility of NFC technology as a replacement for cash.
-The authors concluded that their system is "highly usable and is even faster than cash under various common scenarios".
-
-%In "Offline payments with Electronic Vouchers", the authors investigate the technical challenges of a system using cryptographically secure vouchers which can be exchanged between beneficiaries.
-%They concluded the biggest limitation....
-%MARK het bovenstaande werd weggelaten of wat was hier ook de bedoeling weer van?
-
-\subsection{Public Transport}
-Another application for NFC is public transport.
-This way it is possible to use a mobile device to pay and gain access to i.e. a train, bus, or metro.
-The Dutch infrastructure provider \textit{Trans Link Systems} (TLS), which was created as a joint venture between Dutch public transport companies to realise an electronic payment system for their services, have been investigating the feasibility of mobile phone-based payment applications using NFC. %referentie naar TLS
-By holding your mobile device in front of a terminal you'll pay for a ticket or show your credit and a gate will open allowing you to enter.
-The public transport system in the Netherlands uses this principle, it hasn't been implemented on a mobile device yet, but plans are being made. A mobile device has some advantages above a card, i.e. you can check the balance on your mobile device and increase it immediately. %MARK niet zo lekker stukje kan een bron bij, maar wat voor IEEE, ACM, scholar? Nog geen pilot in nederland :(
-
-\subsection{Other applications}
-
-Smart posters can be used to let a user interact with some piece of advertising.
-For example it allows to transfer a URL or contact card to the receiving device.
-
-Another application for NFC is in the healthcare system.
-In \cite{RFIDHB} an application of NFC is used to measure the pressure in the eye.
-A look at Google Scholar gave us the impression that the use of NFC in the healthcare system, is still in the development stage. %ERIK: niet zo sterk, vervangen door "The current scientific literature gives the impression...", Sommige van deze publicaties noemen.
-Therefore we will leave this application out of our research and recommend it for future work. %Mark niet zo sterk bewijs
-
-\subsection{Implementation}
-As mentioned above, there are different NFC applications (of which payment and public transport are the most important) and these applications are starting to be implemented. There are several reasons why NFC hasn't been implemented yet. First of all, the mobile devices that use NFC, still have to be made available to the consumer, but the consumer will only be interested if he or she can actually do something with NFC. So applications are needed, but therefore different parties have to work together. If i.e. a SIM-card is used as a secure element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card. Also the costs involved with trying to get all the shops using NFC, are quite large, because new payterminals have to be purchased.
-So all parties have to participate and create agreements to get NFC off the ground, which is what they have been doing, only this takes time. %niet zo sterke zin en gebaseerd op de meeting met erik
-
-
-\section{Security research}
-While consumers might see these applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.
-Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
-Research has been done on the security of NFC in several areas, among which:
-
-% TODO Referenties toevoegen
-\begin{itemize}
-\item Creating secure off-line payment applications \cite{1592613}
-%\item Trusted computing using mobile applications which are managed remotely
-\item Network attacks against \textit{Wireless Personal Area} (WPAN) \textit{Networks} (e.g \textit{Denial of Service}, \textit{Snooping}, \textit{Man-in-the-middle}, etc.) \footnote{Even though NFC isn't strictly a WPAN system as it only allows for 2 communicating parties, this paper also covers network attacks against NFC.}  \cite{1506342}
-\item Intrusion detection mechanisms for WPANs \cite{1361512}
-\item Mitigations agains privacy issues related to wireless payment systems \cite{1527027}
-\end{itemize}
-
-To our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
+However, to our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
 % "Did you google scholar around for this?"
 What we hope to accomplish with this paper is to provide the reader with an introduction to NFC security-related research currently ongoing.
 %In addition to this we hope to be able to identify specific applications in which we foresee vulnerabilities.
@@ -87,16 +44,15 @@ What we hope to accomplish with this paper is to provide the reader with an intr
 % vs "Introduction to NFC security _issues/architecture_"
 % Naar welk aspect kijken wij? - Verderop in 1.5 geven jullie hier beter antwoord op
 
-\newpage
 
-\section{Overview}
-%In chapter \ref{chap:applications} we will briefly summarize some of the applications NFC will likely be used for.
-In chapter \ref{chap:hardware_architecture} we will present an overview of the hardware, software and communication architecture of a NFC-enabled mobile device.
-%\section{...}
-%Further we will look into the possibilities that NFC offers.
-In chapter \ref{chap:known_vulnerabilities} we will summarize security issues on vulnerabilities in NFC or NFC-like applications.
+%\subsection{Overview}
+%%In chapter \ref{chap:applications} we will briefly summarize some of the applications NFC will likely be used for.
+%In chapter \ref{chap:hardware_architecture} we will present an overview of the hardware, software and communication architecture of a NFC-enabled mobile device.
+%%\section{...}
+%%Further we will look into the possibilities that NFC offers.
+%In chapter \ref{chap:known_vulnerabilities} we will summarize security issues on vulnerabilities in NFC or NFC-like applications.
 
-Based on the architecture and these vulnerabilities, we present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities in chapter \ref{chap:foreseen_vulnerabilities}.
+%Based on the architecture and these vulnerabilities, we present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities in chapter \ref{chap:foreseen_vulnerabilities}.
 
 
 %Bronnen:

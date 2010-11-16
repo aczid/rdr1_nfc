@@ -1,15 +1,16 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,10pt,twocolumn]{article}
+%\documentclass[a4paper,11pt]{report}
 \usepackage{color,graphicx,url,wrapfig,glossaries,appendix,epigraph}
 \graphicspath{{./images/}}
 %\usepackage[dvips, bookmarks=true, unicode=true, breaklinks=true, pdftitle={Environment execution service}, pdfauthor={Aram Verstegen}, pdfsubject={Technical Computer Science - Bachelor's thesis}, pdfkeywords={NFC, mobile phones}]{hyperref}
 %\makenomenclature
 \makeglossaries
 \begin{document}
-\newcommand{\mytitle}{Security of NFC phones}
+\newcommand{\mytitle}{Security of NFC-enabled mobile devices}
 \newcommand{\myauthor}{Aram Verstegen \& Mark Vijfvinkel}
 \newcommand{\mycourse}{Research \& Development - Research 1}
 \pagenumbering{Roman}
-\input{title}
+%\input{title}
 \input{abstract}
 \newpage
 
@@ -26,16 +27,21 @@
 \pagenumbering{arabic}
 
 \input{introduction}
-%\input{applications}
+\input{applications}
 \input{hardware_architecture}
 \input{known_vulnerabilities}
 \input{future_work}
 \input{conclusions}
 
+\newpage
+
 \input{appendices}
+
+\newpage
 
 \bibliographystyle{alpha}
 \bibliography{rdr1}
 %\printglossaries
+
 \end{document}
 

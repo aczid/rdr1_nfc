@@ -7,9 +7,8 @@ To Do lijst RDR:
 - kwetsbaarheden verschillende architecturen
 	- zijn er niet, of alle configuraties hebben dezelfde kwetsbaarheden
 	- meer uitleggen dat het een politieke/bedrijfsmatige keuze is om 
-- 3.3 Adoption veranderen in Adoption of NFC
-	- hypothese in hoofdstuk 1 noemen
-	- onderzoeksvragen terug laten komen, vragen aan lejla/james/klaus
+- hypothese in hoofdstuk 1 noemen
+- onderzoeksvragen terug laten komen, vragen aan lejla/james/klaus
 - conclusie
 	- verwijzen naar global platform doc over het kip / ei probleem
 

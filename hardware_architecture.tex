@@ -10,6 +10,7 @@ The GSM standard allows for secure communication on the network by means of a se
 Besides storing the secret key, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card.
 In fact, the SIM card remains property of the MNO after distribution, much like a bank card or passport remain the property of their respective issuers.
 However, currently there is no infrastructure in place for third parties to make use of such secure storage for their own applications.
+
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties
 
@@ -22,10 +23,14 @@ However, currently there is no infrastructure in place for third parties to make
 %ERIK Waarom is de architectuur van GSM zoals-ie is & hoe breidt NFC dat uit? Er zijn tig opties van NFC telefoons, dus we kunnen niet overal diep op ingaan.
 
 \subsection{Secure elements}
-In \cite{Reveilhac:2009:PSE:1548884.1549404} four different secure elements are proposed, of which the integration on a regular SIM is suggested as the most likely candidate to be used.
+In \cite{Reveilhac:2009:PSE:1548884.1549404} four different secure elements are proposed, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 UICC is suggested because it's secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
+
+\textbf{TODO}
+A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.
+Explain that the technical workings of these different devices are equivalent, but different configurations belong in different trust models.
 
 
 %TODO Beschrijf eerst bestaande telefoon architectuur (zonder NFC) en de mogelijke architecturen -met- NFC
@@ -83,11 +88,21 @@ Like the first option, the resources of the SIM card will be split among the inv
 %security problems for this architecture: SIM card might get stolen and used by somebody else
 
 
-\subsection{Adoption}
+\subsection{Adoption of NFC}
 In \cite{1497411} the authors investigate the possibility of running trusted code in mobile devices and concluded that while such a system is technically feasible, its widespread adoption is hampered by the certification process payment card companies impose on their payment products.
 Payment card companies' current standards dictate that their cards may not be modified after production, which poses a problem as this is exactly what makes NFC an enticing alternative to conventional bank cards.
 
-This poses a problem for the implemention of NFC in general. As seen in (figure xx, still to add) the "demand" for NFC is a circular dependency. If the customer doesn't demand NFC from an issuer (bank, PT), the issuer won't request a TSM to create application, so nothing will be putt on a UICC by the MNO and the customer gets nothing. If one of the parties in this figure, refuses to cooperate, NFC will not launch. What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers. The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element. With Nokia's 6131 NFC phone a first step was made for developers. But now also Google has announced that they will introduce a NFC phone and some rumours suggest that also Apple is developing a new Iphone with NFC, see \cite{nu_artikel}. If customers like NFC because of the possibilities it will take off and demands for other applications will be made. 
+This poses a problem for the implemention of NFC in general.
+As seen in (figure xx, still to add) the "demand" for NFC is a circular dependency.
+If the customer doesn't demand NFC from an issuer (bank, PT), the issuer won't request a TSM to create application, so nothing will be putt on a UICC by the MNO and the customer gets nothing.
+If one of the parties in this figure, refuses to cooperate, NFC will not launch.
+What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers.
+The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element.
+With Nokia's 6131 NFC phone a first step was made for developers.
+But now also Google has announced that they will introduce a NFC phone and some rumours suggest that also Apple is developing a new Iphone with NFC, see \cite{nu_artikel}.
+If customers like NFC because of the possibilities it will take off and demands for other applications will be made. 
+
+\textbf{TODO} A good reference for cyclic dependency of stakeholders can be found in the GlobalPlatform technical report.
 
 
 % TODO hoort bij Wireless communication, terwijl 3.2 (Secure Elements) heel ergens anders over gaat
@@ -109,6 +124,7 @@ This poses a problem for the implemention of NFC in general. As seen in (figure 
 
 
 \subsection{Advantages and Limitations}
+\textbf{TODO}
 
 % Toetsenbord en display feature (semi-trusted terminal, moeilijker te tamperen)
 

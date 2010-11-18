@@ -1,12 +1,25 @@
 To Do lijst RDR:
 
 - (overview desnoods in hoofdstuk 1 in 1 regel laten terug komen)
-- applications referentie lejla toevoegen
+- applications / security referentie lejla toevoegen
 - figuren hardware architectuur (verkleinen/uitlijnen/ )
 	- afwachten op feedback reviewers
+	- "Ask yourself if a picture is worth 89.1 words"
+	- TPM/NTM diagrammen zijn wellicht een nuttig voorbeeld om de security boundaries uit te beelden.
 - kwetsbaarheden verschillende architecturen
 	- zijn er niet, of alle configuraties hebben dezelfde kwetsbaarheden
 	- meer uitleggen dat het een politieke/bedrijfsmatige keuze is om 
+- Secties meer self-contained maken.
+- Applications
+	- Applicaties hebben verschillende security requirements, die ergens terug moeten komen.
+- Uitzoeken:
+	- ZigBee telecom application - Wellicht raakvlakken qua security requirements / use cases?
+	- "wireless creditcards" (?) - opmerking van James over een advertentie die hij gezien had
+- Security research
+	- Countermeasuers behandelen
+	- Gevaren / beveiligingen tegen mobile malware of malicious users
+- Creatieve schrijfsels eruit slopen.
+- Geen papers opsommen. MAW, Citations kunnen nooit het onderwerp van een zin zijn.
 - hypothese in hoofdstuk 1 noemen
 - onderzoeksvragen terug laten komen, vragen aan lejla/james/klaus
 - conclusie
@@ -15,5 +28,5 @@ To Do lijst RDR:
 
 - future work uitbreiden
 - alles nalopen
-
+	- Maak een wishlist van topics die je zou willen behandelen in een cursus over NFC en vergelijk deze 'inhoudsopgave' met die van je paper (behalve dat we geen inhoudsopgave meer gebruiken).
 

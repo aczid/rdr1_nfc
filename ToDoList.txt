@@ -5,7 +5,18 @@ To Do lijst RDR:
 	- Creatieve schrijfsels eruit slopen.
 	- Geen papers opsommen. MAW, Citations kunnen nooit het onderwerp van een zin zijn.
 	- onderzoeksvragen terug laten komen, vragen aan lejla/james/klaus
-	- Maak een wishlist van topics die je zou willen behandelen in een cursus over NFC en vergelijk deze 'inhoudsopgave' met die van je paper (behalve dat we geen inhoudsopgave meer gebruiken).
+	- Maak een wishlist van topics die je zou willen behandelen in een cursus over NFC en vergelijk deze 
+	- Erik: standaard kreet voor UICC / SIM kaart en telco/MNO en aan geven in de paper hoe de terminolgie in de rest 			van de paper gebruikt wordt.
+	- Erik: trusted functionaliteit (platform) (omdat we de user niet vertrouwen) vs NFC functionaliteit
+		trusted functionality bij PIN:
+			- trusted storage vd PIN
+			- checked van de PIN
+			- trusted platfrom (device waar het op draait)
+	- Erik: bij discussie over trust:
+		- wie vertrouwt wat? en om wat te doen?
+		- sommige dingen kun je niet vertrouwen omdat ze te ingewikkeld & hack-baar zijn (bijv telefoon). Andere 			  kun je mogelijk wel vertrouwen (bijv SIM) maar mogelijk alleen als je de partij in control (bijv voor de 			  sim de telco) vertrouwt).
+
+'inhoudsopgave' met die van je paper (behalve dat we geen inhoudsopgave meer gebruiken).
 	- alles nalopen
 
 - Introduction
@@ -21,6 +32,17 @@ To Do lijst RDR:
 	- kwetsbaarheden verschillende architecturen
 		- zijn er niet, of alle configuraties hebben dezelfde kwetsbaarheden
 		- meer uitleggen dat het een politieke/bedrijfsmatige keuze is om 
+	- Erik: eerste alinea H3, maak het precies wat je bedoeld met 'trusted code' hier bedoelt. Heb je niet (ook?) een 			'trusted platform' nodig? Welke 'trusted functionaliteit  gaat het uiteindelijk om.
+	- Erik: 3.2 zeg aan het begin van de sectie wat (doel van) een secure element is. Is het doel alleen een 'trusted 			platform of ook RFID functionality'.
+	- Erik: 3.3 duidelijke maken dat het om een device gaat (laatste regel eerste alinea)
+	- Erik: 3.3 hoe specifiek is dit voor NFC dit issue speelt ook al bij telefoons zonder NFC waar je trusted code op 			de sim zou willen draaien
+	- Erik: 3.3 are de payment card companies supplying the trusted platform or the app
+			_____   _____   _____
+			|app|	|app|	|app|
+			-----	-----	-----
+			  |Trusted platform|
+							multiapplication smartcards - issue "trust"
+										    - marketing			
 - Security research
 	- Countermeasuers behandelen
 	- Gevaren / beveiligingen tegen mobile malware of malicious users
@@ -33,3 +55,11 @@ To Do lijst RDR:
 - conclusie
 	- verwijzen naar global platform doc over het kip / ei probleem
 
+
+- figuren
+
+	- Erik: fig 1. aangeven waar trusted of untrusted zit, mogelijk zit de NFC hardware ook in het SE
+	- Erik: fig 3. Merk op dat het essentiele verschil met de (1) SIM setup is
+		- de SIM kan van verschillende partijen zijn & dus door verschillende partijen getrust en gecontroleerd 		worden. Telco hoeft bank niet te vertrouwen & VV
+		- je kunt trusted functionaliteit toevoegen (door 2de sim) zonder software uploads op de SIM (wat die 			payment gasten niet goed vinden)
+	- Erik: fig 4. multiple apps bij SIM blokje

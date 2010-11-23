@@ -29,9 +29,11 @@ In this de-facto standard for mobile payment the mobile device emulates the beha
 NFC technology might become a replacement for cash. The payment application e.g. \textit{mFerio} should be as easy to use and be as available as cash, but also improve on accuracy and speed. While still meeting security criteria like, transaction integrity, anonymity, tamper-resistance, impossible to replicate and theft resilience. 
 \textit{mFerio} uses NFC, because of three advantages above other mechanisms, namely the short range (harder to intercept transactions), it is quick and easy to set up and a user knows with what device communication is set up. The secure element in \textit{mFerio} contains cash and personal details of the user, which will not be accessible by criminals if the secure element will be hardware protected \cite{1555846}.
 
+A possibility to create an offline payment system, is the use of electronic vouchers. A user can recieve a 'eVoucher' by a SMS from an issuer and transfer the eVoucher to other users (by NFC, SMS or a RFID tag) and payment terminals. Users are also able to check the balance, history and expiration date of the eVouchers. 
+There are three risks concerning this implementation, first the possibility of copying the eVouchers, second counterfeiting them and third loss of eVouchers in a transactraction. The secure element will only accept software from a Trusted Service Manager, which will have a private key for authentication to the SE. The SE will store the eVouchers and also encrypt them, if a user decides to sent them to another user. \cite{1592613}
 
-In \cite{1592613} the authors investigate the technical challenges of a system using cryptographically secure vouchers which can be exchanged between beneficiaries.
-\textbf{TODO} add their conclusion.
+%In \cite{1592613} the authors investigate the technical challenges of a system using cryptographically secure vouchers %which can be exchanged between beneficiaries.
+%\textbf{TODO} add their conclusion.
 % TODO conclusion
 %They concluded the biggest limitation....
 %MARK het bovenstaande werd weggelaten of wat was hier ook de bedoeling weer van?

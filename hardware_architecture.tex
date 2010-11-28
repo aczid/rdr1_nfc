@@ -1,15 +1,21 @@
 \section{System Architecture}
 \label{chap:hardware_architecture}
-Strongly related to the progression of RFID applications towards 'electronic cash' is the necessity to verify the authenticity of the input from the user, requiring a mechanism to run trusted code on a user's device.
-This poses several problems as storage on and operation of mobile devices are liable to tampering by the user.
+Strongly related to the progression of RFID applications towards 'electronic cash' is the necessity to authenticate the transactions executed.
+In banking, transactions are signed by a smartcard which holds a proprietary cypher and secret key known only to the bank.
+Smartcards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
+Smartcards can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale.
+
+Modern RFID cards can have similar features, which means that NFC devices aiming to be truly backward compatible with RFID applications must allow for simmilar functionality.
+This requires a new module to be included into the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
 
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is used.
-\subsection{GSM Security}
-The GSM standard allows for secure communication on the network by means of a secret key stored on an \textit{Universal Integrated Circuit Card} (UICC) by the \textit{Mobile Network Operator} (MNO).
-Besides storing the secret key, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card.
-In fact, the SIM card remains property of the MNO after distribution, much like a bank card or passport remain the property of their respective issuers.
-However, currently there is no infrastructure in place for third parties to make use of such secure storage for their own applications.
+%\subsection{GSM Security}
+The GSM standard allows for secure communication on the network by means of a secret key stored on an \textit{Universal Integrated Circuit Card} (UICC) by the telco. %TODO referentie
+Besides storing the secret key, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
+In fact, the SIM card remains property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
+However, the current generation of mobile devices are without an infrastructure in place for third parties to make use of such secure storage for their own applications.
+This is where \textit{secure elements} come into play.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties
@@ -22,7 +28,8 @@ However, currently there is no infrastructure in place for third parties to make
 
 %ERIK Waarom is de architectuur van GSM zoals-ie is & hoe breidt NFC dat uit? Er zijn tig opties van NFC telefoons, dus we kunnen niet overal diep op ingaan.
 
-\subsection{Secure elements}
+%\subsection{Secure elements}
+%TODO citation geen onderwerp maken
 In \cite{Reveilhac:2009:PSE:1548884.1549404} four different secure elements are proposed, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is

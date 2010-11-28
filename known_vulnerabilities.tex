@@ -1,10 +1,17 @@
 %\chapter{Known Vulnerabilities}
 %\label{chap:known_vulnerabilities}
+%\section{Security research}
+
 \section{Known Vulnerabilities}
 
-While consumers might see NFC applications as a gadget that will make their lives easier, this development towards contactless payment systems rightfully raises questions from a security perspective.
+
+While consumers might see NFC applications as a gadget that will make their lives easier, this development towards contactless payment systems has raised questions from security researchers.
 %TODO Summarize and reference some security research done on RFID.
+
 Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology. Research has been done on the security of NFC and the results show that attacks are possible, which will be discussed below.
+
+Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
+%Research has been done on the security of NFC in several areas, among which:
 
 % TODO Referenties toevoegen
 %\begin{itemize}
@@ -18,7 +25,6 @@ Because NFC will be used in payment and access control, it should be assumed tha
 \subsection{Relay attacks}
 % TODO
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
-
 RFID, a technology that NFC is compatible with, is prone to relay attacks. A relay attack is a combination of a man-in-the-middle and relay attack. The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get an item from a shop, but the victim is the one who is paying. 
 To achieve this, the attacker will need a device that fakes a NFC phone or plastic NFC card (ghost) and a device that fakes a reader (leech). The ghost will be used to communicate with a genuine reader and the leech will communicate with a genuine card. The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 cm, because then the attack will go unnoticed. \cite{1128470}
 With this attack it will also be possible to gain access to the public transport. The check-in gate will communicate with the ghost, which will pass it on to the leech, which will pass it on victim and vice versa. The check-in gate will "think" it is communicating with the victim, but because the attacker is closer to the gate then the victim, he will gain access first and the victim will pay.

@@ -1,9 +1,19 @@
 %\chapter{Known Vulnerabilities}
 %\label{chap:known_vulnerabilities}
+<<<<<<< HEAD
 \section{Security research}
+=======
+%\section{Security research}
+
+\section{Known Vulnerabilities}
+
+>>>>>>> d2da41364ea5b6a37fc3449e138e551d9de8a094
 
 While consumers might see NFC applications as a gadget that will make their lives easier, this development towards contactless payment systems has raised questions from security researchers.
 %TODO Summarize and reference some security research done on RFID.
+
+Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology. Research has been done on the security of NFC and the results show that attacks are possible, which will be discussed below.
+
 Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
 %Research has been done on the security of NFC in several areas, among which:
 
@@ -19,13 +29,17 @@ Because NFC will be used in payment and access control, it should be assumed tha
 \subsection{Relay attacks}
 % TODO
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
+RFID, a technology that NFC is compatible with, is prone to relay attacks. A relay attack is a combination of a man-in-the-middle and relay attack. The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get an item from a shop, but the victim is the one who is paying. 
+To achieve this, the attacker will need a device that fakes a NFC phone or plastic NFC card (ghost) and a device that fakes a reader (leech). The ghost will be used to communicate with a genuine reader and the leech will communicate with a genuine card. The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 cm, because then the attack will go unnoticed. \cite{1128470}
+With this attack it will also be possible to gain access to the public transport. The check-in gate will communicate with the ghost, which will pass it on to the leech, which will pass it on victim and vice versa. The check-in gate will "think" it is communicating with the victim, but because the attacker is closer to the gate then the victim, he will gain access first and the victim will pay.
 
-In \cite{1128470} the working of a relay attack on  a RFID system are explained.
-This is also interesting for NFC, because it resembles RFID.
-In the article, an attacker will have a device that fakes a card (ghost) (e.g. bank card) and a device that fakes a reader (leech). 
-The ghost will be used to communicate with a genuine reader and the leech will communicate with a genuine card.
-The trick is, that the attacker will try to pay for something, but the victim is the one paying.
-The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 cm, because then the attack will go unnoticed.
+\subsection{Countermeasures relay attacks}
+There are three possible countermeasures, a Fareday-cage, activation by the user or Two-Factor authentication. A Fareday-cage will block all the wireless communication, so an attacker can make contact with the device. This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
+With activation of the user, the user will have to switch on NFC on the device, to be able to e.g. make a payment or use public transport. It will not be possible for an attacker to use the phone at any time. This will slighty decrease the user friendliness, because the user will have to switch NFC on and off when it will be used.
+With Two-Factor authentication, the user will be asked to present something, e.g. a password, pincode or token. NFC will be turned on all the time, but only when it will be used, the user will type the pincode and a connection is made. The attacker will actually notify the user, that a connection will be made. If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the pincode, the attack is avoided. This countermeassure will also decrease the user friendliness. \cite{1128470}
+
+Overall this attack will not be feasible, because the attacker has to be in relative close range, which will look suspicious. It will also be difficult to maintain an active connection with the terminal and the victim.
+
 
 %plaatje relay attack
 
@@ -39,7 +53,7 @@ In \cite{10.1109/ARES.2009.46} a few attacks with Smart Posters are explained.
 Here the information in NFC-tag will direct the mobile device to a malicious site where the user is tricked into making, for example a financial transaction.
 \textbf{TODO} cite 'is your cat infected with a computer virus' paper.
 
-\section{Countermeasures}
+
 
 
 % ERIk open platform vs gesloten platform

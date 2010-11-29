@@ -48,9 +48,12 @@ Overall this attack will not be feasible, because the attacker has to be in rela
 % II - een frauduleus/gemhackte terminal neerzetten waar iemand - willens en wetens - z'n kaart tegenaan houdt.
 
 \subsection{Malware distribution vectors}
-In \cite{10.1109/ARES.2009.46} a few attacks with Smart Posters are explained.
-% Smart poster hoort bij NFC applications (chapter 2) genoemd te worden
-Here the information in NFC-tag will direct the mobile device to a malicious site where the user is tricked into making, for example a financial transaction.
+One way to distribute malware is to use the smart poster. With a modified NFC-tag is has been proven to mislead a user to a malicious website. By using space, tab and new line characters in the NFC-tag, the attacker is able to modify the title of the message so that it looks normal (with a title and URL) to the user. The actual URL part of message is not shown to user, but it is still executed. The user is unaware, that he is directed to a malicious website, from there a number of attacks are possible. In the same way it is possible to let the user call or sent a text-message to a different number, e.g. an 0900-number.
+
+It is also possible to hide and spread a worm in this manner. Therefore, the phone of the user has to be infected with the worm. When the phone reads a tag, it will try to change it, like discribed above. The next user will be pointed to a website where he will be tricked into downloading and installing a copy of the worm.
+
+A denial of service attack is also possible, with the goal to let users stop using the service. By using a tag that sends out malformed messages, taped on top of the original tag, the phone of the user will crash when he attempts to read the tag. \cite{10.1109/ARES.2009.46} 
+
 \textbf{TODO} cite 'is your cat infected with a computer virus' paper.
 
 

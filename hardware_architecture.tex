@@ -1,9 +1,15 @@
 \section{System Architecture}
 \label{chap:hardware_architecture}
-Strongly related to the progression of RFID applications towards 'electronic cash' is the necessity to authenticate the transactions executed.
-In banking, transactions are signed by a smartcard which holds a proprietary cypher and secret key known only to the bank.
-Smartcards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
-Smartcards can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale.
+With the development of mobile payment applications comes the requirement to ensure the security of the assets involved.
+Strongly related to the progression of mobile applications towards 'electronic cash' is the necessity to authenticate the transactions executed. \cite{herzberg2003payments}
+
+In payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
+The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
+
+Europay, Mastercard and Visa (EMV) have jointly designed a standard for smart card interoperability to provide a secure means of transaction authentication, which has been largely adopted by the banking industry and is in widespread use.
+Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
+Smart cards used in banking hold a proprietary cypher and secret key known only to the bank, which are used to sign transactions.
+Smart cards can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale.
 
 Modern RFID cards can have similar features, which means that NFC devices aiming to be truly backward compatible with RFID applications must allow for simmilar functionality.
 This requires a new module to be included into the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
@@ -33,7 +39,7 @@ This is where \textit{secure elements} come into play.
 In \cite{Reveilhac:2009:PSE:1548884.1549404} four different secure elements are proposed, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
-UICC is suggested because it's secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
+UICC is suggested because it is secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
 
 \textbf{TODO}
 A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.
@@ -50,7 +56,7 @@ Explain that the technical workings of these different devices are equivalent, b
 % c NFC-SIM
 
 The problem of a malicious user can be mitigated by making use of a \textit{Secure Element} (SE) for storing sensitive information.
-Because of its sheer microscopic scale, it's very difficult and costly for an attacker to tamper with the function of this device.
+Because of its sheer microscopic scale, it is very difficult and costly for an attacker to tamper with the function of this device.
 
 Below we will discuss a number of different ways such a secure element can be implemented on a mobile device. 
 

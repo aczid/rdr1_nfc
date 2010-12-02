@@ -3,12 +3,23 @@
 With the development of mobile payment applications comes the requirement to ensure the security of the assets involved.
 Strongly related to the progression of mobile applications towards 'electronic cash' is the necessity to authenticate the transactions executed. \cite{herzberg2003payments}
 
-In payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
+In electronic payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
 For each inter-party transaction, the parties must be identified and authenticated.
 The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
 
-\textit{Integrated Circuit Cards} (ICCs) can mitigate this problem by storing a secret key known only to the bank which is used to sign transactions.
-ICCs, commonly known as smart cards, can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
+Consumers and merchants both need to trust a payment provider to facilitate their payment transactions, and in return the payment provider must verify both parties are making rightful claims to their accounts.
+There are now three participants in the transaction instead of two, and - ruling out internal sabotage - two points of potential malice rather than just one.
+This creates a situation where the burden to authenticate a transaction is twice as great on the payment provider as it would be for either participant in a direct two-party transaction.
+%This means that malicious use must be ruled out at both endpoints and the payment provider has the greatest stake in managing trust.
+%A technical solution to the authentication problem could be achieved using public key cryptography.
+
+%A payment provider
+%TODO Leg uit hoe je met trust omgaat in electronisch bankieren
+
+\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system.
+They can be used to authenticate transactions by electronically signing them using a preconfigured secret known only to the issuer of the bank.
+By design, there is no way to retrieve the secret key from the device.
+ICCs can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
 This has lead to the widespread adoption of smart cards in banking, following the EMV standard developed by Europay, Mastercard and Visa (EMV). %have jointly designed a standard for smart card interoperability to provide a secure means of transaction authentication, which has been largely adopted by the banking industry and is in widespread use.
 %Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
 %Smart cards used in banking hold a proprietary cypher and secret key known only to the bank, which are used to sign transactions.

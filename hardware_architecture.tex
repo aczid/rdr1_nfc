@@ -4,23 +4,25 @@ With the development of mobile payment applications comes the requirement to ens
 Strongly related to the progression of mobile applications towards 'electronic cash' is the necessity to authenticate the transactions executed. \cite{herzberg2003payments}
 
 In payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
+For each inter-party transaction, the parties must be identified and authenticated.
 The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
 
-Europay, Mastercard and Visa (EMV) have jointly designed a standard for smart card interoperability to provide a secure means of transaction authentication, which has been largely adopted by the banking industry and is in widespread use.
-Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
-Smart cards used in banking hold a proprietary cypher and secret key known only to the bank, which are used to sign transactions.
-Smart cards can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
+\textit{Integrated Circuit Cards} (ICCs) can mitigate this problem by storing a secret key known only to the bank which is used to sign transactions.
+ICCs, commonly known as smart cards, can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
+This has lead to the widespread adoption of smart cards in banking, following the EMV standard developed by Europay, Mastercard and Visa (EMV). %have jointly designed a standard for smart card interoperability to provide a secure means of transaction authentication, which has been largely adopted by the banking industry and is in widespread use.
+%Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
+%Smart cards used in banking hold a proprietary cypher and secret key known only to the bank, which are used to sign transactions.
 
-Modern RFID cards can have similar features, which means that NFC devices aiming to be truly backward compatible with RFID applications must allow for simmilar functionality.
-This requires a new module to be included into the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
+Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly backward compatible with RFID applications must also allow for similar functionality.
+This requires a secure storage and processing module to be included in the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
 
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is used.
 %\subsection{GSM Security}
-The GSM standard allows for secure communication on the network by means of a secret key stored on an \textit{Universal Integrated Circuit Card} (UICC) by the telco. %TODO referentie
-Besides storing the secret key, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
-In fact, the SIM card remains property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
-However, the current generation of mobile devices are without an infrastructure in place for third parties to make use of such secure storage for their own applications.
+The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor. %secret key stored on an \textit{Universal Integrated Circuit Card} (UICC) by the telco. %TODO referentie
+%Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
+%In fact, the SIM card remains property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
+However, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
 This is where \textit{secure elements} come into play.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
@@ -34,12 +36,16 @@ This is where \textit{secure elements} come into play.
 
 %ERIK Waarom is de architectuur van GSM zoals-ie is & hoe breidt NFC dat uit? Er zijn tig opties van NFC telefoons, dus we kunnen niet overal diep op ingaan.
 
-%\subsection{Secure elements}
+%TODO afmaken :)
+\subsection{Secure elements}
 %TODO citation geen onderwerp maken
-In \cite{Reveilhac:2009:PSE:1548884.1549404} four different secure elements are proposed, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
+%Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
+Secure Elements can be implemented in mobile devices in several configurations. \cite{Reveilhac:2009:PSE:1548884.1549404}
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
-UICC is suggested because it is secured, already in use and thus tried, removable and standardized, which means a user can switch phones. 
+Making use of an ICC is preferred because it has been deployed in real applications where it has proven to be reliable.
+%It is re-usable and standardized, which means a user can switch handsets easily, their personalized secure. 
+
 
 \textbf{TODO}
 A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.

@@ -67,15 +67,14 @@ All these variations in ICC, wires and electromagnetic radiation can provide inf
 
 One measurement of these variations might not be enough to produce the entire key, because of noise (e.g. inaccuries, outside influence) that is collected during the measurement, which will provide no information about the key. Therefore several measurements are necessary to distinguish the signal from the noise. By aligning the meassurements, an attacker can compare data on single points of interest. By averaging the collected data, the usable signal is amplified and the noise is filtered out.
 
-Another way to collect information about the key, besides taking many different measurements, are changing some bits of the key to check if the changes might reveal some information about process. This technique can also be repeated and statiscally analyzed to get the key. Also by resetting or switching of the power during a specific operation, which can be repeated, information about the key might be collected.
-
-
-
+Another way to collect information about the key, besides taking many different measurements, are changing some bits of the key to check if the changes might reveal some information about process. This technique can also be repeated and statiscally analyzed to get the key. Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected.
 
 \subsection{Countermeasures Differential Power Analysis}
+A DPA attack is succesful if enough information can be collected to retrieve the key in the cryptosystem. By increasing the number off measurements, it will take more time to collect the information needed to retrieve the key. 
+There are several ways to increase the number of measurements. For example, randomly generated noise can be added to the operations of the cryptosystem, which will make harder to filter out the signal, because more measurements are needed. Another way is to reduce the signal size, making it harder to pick up. 
+If the cryptosystem is designed to self-destruct (it brakes) after a certain amount of operations and the number of measurements needed to retrieve the key is higher then amount of operations, the key can not be retrieved.
 
-The adding of noise to the cryptosystem
-Adding some randomness to a crypto operation.
+Another countermeasure to prevent information from being collected is clock skipping. This technique will prevent the attacker aligning the points of interest in the collected data. 
 
 % ERIk open platform vs gesloten platform
 

@@ -14,9 +14,9 @@ This creates a situation where the burden to authenticate a transaction is twice
 Traditional mechanisms of authenticating card holder rely on verification of the signature and visual inspection of the card.
 Verifying transactions more efficiently could be achieved by a cryptographic solution, where the user and payment provider are in possession of a \textit{shared secret}.
 %A more secure means of verifying transactions would be a mechanism where the user would.
-The payment provider would share with the user two secrets: one which is known only to the payment provider while in possession of the user, while the other secret is known to both parties.
-This secret unknown to the user can be thought of as a lock.
-It may be in the user's possession, but extracting the combination from the lock uses would in most cases destroy it.
+The payment provider would share with the user two secrets: one which is known only to the payment provider while in possession of the user, whereas the other secret is known to both parties.
+This secret unknown to the user can be thought of as a padlock which the user can close, but not open.
+It may be in the user's possession, but extracting the combination from the lock would in most cases destroy it.
 Using this lock, the user can transmit the shared secret to the payment provider in order to authenticate his or her transaction.
 
 %A technical solution to the authentication problem could be achieved using cryptography.
@@ -24,8 +24,8 @@ Using this lock, the user can transmit the shared secret to the payment provider
 %A payment provider
 %TODO Leg uit hoe je met trust omgaat in electronisch bankieren
 
-\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system that can provide just such cryptographic functionality.
-They can be used to electronically sign data using a preconfigured secret known only to the issuer of the card, and receive the shared secret via points on the chip.
+\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system that communicate via contact points on the chip.
+ICCs can be used to cryptographically sign data using a preconfigured secret key known only to the issuer of the card 
 By design, there is no way to retrieve the secret key from the device.
 ICCs can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
 Europay, Mastercard and Visa have jointly designed the EMV standard for smart card interoperability describing a secure means of transaction authentication. %, which has been largely adopted by the banking industry and is in widespread use.
@@ -61,7 +61,7 @@ Due to this, the current generation of mobile devices lack a common infrastructu
 \subsection{Secure elements}
 %TODO citation geen onderwerp maken
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
-Secure Elements can be implemented in mobile devices to facilitate these cryptographic operations.
+Secure Elements can be implemented in mobile devices to facilitate the secure storage / execution.
 Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is

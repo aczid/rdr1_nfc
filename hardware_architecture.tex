@@ -3,38 +3,47 @@
 With the development of mobile payment applications comes the requirement to ensure the security of the assets involved.
 Strongly related to the progression of mobile applications towards 'electronic cash' is the necessity to authenticate the transactions executed. \cite{herzberg2003payments}
 
-In electronic payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
-For each inter-party transaction, the parties must be identified and authenticated.
-The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
+%In electronic payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
+%For each inter-party transaction, the parties must be identified and authenticated.
+%The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
 
 Consumers and merchants both need to trust a payment provider to facilitate their payment transactions, and in return the payment provider must verify both parties are making rightful claims to their accounts.
 There are now three participants in the transaction instead of two, and - ruling out internal sabotage - two points of potential malice rather than just one.
 This creates a situation where the burden to authenticate a transaction is twice as great on the payment provider as it would be for either participant in a direct two-party transaction.
-%This means that malicious use must be ruled out at both endpoints and the payment provider has the greatest stake in managing trust.
-%A technical solution to the authentication problem could be achieved using public key cryptography.
+
+Traditional mechanisms of authenticating card holder rely on verification of the signature and visual inspection of the card.
+Verifying transactions more efficiently could be achieved by a cryptographic solution, where the user and payment provider are in possession of a \textit{shared secret}.
+%A more secure means of verifying transactions would be a mechanism where the user would.
+The payment provider would share with the user two secrets: one which is known only to the payment provider while in possession of the user, while the other secret is known to both parties.
+This secret unknown to the user can be thought of as a lock.
+It may be in the user's possession, but extracting the combination from the lock uses would in most cases destroy it.
+Using this lock, the user can transmit the shared secret to the payment provider in order to authenticate his or her transaction.
+
+%A technical solution to the authentication problem could be achieved using cryptography.
 
 %A payment provider
 %TODO Leg uit hoe je met trust omgaat in electronisch bankieren
 
-\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system.
-They can be used to authenticate transactions by electronically signing them using a preconfigured secret known only to the issuer of the bank.
+\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system that can provide just such cryptographic functionality.
+They can be used to electronically sign data using a preconfigured secret known only to the issuer of the card, and receive the shared secret via points on the chip.
 By design, there is no way to retrieve the secret key from the device.
 ICCs can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
-This has lead to the widespread adoption of smart cards in banking, following the EMV standard developed by Europay, Mastercard and Visa (EMV). %have jointly designed a standard for smart card interoperability to provide a secure means of transaction authentication, which has been largely adopted by the banking industry and is in widespread use.
+Europay, Mastercard and Visa have jointly designed the EMV standard for smart card interoperability describing a secure means of transaction authentication. %, which has been largely adopted by the banking industry and is in widespread use.
+Smart cards used in EMV hold a cypher and secret key known only to the bank, which are used to sign transactions.
+%This standard has been adopted by the banking industry which has lead to the widespread deployment of smart cards in banking.
 %Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
-%Smart cards used in banking hold a proprietary cypher and secret key known only to the bank, which are used to sign transactions.
 
 Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly backward compatible with RFID applications must also allow for similar functionality.
 This requires a secure storage and processing module to be included in the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
-
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
-%These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is used.
-%\subsection{GSM Security}
-The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor. %secret key stored on an \textit{Universal Integrated Circuit Card} (UICC) by the telco. %TODO referentie
-%Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
-%In fact, the SIM card remains property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
-However, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
-This is where \textit{secure elements} come into play.
+%These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
+
+The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor.
+These are called \textit{Universal Integrated Circuit Cards} (UICCs).
+Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
+
+In fact these cards, known as SIM cards, remain property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
+Due to this, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties

@@ -38,11 +38,12 @@ This requires a secure storage and processing module to be included in the desig
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
 
+Most mobile telephones make use of the \textit{Global System for Mobile Communications} (GSM) system.
 The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor.
 These are called \textit{Universal Integrated Circuit Cards} (UICCs).
 Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
 
-In fact these cards, known as SIM cards, remain property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
+In fact these cards, also known as SIM cards, remain property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
 Due to this, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
@@ -60,16 +61,17 @@ Due to this, the current generation of mobile devices lack a common infrastructu
 \subsection{Secure elements}
 %TODO citation geen onderwerp maken
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
-Secure Elements can be implemented in mobile devices in several configurations. \cite{Reveilhac:2009:PSE:1548884.1549404}
+Secure Elements can be implemented in mobile devices to facilitate these cryptographic operations.
+Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
-Making use of an ICC is preferred because it has been deployed in real applications where it has proven to be reliable.
+%Making use of a UICC is preferred because it has been deployed in real applications where it has proven to be reliable.
 %It is re-usable and standardized, which means a user can switch handsets easily, their personalized secure. 
 
 
-\textbf{TODO}
-A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.
-Explain that the technical workings of these different devices are equivalent, but different configurations belong in different trust models.
+%\textbf{TODO}
+%A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.
+%Explain that the technical workings of these different devices are equivalent, but different configurations belong in different trust models.
 
 
 %TODO Beschrijf eerst bestaande telefoon architectuur (zonder NFC) en de mogelijke architecturen -met- NFC
@@ -81,18 +83,19 @@ Explain that the technical workings of these different devices are equivalent, b
 % b SD kaart als a maar vervangbaar SE
 % c NFC-SIM
 
-The problem of a malicious user can be mitigated by making use of a \textit{Secure Element} (SE) for storing sensitive information.
-Because of its sheer microscopic scale, it is very difficult and costly for an attacker to tamper with the function of this device.
+%The problem of a malicious user can be mitigated by making use of a \textit{Secure Element} (SE) for storing sensitive information.
+%Because of its sheer microscopic scale, it is very difficult and costly for an attacker to tamper with the function of this device.
 
-Below we will discuss a number of different ways such a secure element can be implemented on a mobile device. 
+%Below we will discuss a number of different ways such a secure element can be implemented on a mobile device. 
 
 %\subsubsection{Integrated Secure Element}
-The most obvious solution would be to integrate the SE in the device hardware directly.
+One option would be to integrate the SE in the handset hardware directly.
 This works for the intended cryptographic use, but limits the device to communicate with the services aware of its pre-programmed secret key, unless it is capable of securely updating itself with news keys.
-%ZZ
-Nokia released a phone (Nokia 6131 NFC) in 2006 with NFC as a feature.
-The architecture of this phone consists of a SIM card, antenna and a separate Secure Element.
+
+Nokia has released a phone like this in 2006 (the Nokia 6131 NFC) . %with NFC as a feature.
+The architecture of this phone consists of a SIM card, antenna and an internal Secure Element.
 The same layout of this architecture can also be used in other mobile devices, see figure \ref{fig:integrated_se}.
+
 The phone hardware consists of the usual (processor, memory), but also hardware to provide for NFC features and a secure element to enable payment and ticketing.
 The secure element stores sensitive data and enables tag and smart card emulation.
 In the case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.

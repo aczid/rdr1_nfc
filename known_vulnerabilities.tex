@@ -74,7 +74,9 @@ A DPA attack is succesful if enough information can be collected to retrieve the
 There are several ways to increase the number of measurements. For example, randomly generated noise can be added to the operations of the cryptosystem, which will make harder to filter out the signal, because more measurements are needed. Another way is to reduce the signal size, making it harder to pick up. 
 If the cryptosystem is designed to self-destruct (it brakes) after a certain amount of operations and the number of measurements needed to retrieve the key is higher then amount of operations, the key can not be retrieved.
 
-Another countermeasure to prevent information from being collected is clock skipping. This technique will prevent the attacker aligning the points of interest in the collected data. 
+Another countermeasure to prevent information from being collected is clock skipping. Normally a cryptosystem uses an external clock for its processing, with clock skipping an internal clock is used in the cryptosystem. This will create more noise and will prevent the attacker aligning the points of interest in the collected data and making it more difficult to identify the signal. 
+
+
 
 % ERIk open platform vs gesloten platform
 

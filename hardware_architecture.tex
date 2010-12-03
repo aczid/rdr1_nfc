@@ -100,6 +100,16 @@ The phone hardware consists of the usual (processor, memory), but also hardware 
 The secure element stores sensitive data and enables tag and smart card emulation.
 In the case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.
 
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/phone_with_SE_nokia}
+\caption[Nokia phone with SE]
+{
+A separate secure element
+}
+\label{fig:integrated_se}
+\end{figure}
+
+
 %security problems for this architecture:
 
 %\subsubsection{Modular Secure Element}
@@ -107,12 +117,29 @@ Another option is an external SD-card which houses all the hardware needed to en
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
 In this configuration a third party can issue an SD card to its customers which houses a secret key hidden from the user.
 
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/SD_NFC}
+\caption[SE in SD package]
+{
+An secure element in SD package
+}
+\label{fig:modular_se}
+\end{figure}
+
 %security problems for this architecture: SD card might get stolen and used by somebody else.
 %\subsubsection{Multiple SIM cards}
 Related to the above architecture is the one depicted in figure \ref{fig:multi_sim}.
 Here the architecture consist of a phone with multiple SIM cards and the usual hardware.
 In this case a telecom provider will own one SIM card and third-party service provider will own the other.
 This way there no problem with splitting the resources of one SIM card and the trust issue between different companies.
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/meerdere_sims}
+\caption[Multiple SIM cards]
+{
+Multiple SIM cards for different applications
+}
+\label{fig:multi_sim}
+\end{figure}
 
 %\subsubsection{Trusted SIM card}
 Of course the option of splitting the resources is also possible, if different companies can find an agreement to share the same SIM card.
@@ -121,8 +148,16 @@ This makes two different architectures possible.
 The first one, as pictured in figure \ref{fig:sim_se}, uses the SIM card as secure element.
 A phone will have the usual hardware, hardware making NFC possible and SIM card with applications from the telecom provider and applications from a company chosen by the user, e.g. a bank for payment and a public transport company. 
 The second option resembles a combination of the first one and the one with the SD card architecture.
-Here a SIM card has all the hardware needed to make NFC possible and it also acts as a secure element, see \ref{fig:integrated_se}.
+Here a SIM card has all the hardware needed to make NFC possible and it also acts as a secure element (see figure \ref{fig:integrated_se}).
 Like the first option, the resources of the SIM card will be split among the involved parties.
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/SIM_is_SE}
+\caption[Trusted SIM cards]
+{
+Trusted SIM card running multiple applications
+}
+\label{fig:sim_se}
+\end{figure}
 
 %hier moet nog een bron voor gevonden worden
 %security problems for this architecture: SIM card might get stolen and used by somebody else

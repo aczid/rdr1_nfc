@@ -11,13 +11,13 @@ Consumers and merchants both need to trust a payment provider to facilitate thei
 There are now three participants in the transaction instead of two, and - ruling out internal sabotage - two points of potential malice rather than just one.
 This creates a situation where the burden to authenticate a transaction is twice as great on the payment provider as it would be for either participant in a direct two-party transaction.
 
-Traditional mechanisms of authenticating card holder rely on verification of the signature and visual inspection of the card.
-Verifying transactions more efficiently could be achieved by a cryptographic solution, where the user and payment provider are in possession of a \textit{shared secret}.
+Traditional mechanisms of authenticating the card holder rely on verification of the signature and visual inspection of the card.
+Verifying transactions more efficiently can be achieved using a cryptographic solution, where the user and payment provider are in possession of a \textit{shared secret}.
 %A more secure means of verifying transactions would be a mechanism where the user would.
 The payment provider would share with the user two secrets: one which is known only to the payment provider while in possession of the user, whereas the other secret is known to both parties.
 This secret unknown to the user can be thought of as a padlock which the user can close, but not open.
 It may be in the user's possession, but extracting the combination from the lock would in most cases destroy it.
-Using this lock, the user can transmit the shared secret to the payment provider in order to authenticate his or her transaction.
+Using this lock, the user can transmit the 'locked' shared secret to the payment provider in order to authenticate his or her transaction.
 
 %A technical solution to the authentication problem could be achieved using cryptography.
 
@@ -25,8 +25,8 @@ Using this lock, the user can transmit the shared secret to the payment provider
 %TODO Leg uit hoe je met trust omgaat in electronisch bankieren
 
 \textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system that communicate via contact points on the chip.
-ICCs can be used to cryptographically sign data using a preconfigured secret key known only to the issuer of the card 
-By design, there is no way to retrieve the secret key from the device.
+ICCs can be used to cryptographically sign data using a preconfigured secret key known only to the issuer of the card.
+%By design, there is no way to retrieve the secret key from the device, accomplished 
 ICCs can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
 Europay, Mastercard and Visa have jointly designed the EMV standard for smart card interoperability describing a secure means of transaction authentication. %, which has been largely adopted by the banking industry and is in widespread use.
 Smart cards used in EMV hold a cypher and secret key known only to the bank, which are used to sign transactions.
@@ -42,6 +42,15 @@ Most mobile telephones make use of the \textit{Global System for Mobile Communic
 The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor.
 These are called \textit{Universal Integrated Circuit Cards} (UICCs).
 Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
+
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{images/SIM_in_GSM}
+\caption[UICC running SIM application in GSM]
+{
+A UICC (SIM) card as used in GSM.
+}
+\label{fig:gsm_sim}
+\end{figure}
 
 In fact these cards, also known as SIM cards, remain property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
 Due to this, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
@@ -73,8 +82,6 @@ Several possible configurations proposed by \textit{GlobalPlatform}, the industr
 %A good reference on the feasibility of secure data and code in mobile devices is given in \cite{Reveilhac:2009:PSE:1548884.1549404}.
 %Explain that the technical workings of these different devices are equivalent, but different configurations belong in different trust models.
 
-
-%TODO Beschrijf eerst bestaande telefoon architectuur (zonder NFC) en de mogelijke architecturen -met- NFC
 
 %ERIK: figuren toevoegen van verschillende telefoon architecturen. 
 
@@ -200,8 +207,8 @@ If customers like NFC because of the possibilities it will take off and demands 
 %promising secure element alternatives for NFC technology. */
 
 
-\subsection{Advantages and Limitations}
-\textbf{TODO}
+%\subsection{Advantages and Limitations}
+%\textbf{TODO}
 
 % Toetsenbord en display feature (semi-trusted terminal, moeilijker te tamperen)
 

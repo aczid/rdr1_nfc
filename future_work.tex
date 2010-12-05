@@ -1,12 +1,16 @@
 \section{Future work}
 \label{chap:future_work}
 
-- The application of NFC in the healthcare system is very interesting. Consequences of security problem and how it relates to health, needs to be researched. It's an upcoming technology....
+During our research we have come across several areas that need further research.
+One interesting application of NFC, is the healthcare system. As already mentioned in the paper it is possible for caretakers to register the given care with an NFC enabled device, but the application goes further. By creating a small sensor that is powered by a battery or, like an RFID passive tag, with the reader, it will be possible to put it inside a human being. The sensor might be able to measure all kinds of things e.g. blood pressure, sugar level, eye pressure. It might be possible to have a pacemaker equipt with NFC, which can tell the battery status and be adjusted, without the patient going into surgery. 
+The security of NFC is very important for this application, for example, it must not be possible for an attacker to switch off a pacemaker when that person is walking down the street. 
+We noticed that this application is still in developement and its progress should be monitored.
 
-- Possibly mention the cyclic dependency problem between involved parties again.
+
+During the research we became aware that NFC truly is an upcoming technology. We noticed that new smartphones will be introduced with NFC functionality and that payment and transport applications are being tested. But it is still not sure that NFC will become a succes. This mostly dependend on the parties involved with NFC. If the user does not like the applications offered or does not request applications, the parties e.g. banks and public transport companies, will not offer them. This will result in e.g. telco's not sharing their UICC, so applications will not be available. 
+Another problem that relates to the above, is the possible trust issues between the involved parties regarding the use of one secure element. Banks are reluctant to share their secure element with another party, because they do not want anybody else to have access to their application. Also telco's do not want other parties to use their secure element, because it might start to malfunction. Also advertisement plays a roll, on bank does not want to share the same secure element with a competitor.
+This prevented us from making a found prediction about which architecture will be implemented. This should be reviewed, if NFC gets implemented and used.
+
+In this paper we mainly looked at how NFC is implemented in the front-end of an NFC system. The back-end, which will do the processing of the transactions, e.g. billing for a public transport system, will probably have vulnerabilities aswell. For example, a cross-site scripting or SQL-injection attack might be possible, because of modified RFID tags.\cite{rieback2006your} This is worth researching further when NFC gets implemented.
 
 - While the possibility of secure offline payments using NFC is intruiging, the hardware is not yet powerful enough to accomodate transfers swiftly.
-
-- Distance bouding protocol might be hard to implement and there might be attack against them. This will have to be researched further.
-
-- Further research needs to be done regarding RFID/NFC tags that will have an effect on the back end of an implemented system. 

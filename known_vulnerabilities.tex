@@ -64,16 +64,14 @@ With a distance bounding protocol it will become possible for a NFC enable mobil
 \subsection{Malware distribution}
 Smart poster technology can be used to distribute malware.
 It has proven to be possible to mislead a user to visit a malicious website through a modified NFC-tag.
-In a technique using \textit{Smart poster URI spoofing}, an attacker could modify the title of a message containing a malicious URI using whitespace characters like space, tab and new line characters so that it looks innocent to the user.
-The actual URI in message is not shown to user, but the user is still directed there upon receiving the communication from the smart poster.
+In a technique using \textit{Smart poster Uniform Resource Identifier spoofing}, an attacker could modify the title of a message containing a malicious URI using whitespace characters like space, tab and new line characters so that it looks innocent to the user.
+The actual URI in the message is not shown to user, but the user is still directed there upon receiving the communication from the smart poster.
 %The user is unaware that he or she is directed to a malicious website, from where a number of further attacks are possible.
 %In the same way it is possible to let the user call or send a text message to a different number, e.g. an 0900-number.
-The different services a user can be directed to through URI spoofing depends on the browser attacked, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
+The different services a user can be directed to through URI spoofing, depends on the browser attacked, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
 
 It is also possible to hide and spread a computer worm in this manner.
-For such a worm to propagate, it will the phone of the user has to be infected with the worm.
-When the phone reads a tag, it will try to change it, like described above.
-The next user will be pointed to a website where he will be tricked into downloading and installing a copy of the worm.
+For such a worm to propagate, the phone of the user has to be infected with the worm. When the phone reads a tag, it will try to change it, like described above. The next user that reads the tag will be pointed to a website, where he will be tricked into downloading and installing a copy of the worm.
 
 \cite{mulliner2009vulnerability,rieback2006your} 
 
@@ -125,4 +123,10 @@ The result is that it will be harder for the attacker to find the points of inte
 
 \subsection{Denial of Service}
 A denial of service attack is also possible, with the goal to let users stop using the service. By using a tag that sends out malformed messages, taped on top of the original tag, the phone of the user will crash when he attempts to read the tag.
+By putting a e.g. copper wire or mesh sticker on top of a tag or a terminal, it is possible to create a small Faraday cage, preventing the terminal to send out its RF signal or reducing the range of the signal.
+
+\subsection{Countermeasures Denial of Service}
+There are not many countermeasures that you can take to prevent an attack like this. As suggested before, preventive measures taken in client software, might help dealing with malformed messages. 
+As for Faraday cages in sticker form, only regular checking of the original equipment used, will reduce the impact.
+
 %TODO Countermeasures

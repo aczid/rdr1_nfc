@@ -36,7 +36,7 @@ The check-in gate will conclude it is communicating with the victim, but because
 
 \subsection{Countermeasures against relay attacks}
 There are three possible countermeasures, a Faraday-cage, interactive confirmation to activate by the user or Two-Factor authentication.
-A Faraday-cage \footnote{A Faraday cage is a room or mesh made out of a conducting material e.g. copper. This will block out electric fields.}  will block all RF communication, so an attacker can not make contact with the device.
+A Faraday-cage \footnote{A Faraday cage is a room or cage made out of a mesh of conducting material e.g. copper. This will block out RF signals with wavelengths larger than the mesh spacing.}  will block all RF communication, so an attacker can not make contact with the device.
 % TODO faraday cage uitleggen
 This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
 Interactive confirmation to activate the connection will defend the user from accidentally making a transaction.
@@ -105,7 +105,7 @@ Also by resetting or switching off the power during a specific operation, which 
 
 \subsection{Countermeasures Differential Power Analysis}
 A DPA attack is successful if enough information can be collected to retrieve the key in the cryptosystem.
-By increasing the number of measurements, it will take more time to collect the information needed to retrieve the key. 
+By increasing the number of required measurements to be preformed by the attacker, it will take more time to collect the information needed to retrieve the key. 
 There are several ways to increase the number of measurements required.
 For example, randomly generated noise can be added to the operations of the cryptosystem, which will make it harder to filter out the signal from the noise, because more measurements are needed.
 Another way is to reduce the signal size, making it harder to pick up. 

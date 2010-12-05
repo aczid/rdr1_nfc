@@ -36,7 +36,7 @@ The check-in gate will conclude it is communicating with the victim, but because
 
 \subsection{Countermeasures against relay attacks}
 There are three possible countermeasures, a Faraday-cage, interactive confirmation to activate by the user or Two-Factor authentication.
-A Faraday-cage will block all RF communication, so an attacker can make contact with the device.
+A Faraday-cage \footnote{A Faraday cage is a room or mesh made out of a conducting material e.g. copper. This will block out electric fields.}  will block all RF communication, so an attacker can not make contact with the device.
 % TODO faraday cage uitleggen
 This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
 Interactive confirmation to activate the connection will defend the user from accidentally making a transaction.
@@ -49,8 +49,11 @@ The attacker can actually notify the user, that a connection will be made.
 If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the password, the attack is avoided.
 This countermeasure will also decrease user friendliness. \cite{1128470}
 
-Overall this attack will have lower feasibility than relay attacks on RFID cards, precisely because the user is presented with the option of accepting or declining transactions.
+Overall the relay attack on NFC will have lower feasibility than relay attacks on RFID cards, precisely because the user is presented with the option of accepting or declining transactions.
 
+Another countermeasure against a relay attack is the use of a distance bouding protocol. This makes sure that both communicating parties are in the allowed range of each other. To achieve this the \textit{Verifier} e.g. an NFC enable device, sends a challenge e.g. a certain amount of bits, to the \textit{Prover} e.g. a payment terminal. The Prover processes the challenge and replies back to the Verifier. The Verifier will then calculate the round-trip time between the sending of the challenge and the recieving of the reply from the Prover. By substracting the Prover's processing time from the round-trip time, the distance bound between the two devices is determined. 
+Because the Prover has to process the challenge, it can not send anything sooner then it recieves. This means that the Prover can not fake to be closer to the Verifier then it really is.
+With a distance bounding protocol it will become possible for a NFC enable mobile device (Verifier), to check if the payment terminal or access gate (Prover) is within a set distance. For NFC this will ideally be 10cm, as this is the specified operational distance. \cite{rasmussenrealization,brands1994distance}
 
 %plaatje relay attack
 
@@ -100,7 +103,7 @@ By averaging the collected data, the usable signal is amplified and the noise is
 
 Another way to collect information about the key, besides taking many different measurements, is changing some bits of the key to check if the changes might reveal some information about the encryption process.
 This technique can also be repeated and the resulting data statistically analyzed to get the key.
-Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected.
+Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected. \cite{kocher2009differential}
 
 \subsection{Countermeasures Differential Power Analysis}
 A DPA attack is successful if enough information can be collected to retrieve the key in the cryptosystem.
@@ -116,7 +119,7 @@ With clock skipping an internal clock is used in the cryptosystem.
 This will create more noise and will prevent the attacker from aligning the points of interest in the collected data and making it more difficult to identify the signal. 
 
 A countermeasure that can also be effective against DPA is, to use a random number generator to add an amount of unpredictability in the order in which the crypto operations are executed.
-The result is that it will be harder for the attacker to find the points of interest in the collected data, making it more difficult to extract the key. 
+The result is that it will be harder for the attacker to find the points of interest in the collected data, making it more difficult to extract the key. \cite{kocher2009differential}
 
 % ERIk open platform vs gesloten platform
 

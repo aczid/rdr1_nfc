@@ -1,59 +1,64 @@
 \section{System Architecture}
 \label{chap:hardware_architecture}
-With the development of mobile payment applications comes the requirement to ensure the security of the assets involved.
-Strongly related to the progression of mobile applications towards 'electronic cash' is the necessity to authenticate the transactions executed. \cite{herzberg2003payments}
+With the development of mobile payment applications comes the requirement to ensure the security of the financial assets involved.
+An architecture for the application of mobile devices as 'electronic cash' must provide a means to authenticate transactions before authorizing their execution, whether that be on-line or off-line.
 
 %In electronic payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
 %For each inter-party transaction, the parties must be identified and authenticated.
 %The problem faced by system architects in developing secure payment applications is that a breach of security can occur within each of these parties' assets.
 
-Consumers and merchants both need to trust a payment provider to facilitate their payment transactions, and in return the payment provider must verify both parties are making rightful claims to their accounts.
-There are now three participants in the transaction instead of two, and - ruling out internal sabotage - two points of potential malice rather than just one.
-This creates a situation where the burden to authenticate a transaction is twice as great on the payment provider as it would be for either participant in a direct two-party transaction.
+%Consumers and retailers both need to trust a payment provider (e.g. a bank) to process their payment transactions, and in return the payment provider must verify both parties are making rightful claims to their accounts.
+%There are now three participants in the transaction instead of two, and - ruling out internal sabotage - two points of potential malice rather than just one.
+%This creates a situation where the burden to authenticate a transaction is twice as great on the payment provider as it would be for either participant in a direct two-party transaction.
+Traditional mechanisms of authenticating payment transactions in electronic banking rely on verification of the data stored on the magnetic stripe and verification of the client's signature on the card by visual inspection.
+Transactions can be authenticated more securely by using a cryptographic solution relying on \textit{Integrated Circuit Cards}.
 
-Traditional mechanisms of authenticating card holder rely on verification of the signature and visual inspection of the card.
-Verifying transactions more efficiently could be achieved by a cryptographic solution, named a \textit{Public Key Infrastructure (PKI)}, where the user and payment provider are in possession of a \textit{shared secret}.
+\textit{Integrated Circuit Cards} (ICCs), commonly known as smart cards or chip cards, are cards which contain an integrated circuit which can communicate to the outside world via contact points on the card.
+The microchips embedded in these cards can be used to cryptographically sign data using a preconfigured secret key which is contained within the chip.
+\cite{herzberg2003payments,khu2002using}
+The chips in smart cards are designed to minimize the risk of an attacker extracting the secret key it holds.
+Smart cards can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the chip due to its small scale. \cite{kömmerling1999design}
+Europay, Mastercard and Visa have jointly designed the EMV standard for smart card interoperability describing a secure means of transaction authentication using smart cards. %, which has been largely adopted by the banking industry and is in widespread use.
+The enhanced security provided by the EMV system has effected a liability shift where the non-EMV compliant party can be held liable for any fraud committed. \cite{povey2008assessing}
+%been adopted by  which has lead to the widespread deployment of smart cards.
+%Smart cards used in EMV hold an encryption algorithm and secret key known only to the bank, which are used to sign transactions.
+%Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
+
+%This 
+%Transactions in the EMV system are authorized after establishing the card is authentic and verification of the cardholders identity.
+%Establishing the authenticity of the card can be accomplished in two ways, to be decided upon by the ICC or the payment terminal.
+
+%\begin{enumerate}
+%\item \textbf{Static Data Authentication (SDA)
+
+%\end{enumerate}
 %A more secure means of verifying transactions would be a mechanism where the user would.
-The payment provider would share with the user two secrets: one which is known only to the payment provider while in possession of the user, whereas the other secret is known to both parties.
-This secret unknown to the user can be thought of as a padlock which the user can close, but not open.
-It may be in the user's possession, but extracting the combination from the lock would in most cases destroy it.
-Using this lock, the user can transmit the 'locked' shared secret to the payment provider in order to authenticate his or her transaction.
+%The payment provider would share with the user containing two keys: one which is known only to the payment provider while in possession of the user, whereas the other key is publicly known.
+%The user is also issued a \textit{Personal Identification Number} (PIN) which is a shared secret between the user and the card issuer.
 
-%A technical solution to the authentication problem could be achieved using cryptography.
+%As an analogy, imagine the secret key functions as a padlock which the user can close, but not open.
+%It may be in the user's possession, but extracting the combination from the lock would in most cases destroy it.
+%Using this lock, the user can transmit the 'locked' shared secret to the payment provider, which on the receiving end can produce the same in order to authenticate his or her transaction.
 
 %A payment provider
 %TODO Leg uit hoe je met trust omgaat in electronisch bankieren
-
-\textit{Integrated Circuit Cards} (ICCs), commonly known as smartcards or chip cards, are cards which contain an integrated circuit system that communicate via contact points on the chip.
-ICCs can be used to cryptographically sign data using a preconfigured secret key known only to the issuer of the card. 
-By design, there is no way to retrieve the secret key from the device.
-ICCs can be issued with various anti-tampering mechanisms, adding to the intrinsic tamper-resistance of the embedded microchip itself due to its small scale. \cite{kömmerling1999design}
-Europay, Mastercard and Visa have jointly designed the EMV standard for smart card interoperability describing a secure means of transaction authentication. %, which has been largely adopted by the banking industry and is in widespread use.
-Smart cards used in EMV hold a cypher and secret key known only to the bank, which are used to sign transactions.
-%This standard has been adopted by the banking industry which has lead to the widespread deployment of smart cards in banking.
-%Smart cards are called 'smart' because they contain an embedded microchip which is able to not only store data, but also run code.
-
-Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly backward compatible with RFID applications must also allow for similar functionality.
-This requires a secure storage and processing module to be included in the design of NFC devices as conventional storage on and operation of mobile devices are liable to tampering by the user.
-%NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
-%These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
-
-Most mobile telephones make use of the \textit{Global System for Mobile Communications} (GSM) system.
-The GSM standard already provides a mechanism for identification and authentication on the network by means of a smart card, albeit in a different form factor.
-These are called \textit{Universal Integrated Circuit Cards} (UICCs).
-Besides storing the secret key, the card is running a \textit{Subscriber Identify Module} (SIM) application, which holds the routines used for encryption in GSM, so that the secret key never needs to leave the SIM card. % TODO referentie
+A similar application of smart cards can be found in mobile telephony networks.
+Worldwide, most mobile telephones make use of the \textit{Global System for Mobile Communications} (GSM) system.
+The GSM standard already provides a mechanism for authentication to the network by means of a smart card, albeit in a different form factor, called a \textit{Universal Integrated Circuit Card} (UICC).
+In GSM networks, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which provides a mobile handset access to the encryption routines required for authentication on the network while the required secret key remains stored securely inside.
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SIM_in_GSM}
 \caption[UICC running SIM application in GSM]
 {
-A UICC (SIM) card as used in GSM.
+A UICC (SIM) card as used in GSM holds the Mobile Network Operator's secret key.
 }
 \label{fig:gsm_sim}
 \end{figure}
 
-In fact these cards, also known as SIM cards, remain property of the telco after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
-Due to this, the current generation of mobile devices lack a common infrastructure for third parties to make use of such secure storage for their own applications.
+These types of cards, also known as SIM cards, remain property of the \textit{Mobile Network Operator} (MNO) after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
+The contents of the card may normally not be modified by third parties.
+Due to this, the current generation of mobile devices lacks a common infrastructure for third parties to make use of such secure storage for their own applications.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties
@@ -66,12 +71,16 @@ Due to this, the current generation of mobile devices lack a common infrastructu
 
 %ERIK Waarom is de architectuur van GSM zoals-ie is & hoe breidt NFC dat uit? Er zijn tig opties van NFC telefoons, dus we kunnen niet overal diep op ingaan.
 
-%TODO afmaken :)
 \subsection{Secure elements}
-%TODO citation geen onderwerp maken
+%Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly compatible with RFID applications must also allow for similar functionality.
+Just like smart cards, SIM cards and RFID cards, NFC-enabled handsets require a secure storage and processing module to be included in their design as conventional storage on and operation of mobile devices are liable to tampering by the user.
+%NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
+%These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
-Secure Elements can be implemented in mobile devices to facilitate the secure storage / execution.
+Secure storage for NFC applications similar to that provided by smart cards has been designed in the \textit{Secure Element} (SE) architecture.
+SEs can be updated over-the-air by a \textit{Trusted Services Manager} (TSM), provided the TSM's certificate is trusted by it.
 Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
+
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
 %This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 %Making use of a UICC is preferred because it has been deployed in real applications where it has proven to be reliable.
@@ -96,49 +105,55 @@ Several possible configurations proposed by \textit{GlobalPlatform}, the industr
 %Below we will discuss a number of different ways such a secure element can be implemented on a mobile device. 
 
 %\subsubsection{Integrated Secure Element}
+\begin{enumerate}
+
+\begin{item}
 One option would be to integrate the SE in the handset hardware directly.
-This works for the intended cryptographic use, but limits the device to communicate with the services aware of its pre-programmed secret key, unless it is capable of securely updating itself with news keys.
+This works for the intended cryptographic use, but limits the device to communicate with the services using its pre-programmed certificates, unless it is capable of securely updating itself with new certificates.
 
-Nokia has released a phone like this in 2006 (the Nokia 6131 NFC) . %with NFC as a feature.
-The architecture of this phone consists of a SIM card, antenna and an internal Secure Element.
-The same layout of this architecture can also be used in other mobile devices, see figure \ref{fig:integrated_se}.
+%Nokia has released a phone like this in 2006 (the Nokia 6131 NFC) . %with NFC as a feature.
+%The architecture of this phone consists of a SIM card, antenna and an internal Secure Element.
+%The same layout of this architecture can also be used in other mobile devices, see figure \ref{fig:integrated_se}.
 
-The phone hardware consists of the usual (processor, memory), but also hardware to provide for NFC features and a secure element to enable payment and ticketing.
-The secure element stores sensitive data and enables tag and smart card emulation.
-In the case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.
+The handset hardware consists of the usual components like a processor, memory and possibly others, but also the hardware to provide NFC features and an embedded secure element.
+The downside to this design is that the data contained in the SE is not easily portable to a new NFC device.
+%The secure element stores sensitive data and enables tag and smart card emulation.
+%In the case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/phone_with_SE_nokia}
-\caption[Nokia phone with SE]
+\caption[Handset with embedded Secure Element]
 {
-A separate secure element
+An embedded secure element
 }
 \label{fig:integrated_se}
 \end{figure}
-
+\end{item}
 
 %security problems for this architecture:
 
 %\subsubsection{Modular Secure Element}
-Another option is an external SD-card which houses all the hardware needed to enable NFC and also the secure element, see figure \ref{fig:modular_se}.
+\begin{item}
+Another option is an external SD-card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
-In this configuration a third party can issue an SD card to its customers which houses a secret key hidden from the user.
-
+In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SD_NFC}
 \caption[SE in SD package]
 {
-An secure element in SD package
+A secure element in an SD package
 }
 \label{fig:modular_se}
 \end{figure}
+\end{item}
 
 %security problems for this architecture: SD card might get stolen and used by somebody else.
 %\subsubsection{Multiple SIM cards}
+\begin{item}
 Related to the above architecture is the one depicted in figure \ref{fig:multi_sim}.
-Here the architecture consist of a phone with multiple SIM cards and the usual hardware.
-In this case a telecom provider will own one SIM card and third-party service provider will own the other.
-This way there no problem with splitting the resources of one SIM card and the trust issue between different companies.
+Here the architecture consists of a handset with multiple UICC slots.
+In this design various applications have access to their own UICC which takes on the role of a SE.
+This way, applications from different providers can coexist on the handset, without the need for them to trust one another or a TSM operating on their behalf. % there is no problem with splitting the resources of one SIM card and the trust issue between different companies.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/meerdere_sims}
 \caption[Multiple SIM cards]
@@ -147,13 +162,15 @@ Multiple SIM cards for different applications
 }
 \label{fig:multi_sim}
 \end{figure}
+\end{item}
 
+\begin{item}
 %\subsubsection{Trusted SIM card}
-Of course the option of splitting the resources is also possible, if different companies can find an agreement to share the same SIM card.
-This is possible, because smartcards in general are becoming more powerful.
+It is also possible to split the resources available on the SE between various parties, granted they can trust each other to not to abuse the privilege of being able to access one another's data.
+This sharing of resources is possible because smart cards in general are becoming more powerful.
 This makes two different architectures possible.
 The first one, as pictured in figure \ref{fig:sim_se}, uses the SIM card as secure element.
-A phone will have the usual hardware, hardware making NFC possible and SIM card with applications from the telecom provider and applications from a company chosen by the user, e.g. a bank for payment and a public transport company. 
+In this design, the handset will include the NFC communication hardware and utilize a UICC (SIM card) with applications from the Mobile Network Operator and applications from various third parties chosen by the user, e.g. a bank for payment and a public transport company. 
 The second option resembles a combination of the first one and the one with the SD card architecture.
 Here a SIM card has all the hardware needed to make NFC possible and it also acts as a secure element (see figure \ref{fig:integrated_se}).
 Like the first option, the resources of the SIM card will be split among the involved parties.
@@ -165,6 +182,9 @@ Trusted SIM card running multiple applications
 }
 \label{fig:sim_se}
 \end{figure}
+\end{item}
+
+\end{enumerate}
 
 %hier moet nog een bron voor gevonden worden
 %security problems for this architecture: SIM card might get stolen and used by somebody else
@@ -172,21 +192,7 @@ Trusted SIM card running multiple applications
 %security problems for this architecture: SIM card might get stolen and used by somebody else
 
 
-\subsection{Adoption of NFC}
-In \cite{1497411} the authors investigate the possibility of running trusted code in mobile devices and concluded that while such a system is technically feasible, its widespread adoption is hampered by the certification process payment card companies impose on their payment products.
-Payment card companies' current standards dictate that their cards may not be modified after production, which poses a problem as this is exactly what makes NFC an enticing alternative to conventional bank cards.
-
-This poses a problem for the implemention of NFC in general.
-As seen in (figure xx, still to add) the "demand" for NFC is a circular dependency.
-If the customer doesn't demand NFC from an issuer (bank, PT), the issuer won't request a TSM to create application, so nothing will be putt on a UICC by the MNO and the customer gets nothing.
-If one of the parties in this figure, refuses to cooperate, NFC will not launch.
-What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers.
-The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element.
-With Nokia's 6131 NFC phone a first step was made for developers.
-But now also Google has announced that they will introduce a NFC phone and some rumours suggest that also Apple is developing a new Iphone with NFC, see \cite{nu_artikel}.
-If customers like NFC because of the possibilities it will take off and demands for other applications will be made. 
-
-\textbf{TODO} A good reference for cyclic dependency of stakeholders can be found in the GlobalPlatform technical report.
+%\textbf{TODO} A good reference for cyclic dependency of stakeholders can be found in the GlobalPlatform technical report.
 
 
 % TODO hoort bij Wireless communication, terwijl 3.2 (Secure Elements) heel ergens anders over gaat

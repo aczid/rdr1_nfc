@@ -4,33 +4,46 @@
 
 %\section*{Purpose}
 
-\subsection{Near Field Communication} %(beetje dubbel)
-Near Field Communication (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices, e.g. smartphones. \footnote{A smartphone is a mobile phone which has other functionalities besides calling and text-messaging, like internet connectivity, email, agenda and the possibility to install third-party software.}
+%\subsection{Near Field Communication} %(beetje dubbel)
+\textit{Near Field Communication} (NFC) is an upcoming wireless communication technology which will allow for new applications on mobile devices, e.g. smartphones. \footnote{A smartphone is a mobile phone which has other functionalities besides calling and text-messaging, like internet connectivity, email, agenda and the possibility to install third-party software.}
 
 NFC is an extension of the \textit{Radio Frequency Identification} (RFID) protocol.
 %TODO misschien nog ff RFID algemeen uitleggen (wat een tag/reader is)
 RFID tags consist of an integrated circuit which stores and processes data (e.g. name, fingerprint or product number) and can transmit and receive information via a modulated radio frequency (RF) signal through an antenna.
-You may find these tiny chips in barcode stickers, public transport tickets and passports.
+These tiny chips can be embedded in products such as bar code stickers, public transport tickets and passports.
 
-RFID tags can be passive, semi-active or active.
-Active tags contain a battery and transmit at a regular interval whereas semi-active tags can only send data after they have been activated by a reader.
-Passive tags are powered through an electromagnetic field created by the reader.
-Passive tags do not have batteries and can only communicate with a reader when it is within range (ten centimeters according to specifications, although ranges up to ten meters can be covered by more powerful, specialistic equipent).
-Active tags can be read at a range up to about 100 meters.
+%RFID tags can be passive, semi-active or active.
+%Active tags contain a battery and transmit at a regular interval whereas semi-active tags can only send data after they have been activated by a reader.
+%Passive tags are powered through an electromagnetic field created by the reader.
+%Passive tags do not have batteries and can only communicate with a reader when it is within range (ten centimeters according to specifications, although ranges up to ten meters can be covered by more powerful, specialistic equipent).
+%Active tags can be read at a range up to about 100 meters.
  
 Because NFC is an extension of the RFID protocol, it allows mobile devices to assume the capabilities of an RFID tag or reader, or utilize an RF connection interactively. \footnote{By interactive usage, we mean that both parties act as both the sender as well as the receiver.}
+It enables the creation of a \textit{Wireless Personal Area Network} (WPAN) between mobile handsets and RFID hardware.
 This will allow a mobile device to communicate wirelessly with other NFC-capable devices such as the user's own RFID cards, another smartphone, a payment terminal, a so-called 'smart poster' or an access control terminal.
 Having NFC functionality available in a mobile handset would allow for use cases including (micro)payments, electronic banking, access control, exchange of digital coupons or interactive advertising.
 
-\textit{Wireless Personal Area Network} (WPAN) technology is already widely available in mobile devices in the from of Bluetooth.
-%This technology has a range of ten meters, a transfer speed of 24 Mbit/s (in version 3.0), and is used to transfer data between devices at a relatively short distance.
-Bluetooth uses an interactive login to setup a connection between devices, which means that both parties have to type in a key.
-Establishing a Bluetooth connection between devices (a process called 'pairing' in Bluetooth terminology) can be performed with lower cognitive load in NFC applications by relying on the close proximity required to setup a connection.
-Using this principle of required proximity, NFC can be used to 'bootstrap' a Bluetooth pairing between devices.
-Such ease of use is preferable from both a usability and business perspective, but for most of the intended use cases this principle is not enough to ensure security, and some actual security measures are required.
-NFC systems require security features similar to those relied upon in RFID technology in order to qualify as a trusted platform which meets the security criteria for payment and access control systems.
-A hardware component which provides these security features is called a \textit{Secure Element} (SE).
-These SEs will allow for new applications to be built on top of existing RFID technology, as electronic payment and public transport companies are already demonstrating.
+NFC systems require security features (similar to those relied upon in RFID technology) in order to qualify as a trusted platform which meets the security criteria for applications where assets of value are exchanged.
+The required features include the ability to run signed code which can be remotely updated.
+A hardware component which provides these features is called a \textit{Secure Element} (SE).
+Access to the SE is regulated by a \textit{Trusted Service Manager} (TSM) who holds the private key necessary to update applications running on it.
+
+\subsection{Industry adoption of NFC}
+The possibility of running trusted code in mobile devices has been deemed feasible, but widespread adoption of the technology is hampered by the certification process payment card companies impose on their products.
+The payment card industry's current standards dictate that their cards may not be modified after production, and Mobile Network Operators have similar provisions regarding the SIM cards they issue.
+This poses a problem as this potential sharing of resources on the SE between different providers is exactly what makes NFC an enticing alternative to conventional bank cards. \cite{1497411}
+
+This poses a problem for the implementation of NFC in general.
+As seen in (figure xx, still to add) the push for NFC has put some stakeholders in a circular dependency.
+%If the customer doesn't demand NFC from a service provider, this party won't request a TSM to create an application, so nothing will be put on a UICC by the MNO and the customer gets nothing.
+%If one of the parties in this figure, refuses to cooperate, NFC will not launch.
+What we see now (artikel tweakers en global platform) is that issuers and MNO are working together to make NFC available for customers.
+The next thing to happen is that mobile phones will get NFC hardware and an implementation of a secure element.
+With Nokia's 6131 NFC phone a first step was made for developers.
+But now also Google has announced that they will introduce a NFC phone and some rumours suggest that also Apple is developing a new Iphone with NFC, see \cite{nu_artikel}.
+If customers like NFC because of the possibilities it will take off and demands for other applications will be made. 
+
+%These SEs will allow for new applications to be built on top of existing RFID technology, as electronic payment and public transport companies are already demonstrating.
 
 %There are two major use cases that sparked its development, namely mobile payments and access control. %MARK we zouden access control toch niet meer gebruiken?
 
@@ -53,11 +66,11 @@ These SEs will allow for new applications to be built on top of existing RFID te
 %\subsection{Implementation}
 
 \subsection{Motivation}
-RFID-based applications for access control and public transport payment are already in place, and are likely to make the transition to NFC-enabled mobile phones.
+RFID-based applications for access control and public transport ticketing systems are already in place, and are likely to make the transition to NFC-enabled mobile phones.
 In our opinion, this transition warrants some serious security research.
-A lot of literature on the subject is already available.
-
-However, to our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
+%A lot of literature on the subject is already available.
+%To our knowledge there has been no succinct, definitive overview leading from the system organisation to the security architecture and the known vulnerabilities of NFC systems.
+Our aim is to present a succinct overview of current research on NFC technology with an emphasis on the security risks potentially involved, and possible countermeasures.
 
 
 % "Did you google scholar around for this?"
@@ -68,7 +81,7 @@ However, to our knowledge there has been no succinct, definitive overview leadin
 % Naar welk aspect kijken wij? - Verderop in 1.5 geven jullie hier beter antwoord op
 
 %TODO
-\textbf{TODO nalopen}
+%\textbf{TODO nalopen}
 In this paper we will describe various applications of NFC technology and show how these relate to different NFC architectures.
 We will also summarize some of the known vulnerabilities surrounding NFC-applications and investigate what possible countermeasures exist.
 We hypothesize that most new vulnerabilities will be found in applications built on top of NFC systems, rather than in the NFC architecture itself.
@@ -85,6 +98,7 @@ We envision vendors might try to apply existing business rules to this new techn
 %In chapter \ref{chap:known_vulnerabilities} we will summarize security issues on vulnerabilities in NFC or NFC-like applications.
 
 %Based on the architecture and these vulnerabilities, we present a number of foreseen vulnerabilities and explain some possible countermeasures against these foreseen vulnerabilities in chapter \ref{chap:foreseen_vulnerabilities}.
+
 
 
 %Bronnen:

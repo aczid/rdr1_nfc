@@ -5,8 +5,8 @@
 While consumers might see NFC applications as a gadget that will make their lives easier, this development towards contactless payment systems has raised questions from security researchers.
 %TODO Summarize and reference some security research done on RFID.
 
-Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology. Research has been done on the security of NFC and the results show that attacks are possible, which will be discussed below.
-
+Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology.
+NFC's security features have been the subject of research and some of attacks found possible which will be summarized below.
 Because NFC will be used in payment and access control, it should be assumed that attackers will try to exploit this technology for their own gain. 
 %Research has been done on the security of NFC in several areas, among which:
 
@@ -22,16 +22,34 @@ Because NFC will be used in payment and access control, it should be assumed tha
 \subsection{Relay attacks}
 % TODO
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
-RFID, a technology that NFC is compatible with, is prone to relay attacks. A relay attack is a combination of a man-in-the-middle and relay attack. The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get an item from a shop, but the victim is the one who is paying. 
-To achieve this, the attacker will need a device that fakes a NFC phone or plastic NFC card (ghost) and a device that fakes a reader (leech). The ghost will be used to communicate with a genuine reader and the leech will communicate with a genuine card. The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 cm, because then the attack will go unnoticed. \cite{1128470}
-With this attack it will also be possible to gain access to the public transport. The check-in gate will communicate with the ghost, which will pass it on to the leech, which will pass it on victim and vice versa. The check-in gate will "think" it is communicating with the victim, but because the attacker is closer to the gate then the victim, he will gain access first and the victim will pay.
+RFID, a direct ancestor of NFC, is prone to relay attacks.
+A relay attack is a combination of a man-in-the-middle and relay attack.
+The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get a product from a retailer, but the victim is the one who is paying. 
 
-\subsection{Countermeasures relay attacks}
-There are three possible countermeasures, a Fareday-cage, activation by the user or Two-Factor authentication. A Fareday-cage will block all the wireless communication, so an attacker can make contact with the device. This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
-With activation of the user, the user will have to switch on NFC on the device, to be able to e.g. make a payment or use public transport. It will not be possible for an attacker to use the phone at any time. This will slighty decrease the user friendliness, because the user will have to switch NFC on and off when it will be used.
-With Two-Factor authentication, the user will be asked to present something, e.g. a password, pincode or token. NFC will be turned on all the time, but only when it will be used, the user will type the pincode and a connection is made. The attacker will actually notify the user, that a connection will be made. If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the pincode, the attack is avoided. This countermeassure will also decrease the user friendliness. \cite{1128470}
+To achieve a relay attack, the attacker will need a device that emulates an RFID card (called the \textit{ghost}), and a device that acts as an RFID reader (called the \textit{leech}).
+The \textit{ghost} will be used to communicate with a genuine reader and the \textit{leech} will be used communicate with a genuine card (the victim).
+The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate on much larger distance then the normal operational distance of 10 centimeters, so that the attack will go unnoticed. \cite{1128470}
 
-Overall this attack will not be feasible, because the attacker has to be in relative close range, which will look suspicious. It will also be difficult to maintain an active connection with the terminal and the victim.
+For example, with this attack it could be possible to gain access to public transport.
+The check-in gate will communicate with the ghost, which relay the communication on to the leech, which will then relay it to the victim and vice versa.
+The check-in gate will conclude it is communicating with the victim, but because the attacker is closer to the gate than the victim, he will gain access first and the victim will pay.
+
+\subsection{Countermeasures against relay attacks}
+There are three possible countermeasures, a Faraday-cage, interactive confirmation to activate by the user or Two-Factor authentication.
+A Faraday-cage will block all RF communication, so an attacker can make contact with the device.
+% TODO faraday cage uitleggen
+This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
+Interactive confirmation to activate the connection will defend the user from accidentally making a transaction.
+%The user will have to confirm NFC on the device, to be able to e.g. make a payment or use public transport.
+It will not be possible for an attacker to use the phone at all times.
+This will slightly decrease the user friendliness, because there will be an extra step for user to switch the NFC feature on.
+With Two-Factor authentication, the user will be asked to present something, e.g. a password, pincode or token.
+NFC will be turned on all the time, but only when it will be used, the user will type the pincode and a connection is made.
+The attacker can actually notify the user, that a connection will be made.
+If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the password, the attack is avoided.
+This countermeasure will also decrease user friendliness. \cite{1128470}
+
+Overall this attack will have lower feasibility than relay attacks on RFID cards, precisely because the user is presented with the option of accepting or declining transactions.
 
 
 %plaatje relay attack
@@ -40,44 +58,68 @@ Overall this attack will not be feasible, because the attacker has to be in rela
 % I - stiekem met iemand z'n kaart praten
 % II - een frauduleus/gemhackte terminal neerzetten waar iemand - willens en wetens - z'n kaart tegenaan houdt.
 
-\subsection{Malware distribution vectors}
-One way to distribute malware is to use the smart poster.
+\subsection{Malware distribution}
+Smart poster technology can be used to distribute malware.
 It has proven to be possible to mislead a user to visit a malicious website through a modified NFC-tag.
-By using space, tab and new line characters in the data transmitted from the RFID-tag, the attacker is could modify the title of the message so that it looks normal (with a title and URL) to the user.
-The actual URL part of message is not shown to user, but it is still executed.
-The user is unaware, that he or she is directed to a malicious website, from where a number of further attacks are possible.
-In the same way it is possible to let the user call or send a text message to a different number, e.g. an 0900-number.
+In a technique using \textit{Smart poster URI spoofing}, an attacker could modify the title of a message containing a malicious URI using whitespace characters like space, tab and new line characters so that it looks innocent to the user.
+The actual URI in message is not shown to user, but the user is still directed there upon receiving the communication from the smart poster.
+%The user is unaware that he or she is directed to a malicious website, from where a number of further attacks are possible.
+%In the same way it is possible to let the user call or send a text message to a different number, e.g. an 0900-number.
+The different services a user can be directed to through URI spoofing depends on the browser attacked, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
 
-It is also possible to hide and spread a worm in this manner.
-Therefore, the phone of the user has to be infected with the worm. When the phone reads a tag, it will try to change it, like described above.
+It is also possible to hide and spread a computer worm in this manner.
+For such a worm to propagate, it will the phone of the user has to be infected with the worm.
+When the phone reads a tag, it will try to change it, like described above.
 The next user will be pointed to a website where he will be tricked into downloading and installing a copy of the worm.
 
-A denial of service attack is also possible, with the goal to let users stop using the service. By using a tag that sends out malformed messages, taped on top of the original tag, the phone of the user will crash when he attempts to read the tag. \cite{mulliner2009vulnerability,rieback2006your} 
+\cite{mulliner2009vulnerability,rieback2006your} 
 
-\subsection{Countermeasures malware distribution vectors}
-This vector is similar to other networking attacks
-The best defense against these kinds of attacks is user vigilance in spotting malicious. 
+\subsection{Countermeasures against malware distribution}
+This vector is similar to other networking attacks, the best defense against these kinds of attacks is user vigilance in spotting malicious messages.
+These attacks can possibly be mitigated against by taking preventive measures in the client software.
 
 \subsection{Differential Power Analysis Attack}
+A Differential Power Analysis (DPA) attack is a form of side channel attack.
+A side channel attack is based on information that can be collected by analysing the physical operation of a cryptographical system (cryptosystem) e.g. by analysing the power usage, electromagnetic radiation leakage or timing of a cryptosystem.
+It is possible to prevent this from happening by implementing extra shielding, filtering inputs and outputs.
+DPA attacks are a problem for devices where the cryptosystem has to be small, cheap and have low power usage (like the secure elements used in NFC).
 
-A Differential Power Analysis (DPA) attack is a form of side channel attack. A side channel attack is based on information that can be collected by analysing the physical implementation of a cryptographical system (cryptosystem) e.g. power usage, electromagnetic leakage or timing. It is possible to prevent this from happening, by implementing extra shielding, filtering inputs and outputs. This is a problem for devices where the cryptosystem has to be small, cheap and low on power usage e.g. the secure element in a mobile device.
+With DPA the power consumption is measured to extract information about the workings of the cryptosystem.
+To measure the power consumption an analog to digital converter is used.
+When the cryptosystem is processing, the power usage will vary during the different operations.
+The information is statistically analyzed to determine the key or plaintext, or it can give information about the key, which can help to speed up the attack or help a different attack to succeed.
 
-With DPA the power consumption is measured to extract information about the workings of the cryptosystem. To measure the power consumption an analog to digital converter is used. When the cryptosystem is processing, the power usage will vary during the different operations. The information is statistically analyzed to determine the key or data, or it can give information about the key, which can help to speed up the attack or help a different attack to succeed. This technique can also be applied for electromagnetic radiation. Information can also be collected from signals generated by data travelling to and from the secure element and memory.
-All these variations in ICC, wires and electromagnetic radiation can provide information to be analyzed to yield some information about the key or secret data.
+DPA can also be applied for electromagnetic radiation.
+Information about the crytposystem can be collected from the RF noise given off by the electronic signals representing the data travelling to and from the secure element and memory.
+All these fluctuations in the integrated circuit, wires and electromagnetic radiation can provide information to be analyzed to yield some information about the key or secret data.
 
-One measurement of these variations might not be enough to produce the entire key, because of noise (e.g. inaccuries, outside influence) that is collected during the measurement, which will provide no information about the key. Therefore several measurements are necessary to distinguish the signal from the noise. By aligning the meassurements, an attacker can compare data on single points of interest. By averaging the collected data, the usable signal is amplified and the noise is filtered out.
+One measurement of these variations might not be enough to produce the entire key, because of noise (e.g. inaccuries, outside influence) that is collected during the measurement, which will provide no information about the key.
+Therefore several measurements are necessary to distinguish the signal from the noise.
+By aligning the measurements, an attacker can compare data on single points of interest.
+By averaging the collected data, the usable signal is amplified and the noise is filtered out.
 
-Another way to collect information about the key, besides taking many different measurements, are changing some bits of the key to check if the changes might reveal some information about process. This technique can also be repeated and statiscally analyzed to get the key. Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected.
+Another way to collect information about the key, besides taking many different measurements, is changing some bits of the key to check if the changes might reveal some information about the encryption process.
+This technique can also be repeated and the resulting data statistically analyzed to get the key.
+Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected.
 
 \subsection{Countermeasures Differential Power Analysis}
-A DPA attack is succesful if enough information can be collected to retrieve the key in the cryptosystem. By increasing the number off measurements, it will take more time to collect the information needed to retrieve the key. 
-There are several ways to increase the number of measurements. For example, randomly generated noise can be added to the operations of the cryptosystem, which will make harder to filter out the signal, because more measurements are needed. Another way is to reduce the signal size, making it harder to pick up. 
-If the cryptosystem is designed to self-destruct (it brakes) after a certain amount of operations and the number of measurements needed to retrieve the key is higher then amount of operations, the key can not be retrieved.
+A DPA attack is successful if enough information can be collected to retrieve the key in the cryptosystem.
+By increasing the number of measurements, it will take more time to collect the information needed to retrieve the key. 
+There are several ways to increase the number of measurements required.
+For example, randomly generated noise can be added to the operations of the cryptosystem, which will make it harder to filter out the signal from the noise, because more measurements are needed.
+Another way is to reduce the signal size, making it harder to pick up. 
+If the cryptosystem is designed to self-destruct after a certain amount of operations and the number of measurements needed to retrieve the key is higher then amount of operations, this adds another level of defense against an attacker retrieving the key.
 
-Another countermeasure to prevent information from being collected is clock skipping. Normally a cryptosystem uses an external clock for its processing, with clock skipping an internal clock is used in the cryptosystem. This will create more noise and will prevent the attacker aligning the points of interest in the collected data and making it more difficult to identify the signal. 
+Another countermeasure to prevent information from being collected is clock skipping.
+Normally a cryptosystem uses an external clock for its processing.
+With clock skipping an internal clock is used in the cryptosystem.
+This will create more noise and will prevent the attacker from aligning the points of interest in the collected data and making it more difficult to identify the signal. 
 
-A countermeasure that can also be effective against DPA is, to use a random number generator to add an amount of unpredictability in the order in which the crypto operations are executed. The result is that it will be harder for the attacker to find the points of interest in the collected data. Making it more difficult to extract the key. 
+A countermeasure that can also be effective against DPA is, to use a random number generator to add an amount of unpredictability in the order in which the crypto operations are executed.
+The result is that it will be harder for the attacker to find the points of interest in the collected data, making it more difficult to extract the key. 
 
 % ERIk open platform vs gesloten platform
 
+\subsection{Denial of Service}
+A denial of service attack is also possible, with the goal to let users stop using the service. By using a tag that sends out malformed messages, taped on top of the original tag, the phone of the user will crash when he attempts to read the tag.
 %TODO Countermeasures

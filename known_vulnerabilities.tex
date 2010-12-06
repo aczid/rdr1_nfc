@@ -23,7 +23,7 @@ Because NFC will be used in payment and access control, it should be assumed tha
 % TODO
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
 RFID, a direct ancestor of NFC, is prone to relay attacks.
-A relay attack is a combination of a man-in-the-middle \footnote{In a man-in-the-middle attack a malicious attacker places himself or herself between two communicating parties without either party knowing their communication flows through this man in the middle.} and replay attack \footnote{In a replay attack, the data used for an authentic transaction is collected and replayed for malicious purposes}.
+A relay attack is a combination of a man-in-the-middle\footnote{In a man-in-the-middle attack a malicious attacker places himself or herself between two communicating parties without either party knowing their communication flows through this man in the middle.} and replay attack\footnote{In a replay attack, the data used for an authentic transaction is intercepted and retransmitted (i.e. `replayed') for malicious purposes}.
 The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get a product from a retailer, but the victim is the one who is paying. 
 
 To achieve a relay attack, the attacker will need a device that emulates an RFID card (called the \textit{ghost}), and a device that acts as an RFID reader (called the \textit{leech}).

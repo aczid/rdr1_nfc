@@ -1,0 +1,102 @@
+12:21 <@toddy> het ", see [nu]" stukje is een beetje abrupt. Zou er gewoon een normale reference van maken
+12:26 <@trib0l> het is me ook niet helemaal duidelijk waar het nou eigenlijk over gaat. het ene moment is het 'mobile 
+                 devices', dan weer 'phones', dan gaat het over betalen met je telefoon, dan betalen met je mobiele device, 
+                 dan "openbaar vervoer" wat weer anders is dan "betalen" ...
+
+12:27 <@trib0l> en de impact van DPA is me niet duidelijk in de context van mobile payments.
+12:28 <@trib0l> wat win je met het hebben van de key, tegenover het hebben van het hele device?
+
+12:29 <@toddy> aczid: "in the from of Bluetooth
+12:31 <@toddy> "An architecture for the
+12:31 <@toddy> application of mobile devices as electronic cash must provide a means to authen-
+12:31 <@toddy> ticate transactions before authorizing their execution
+12:31 <@toddy> wow, wonky.
+12:31 <@toddy> maar goed, MUST?
+12:31 <@toddy> hoezo? Is dat een requirement van iets, of gewoon een goed idee, of wat?
+12:31 <@toddy> dat vond ik in het begin van het document ook onduidelijk.
+
+12:32 <@toddy> NFC systems require security features (similar to those relied upon in RFID
+12:32 <@toddy> technology) in order to qualify as a trusted platform which meets the security
+12:32 <@toddy> criteria for applications where assets of value are exchanged. 
+12:33 <@toddy> Daar ook zo'n stukje. Waar komt die requirement vandaan? Is dat iets van de overheid of zo
+12:35 <@toddy> Het hele gedeelte over EMV vind ik maar overbodig eigenlijk.
+12:35 <@toddy> Als het niet overbodig is is mij niet duidelijk waaorm niet ;-)
+
+12:39 <@toddy> aczid: ik vind eerlijk gezegd het hele introtje bij Hfdstuk 3 aanvoelen als opvullertje. :)
+12:40 <@toddy> Volgens mij had het hele stuk samengevat kunnen worden met "net als bij ICC's en GSM moet NFC ook secure 
+                storage bla bla"
+12:41 <@trib0l> "je kan dit blokje hier zetten, of hier zetten, of hier ..." maar wat nou eigenlijk de requirements, danwel 
+                 voordelen, zijn is me niet helemaal duidelijk
+12:42 <@trib0l> of hoe je crypto hardware in een SD-kaart stopt
+12:42 <@trib0l> maar dat kan weer aan mij liggen
+12:44 <@toddy> zal wel geen SD kaart zijn voor storage maar waar een chip met NFC software op zit?
+12:44 <@toddy> Vind de figuurtjes een beetje simplistisch. Ze verhelderen voor mij het verhaal niet echt.
+
+12:47 <@toddy> Er mag ook wat meer emphasis liggen in het begin op de diverse componenten in het hele verhaal..
+12:48 <@toddy> ik weet niet of ikhet nu goed snap, maar de SE is wat in je mobile device zit, de TSM is een updater 
+                dingetje... maar waar zit dat dan? Zou dat dan bijvoorbeeld het ding in de kaartjes automaat zijn?
+12:48 <@toddy> zo niet, wat is dan het ding in de kaartjes automaat? En waarom/wanneer wordt er geupdate?
+
+12:49 <@trib0l> een simpel blokjes overzicht van 2 NFC-devices die met elkaar praten zou helpen
+12:51 <@toddy> Ik denk ook dat het kopje "System Architecture" mij compleet op het verkeerde spoor gezet heeft. Ik 
+                verwachte dat ik ging lezen over hoe het werkt
+12:52 <@toddy> dus idd agreed met trib0l dat heel hoofdstuk 3 overbodig lijkt
+12:53 <@toddy> 'Lijkt', want dingen als dat de chip de hardware van de phone moet vertrouwen is volgens mij wel relevant
+12:53 <@trib0l> omdat het over NFC in het algemeen gaat, en niet over specifieke real-world applicaties, denk ik dat je 
+                 meer een abstracte gesimplicifeerde toepassing moet opzetten
+12:54 <@trib0l> en daar vervolgens requirements, implementaties, en attack vectors op moet gaan beschrijven
+12:57 <@toddy> 'eech will be used communicate
+12:57 <@toddy> +to daar :)
+12:57 <@toddy> 'that they operate on much larger distance then
+
+13:06 <@toddy> Dit is op zich een beetje raar: Eerst wordt er in 4.1 gezegd: "the normal operational distance of 10 cm", en 
+                dan later een counter measure om er voor te zorgen dat die shit maar werkt vanaf, zeg, 10 cm. 
+13:07 <@toddy> Ik snap dat de leech waarschijnlijk gewoon meer power gebruikt en dus vanaf verder kan communiceren dan 
+                normaal, en dat die roundtrip meuk er voor zorgt dat dat niet meer mogelijk is, maar echt duidelijk is het 
+                niet.
+13:07 <@trib0l> MOAR PLAATJES
+13:08 <@toddy> Zou handig zijn als nog even genoemd wordt dat "this effectively prevents the Leech from communicating with 
+                the victim beyond the normal operational distance of 10cm"
+
+13:10 <@toddy> Vraag me af of die Malware Distribution wel echt een weakness is in NFC, en zo ja, of het in het design fout 
+                zit of in wat simpele software die makkelijk vervangenen kan worden.
+13:11 <@trib0l> lijkt me meer een weakness in NFC-devices, maar dan kom je weer bij de vraag of het nou gaat over 
+                 theoretische NFC of real-world implementaties
+
+13:13 <@toddy> De hoofdstuk indeling van hoofdstuk 4 is ook een beetje gaar. 4.1 Relay Attack. 4.2 Counter measures against 
+                relay attack
+13:13 <@toddy> 4.2 hoort gewoon 4.1.2 te zijn of zo
+
+13:14 <@trib0l> of, imho beter: 4.1 Relay attacks   4.1.1  How fuck works relay attack  4.1.2  How fuck breaks NFC  4.1.3  
+                 How fuck to be fixing
+
+13:15 <@toddy> 'All these fluctuations in the integrated circuit, wires and electromagnetic radi-
+13:16 <@toddy> Zijn het niet de IC en draadjes die de electromagnetische radiation afgeven?
+
+13:19 <@toddy> One measurement of these variations might not be enough to produce the
+13:19 <@toddy> entire key, because of noise (e.g. inaccuries, outside influence) that is collected
+13:19 <@toddy> during the measurement, which will provide no information about the key
+13:19 <@toddy> dit is ook weird
+13:19 <@toddy> waar komt die plotselinge 'no information about the key' vandaan.
+
+13:19 <@trib0l> ik snap hem wel, maar het loopt voor geen meter
+13:20 <@toddy> als er geen information van de key gekregen kan worden door noise, en er is altijd wel noise, dan is het dus 
+                gewoon geen issue.
+13:20 <@trib0l> met 1 measurement
+13:20 <@trib0l> noise geeft no information over de key
+13:20 <@trib0l> dus met 1 measurement kan je noise niet van de key onderscheiden
+13:20 <@trib0l> dus zinloos
+13:20 <@toddy> oooh
+13:21 <@toddy> op die fiets
+
+13:21 <@toddy> dit ook, zelfde probleem inho:
+13:21 <@toddy> For example, randomly generated noise can be added
+13:21 <@toddy> to the operations of the cryptosystem, which will make it harder to filter out
+13:21 <@toddy> the signal from the noise, because more measurements are needed
+13:21 <@toddy> dus het is moeilijker om het signaal uit te filteren omdat er meer measurements genomen moeten worden?
+13:21 <@trib0l> ... ja zoiets :)
+13:22 <@toddy> "from the noise, therefor requiring more measurements"
+13:22 <@toddy> zo iets zou ik er van maken
+13:22 <@trib0l> maar ik denk dat eerst de structuur en opzet gefixt moet worden, en pas dan muggenziften over zinnen die 
+                 niet lopen.
+

@@ -77,7 +77,7 @@ Just like smart cards, SIM cards and RFID cards, NFC-enabled handsets require a 
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
-Secure storage for NFC applications similar to that provided by smart cards has been designed in the \textit{Secure Element} (SE) architecture.
+Secure storage for NFC applications similar to that provided by smart cards has been implemented in the \textit{Secure Element} (SE) architecture.
 SEs can be updated over-the-air by a \textit{Trusted Services Manager} (TSM), provided the TSM's certificate is trusted by it.
 Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
 
@@ -134,7 +134,7 @@ An embedded secure element
 
 %\subsubsection{Modular Secure Element}
 \begin{item}
-Another option is an external SD-card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
+Another option is a flashcard like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
 In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data.
 \begin{figure}

@@ -1,6 +1,7 @@
 \section{Applications}
-While NFC is an emerging technology, some areas in which it likely to be applied can already be identified.
+While NFC is an emerging technology, some areas in which it is likely to be applied can already be identified.
 Various parties throughout the areas of public transport, advertising, building security and banking have expressed interest in employing NFC technology.
+% TODO ref
 
 For illustrative purposes a few applications in which NFC can be used are mentioned below.
 
@@ -14,13 +15,13 @@ A ticket stored inside a smartphone has some advantages over an RFID card, e.g. 
 Public transport companies in the Netherlands have largely adopted RFID technology for their electronic ticketing system, through infrastructure provider \textit{Trans Link Systems} (TLS).
 %TODO referentie naar pilot
 TLS was created as a joint venture between Dutch public transport companies to realise an electronic payment system for their services.
-They have also been investigating the feasibility of mobile phone-based payment applications using NFC.
+They have also been investigating the feasibility of mobile phone-based payment applications using NFC. \cite{cipit_artikel}
 
 The use of NFC technology for electronic ticketing in public transport is currently considered unfeasible by TLS because it would require users to own an NFC-enabled handset; devices which so far have no significant market penetration in the Netherlands.
 Also, the relatively high cost of an NFC-enabled phone as well as the requirement to keep the device powered on during the length of a trip are aspects of NFC which go against TLS's aim for a low threshold in using their electronic ticket system.
 %It would also prohibitively expensive for most users and NFC phones are not widely available.
 
-Support for NFC-enabled devices in TLS's system could improve user experience by giving users the option to check or increase the balance of their electronic ticket account at any given time, alleviating the oft-heard complaint of currently only being able to do so at (most) train stations.
+Support for NFC-enabled devices in TLS's system could improve user experience by giving users the option to check or increase the balance of their electronic ticket account at any given time, alleviating the often heard complaint of currently only being able to do so at (most) train stations.
 TLS are still investigating the possibility of adopting NFC technology as an alternative payment method in the future. \cite{OVchipkaart} %referentie naar TLS
 
 %hasn't been implemented on a mobile device yet, but plans are being made.
@@ -28,19 +29,23 @@ TLS are still investigating the possibility of adopting NFC technology as an alt
 
 
 \subsection{Payment}
-In the summer of 2004, Japanese telecommunications provider \textit{NTT DoCoMo} initiated wide deployment of RFID technology for payment applications in Japan, where now virtually every issuer of payment cards supports \textit{Sony}'s \textit{Felica Mobile Wallet}.
-This de-facto standard for mobile payment has been integrated into the mobile Suica service, where the mobile device emulates the behaviour of an RFID card.
-In the future more advanced applications could be created by making use of the active communication possibilities of NFC.
+In the summer of 2004, Japanese telecommunications provider \textit{NTT DoCoMo} initiated wide deployment of RFID technology for payment applications in Japan, where now virtually every issuer of payment cards supports its trademark \textit{Osaifu-Keitai} (`mobile wallet') system.
+Osaifu-Keitai is based on the \textit{FeliCa} RFID chip developed by \textit{Sony}, and is interoperable with \textit{FeliCa} RFID applications such as the \textit{Suica} public transport card and the \textit{Edy} electronic payment card.
 \cite{yamauchi2006intensive}
+
+%This de-facto standard for mobile payment has been integrated into the mobile Suica service, where the mobile device emulates the behaviour of an RFID card. 
+%In the future more advanced applications could be created by making use of the active communication possibilities of NFC. 
 
 With the ability to directly transfer data between two parties, NFC technology might come to be used as a medium for peer-to-peer electronic payments.
 This concept has been explored in \textit{mFerio}, a proof of concept peer-to-peer mobile payment system which was designed to be as fast and easy to learn and use, and to be as available as cash.
 The proposed system should also improve accuracy and speed, while still meeting security criteria like transaction integrity, anonymity, tamper-resistance, impossibility to replicate and theft resilience. 
-\textit{mFerio} uses NFC because of three advantages over other mechanisms, namely it has a short range (harder to intercept transactions), it is quick and easy to set up and a user knows with which device communication is set up.
-In \textit{mFerio}, the \textit{secure element} (SE) contains the electronic cash and personal details of the user, which by design will not be accessible by unauthorised users if the SE is hardware protected \cite{1555846}.
+%\textit{mFerio} uses NFC because of three advantages over other mechanisms, namely it has a short range (harder to intercept transactions), it is quick and easy to set up and a user knows with which device communication is set up.
+In \textit{mFerio}, the \textit{Secure Element} (SE) contains the electronic cash and personal details of the user, which by design will not be accessible by unauthorised users if the SE is hardware protected \cite{1555846}.
 
 Another possibility is to create an offline payment system with the use of electronic vouchers.
-A user can receive an `eVoucher' via an SMS from an issuer and transfer this eVoucher to other users (via NFC, SMS or an RFID tag) and payment terminals.
+In this scheme, an \textit{Issuer} can distribute so-called `eVouchers' to \textit{Beneficiaries} via SMS.
+These beneficiaries can then then exchange vouchers amongst themselves or transfer the eVoucher to an \textit{Affiliate} payment terminal.
+%rom an issuer and transfer this eVoucher to other users (via NFC, SMS or an RFID tag) and payment terminals.
 Users are also able to check the balance, history and expiration date of their eVouchers. 
 
 %There are three risks concerning this implementation, first the possibility of copying the eVouchers, second counterfeiting them and third loss of eVouchers in a transaction.

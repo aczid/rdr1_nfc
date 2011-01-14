@@ -1,7 +1,7 @@
 \section{System Architecture}
 \label{chap:hardware_architecture}
 With the development of mobile payment applications comes the requirement to ensure the security of the financial assets involved.
-An architecture for the application of mobile devices as `electronic cash' must provide a means to authenticate transactions before authorizing their execution, whether that be on-line or off-line.
+An architecture for the application of mobile devices for `electronic cash' must provide a means to authenticate transactions before authorizing their execution, whether that be on-line or off-line.
 
 %In electronic payment applications there are at least three roles to be distinguished: consumers, merchants and payment providers.
 %For each inter-party transaction, the parties must be identified and authenticated.
@@ -58,7 +58,7 @@ A UICC (SIM) card as used in GSM holds the Mobile Network Operator's secret key.
 
 These types of cards, also known as SIM cards, remain property of the \textit{Mobile Network Operator} (MNO) after distribution, much like a bank card or passport remain the property of their respective issuers. %TODO referentie
 The contents of the card may normally not be modified by third parties.
-Due to this, the current generation of mobile devices lacks a common infrastructure for third parties to make use of such secure storage for their own applications.
+Due to this, the current generation of mobile devices lacks a common infrastructure for third parties to make use of such a secure computation platform for their own applications.
 
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties
@@ -73,7 +73,7 @@ Due to this, the current generation of mobile devices lacks a common infrastruct
 
 \subsection{Secure elements}
 %Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly compatible with RFID applications must also allow for similar functionality.
-Just like smart cards, SIM cards and RFID cards, NFC-enabled handsets require a secure storage and processing module to be included in their design as conventional storage on and operation of mobile devices are liable to tampering by the user.
+Just like SIM cards and RFID cards, NFC-enabled handsets require a secure storage and processing module to be included in their design as conventional storage on and operation of mobile devices are liable to tampering by the user or malicious third party.
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
@@ -134,7 +134,7 @@ An embedded secure element
 
 %\subsubsection{Modular Secure Element}
 \begin{item}
-Another option is a flashcard like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
+Another option is a flash memory card like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
 In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data.
 \begin{figure}
@@ -152,7 +152,7 @@ A secure element in an SD package
 \begin{item}
 Related to the above architecture is the one depicted in figure \ref{fig:multi_sim}.
 Here the architecture consists of a handset with multiple UICC slots.
-In this design various applications have access to their own UICC which takes on the role of a SE.
+In this design various applications have access to their own UICC which takes on the role of an SE.
 This way, applications from different providers can coexist on the handset, without the need for them to trust one another or a TSM operating on their behalf. % there is no problem with splitting the resources of one SIM card and the trust issue between different companies.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/meerdere_sims}
@@ -166,7 +166,7 @@ Multiple SIM cards for different applications
 
 \begin{item}
 %\subsubsection{Trusted SIM card}
-It is also possible to split the resources available on the SE between various parties, granted they can trust each other to not to abuse the privilege of being able to access one another's data.
+It is also possible to split the resources available on the SE between various parties, granted they trust each other to not abuse the privilege of being able to access one another's data.
 This sharing of resources is possible because smart cards in general are becoming more powerful.
 This makes two different architectures possible.
 The first one, as pictured in figure \ref{fig:sim_se}, uses the SIM card as secure element.

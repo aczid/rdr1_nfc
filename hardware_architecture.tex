@@ -45,7 +45,7 @@ The enhanced security provided by the EMV system has effected a liability shift 
 A similar application of smart cards can be found in mobile telephony networks.
 Worldwide, most mobile telephones make use of the \textit{Global System for Mobile Communications} (GSM) system.
 The GSM standard already provides a mechanism for authentication to the network by means of a smart card, albeit in a different form factor, called a \textit{Universal Integrated Circuit Card} (UICC).
-In GSM networks, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which provides a mobile handset access to the encryption routines required for authentication on the network while the required secret key remains stored securely inside.
+In GSM networks, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which provides a mobile handset access to the encryption routines required for authentication on the network while the required secret key remains stored securely inside.\footnote{The only difference between a ICC and UICC is that a UICC is only used in mobile telephony networks and run a SIM application in GSM networks}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SIM_in_GSM}
@@ -78,7 +78,7 @@ Just like SIM cards and RFID cards, NFC-enabled handsets require a secure storag
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
 %Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
 Secure storage for NFC applications similar to that provided by smart cards has been implemented in the \textit{Secure Element} (SE) architecture.
-SEs can be updated over-the-air by a \textit{Trusted Services Manager} (TSM), provided the TSM's certificate is trusted by it.
+The software on the SEs can be updated over-the-air by a \textit{Trusted Services Manager} (TSM), provided the TSM's certificate is trusted by it.
 Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
 
 %The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
@@ -136,7 +136,7 @@ An embedded secure element
 \begin{item}
 Another option is a flash memory card like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
-In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data.
+In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data. If the user wishes to use applications from several third parties, they need to SD cards from all of those parties. This can be a downside, because the user has to switch the SD card if they want to use a different application.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SD_NFC}
 \caption[SE in SD package]

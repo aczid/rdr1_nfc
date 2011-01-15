@@ -16,7 +16,7 @@
 %Passive tags do not have batteries and can only communicate with a reader when it is within range (ten centimeters according to specifications, although ranges up to ten meters can be covered by more powerful, specialistic equipent).
 %Active tags can be read at a range up to about 100 meters.
  
-NFC is an extension of the RFID protocol, which means it allows mobile devices to assume the capabilities of an RFID tag or reader, or utilize an RF connection interactively\footnote{By interactive usage, we mean that both parties act as both the sender and the receiver.}.
+NFC is an extension of the RFID protocol, which means it allows mobile devices to assume the capabilities of an RFID tag or reader, and therefore utilize a radio frequency (RF) connection interactively\footnote{By interactive usage, we mean that both parties act as both the sender and the receiver.}.
 RFID tags consist of an integrated circuit (microchip) which stores and processes data (e.g. name, fingerprint or product number) and can transmit and receive information wirelessly. %via a modulated radio frequency (RF) signal through an antenna.
 These tiny chips can be embedded in products such as bar code stickers, public transport tickets and passports.
 
@@ -26,9 +26,8 @@ Having NFC functionality available in a mobile handset would allow for use cases
 
 RFID-based applications for access control and public transport ticketing systems are already in place, and are likely to make the transition to NFC-enabled mobile phones.
 In our opinion, this transition warrants some security research.
-NFC systems require security features (similar to those relied upon in RFID technology) in order to qualify as a trusted platform which meets the security criteria for applications where assets of value are exchanged.
-The required features include the ability to run signed code which can be remotely updated.
-A hardware component which provides these features is called a \textit{Secure Element} (SE) and lies at the core of the security architecture that NFC applications build on.
+NFC systems require security features (similar to those relied upon in RFID technology) in order to qualify as a trusted platform. This will allow NFC to meet the security criteria for applications where assets of value are exchanged. One of the required features is e.g. the ability to run signed code which can be remotely updated.
+A hardware component which provides the required features is called a \textit{Secure Element} (SE) and lies at the core of the security architecture that NFC applications build on.
 Access to the SE is regulated by a \textit{Trusted Service Manager} (TSM) who holds the private key necessary to update applications running on it.
 
 %\subsection{Industry adoption of NFC}

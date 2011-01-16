@@ -67,17 +67,21 @@ For NFC this will ideally be 10 centimeters, as this is the specified operationa
 
 \subsection{Malware distribution}
 Smart poster technology can be used to distribute malware.
-It has proven to be possible to mislead a user to visit a malicious website through a modified NFC-tag.
-In a technique using \textit{Smart poster Uniform Resource Identifier spoofing}, an attacker could modify the title of a message containing a malicious URI using whitespace characters like space, tab and new line characters so that it looks innocent to the user.
-The actual URI in the message is not shown to user, but the user is still directed there upon receiving the communication from the smart poster.
+It has proven to be possible to mislead a user to visit a malicious website through a modified RFID-tag using a technique called \textit{Smart poster URI spoofing} which exploits a vulnerability in a user's browser.
+To exploit such a vulnerability, an attacker would target a user known to be running a vulnerable browser with a specially crafted message which contains a malicious \textit{Uniform Resource Identifier} (URI) which is disguised to look innocent.
+By using whitespace characters like space, tab and new line characters in the transmitted URI it can be made to appear to identify a different resource than it actually does when presented to the user.
+The URI addressing malicious content is therefore not shown to user, but the user is still directed there upon visiting the innocent-looking link communicated by the smart poster.
+\cite{mulliner2009vulnerability}
+
 %The user is unaware that he or she is directed to a malicious website, from where a number of further attacks are possible.
 %In the same way it is possible to let the user call or send a text message to a different number, e.g. an 0900-number.
 The different services a user can be directed to through URI spoofing depend on the browser attacked, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
 
-It is also possible to hide and spread a computer worm in this manner.
-For such a worm to propagate, the phone of the user has to be infected with the worm. When the phone reads a tag, it will try to change it, like described above. The next user that reads the tag will be pointed to a website, where he will be tricked into downloading and installing a copy of the worm.
-
-\cite{mulliner2009vulnerability,rieback2006your} %TODO fix
+It is also possible to hide and spread a computer worm which propagates via NFC.
+%For such a worm to propagate, the phone of the user has to be infected with the worm.
+When the phone reads a tag, it will try to change it, like described above.
+The next user that reads the tag will be pointed to a website, where he will be tricked into downloading and installing a copy of the worm.
+\cite{rieback2006your}
 
 \subsection{Countermeasures against malware distribution}
 This vector is similar to other networking attacks, the best defense against these kinds of attacks is user vigilance in spotting malicious messages.

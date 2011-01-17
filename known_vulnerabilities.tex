@@ -24,11 +24,11 @@ Because NFC will be used in payment and access control, it should be assumed tha
 % Maar de NFC telefoon heeft toetsenbord (om actieve approval vd eigenaar te vragen (en te zeggen hoeveel er betaald gaat worden)
 RFID, a direct ancestor of NFC, is prone to relay attacks.
 A relay attack is a combination of a man-in-the-middle\footnote{In a man-in-the-middle attack a malicious attacker places himself or herself between two communicating parties without either party knowing that their communication flows through this man in the middle.} and replay attack\footnote{In a replay attack, the data used for an authentic transaction is intercepted and retransmitted (i.e. `replayed') for malicious purposes}.
-The goal is that the attacker will gain something, but victim will lose something, e.g. the attackers will get a product from a retailer, but the victim is the one who is paying. 
+The goal is that the attacker will gain something, but the victim will lose something (e.g. the attacker will get a product from a retailer, but the victim is the one who is paying).
 
-To achieve a relay attack, the attacker will need a device that emulates an RFID card (called the \textit{ghost}), and a device that acts as an RFID reader (called the \textit{leech}).
+To achieve a relay attack, an attacker will need a device that emulates an RFID card (called the \textit{ghost}), and a device that acts as an RFID reader (called the \textit{leech}).
 The \textit{ghost} will be used to communicate with a genuine reader and the \textit{leech} will be used communicate with a genuine card (the victim).
-The attacker must trick the user into making a legitimate purchase, and have the devices set up in such a way that they operate at a much larger distance then the normal operational distance of 10 centimeters, so that the attack will go unnoticed. \cite{1128470}
+The attacker must trick the user into making a legitimate purchase at the \textit{leech} terminal, and have the devices set up in such a way that they operate at a much larger distance then the normal operational distance of 10 centimeters, so that the attack will go unnoticed. \cite{1128470}
 
 For example, with this attack it could be possible to gain access to public transport.
 The check-in gate will communicate with the ghost, which relay the communication on to the leech, which will then relay it to the victim and vice versa.
@@ -40,23 +40,31 @@ A Faraday cage \footnote{A Faraday cage is a room or cage made out of a mesh of 
 % TODO faraday cage uitleggen - explain when connectivity is lost
 %TODO beetje herschrijven voor duidelijkheid
 This is not a feasible countermeasure for a mobile phone, because it will not have any connectivity.
-Interactive confirmation to activate the connection will defend the user from accidentally making a transaction.
+
+The other alternatives effect a relatively slight decrease in usability, namely because there will be an extra step for a user to switch on NFC features.
+Interactive confirmation to activate the connection will prevent the user from accidentally making a transaction.
 %The user will have to confirm NFC on the device, to be able to e.g. make a payment or use public transport.
-It will not be possible for an attacker to use the phone at all times.
-This will slightly decrease the user friendliness, because there will be an extra step for user to switch the NFC feature on.
-With two-factor authentication, the user will be asked to present something, e.g. a password, PIN code or token.
-NFC will be turned on all the time, but only when it will be used, the user will type the PIN code and a connection is made.
-The attacker can actually notify the user that a connection will be made.
-If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the password, the attack is avoided.
-This countermeasure will also decrease user friendliness. \cite{1128470}
+By implementing this, it will not be possible for an attacker to stealthily communicate with a target phone at all times, because users will actually be notified  of all connections to be established.
 
-Overall the relay attack on NFC will have lower feasibility than relay attacks on RFID cards, precisely because the user is presented with the option of accepting or declining transactions.
+With two-factor authentication, the user will be asked to present something they know to uniquely identify them (e.g. a password or PIN code, or a shared secret that is agreed upon verbally between users).
+%NFC can be turned on at all times, but the user will need to type the secret in order to make use of NFC features.
+If the user is aware that the NFC connection is not necessary (because he is not near a payment terminal) and declines or does not type the password this attack can prevented.
+%This countermeasure will also decrease user friendliness.
+\cite{1128470}
 
-Another countermeasure against a relay attack is the use of a distance bounding protocol. This makes sure that both communicating parties are in the allowed range of each other. To achieve this, the \textit{Verifier} e.g. an NFC enable device, sends a challenge e.g. a certain number of bits, to the \textit{Prover} e.g. a payment terminal. The Prover processes the challenge and replies back to the Verifier. The Verifier will then calculate the round-trip time between the sending of the challenge and the receiving of the reply from the Prover. By subtracting the Prover's processing time from the round-trip time, the distance bound between the two devices is determined. 
-Because the Prover has to process the challenge, it can not send anything sooner than it receives. This means that the Prover can not fake to be closer to the Verifier then it really is.
-With a distance bounding protocol it will become possible for an NFC-enabled mobile device (Verifier), to check if the payment terminal or access gate (Prover) is within a set distance.
-For NFC this will ideally be 10 centimeters, as this is the specified operational distance. \cite{rasmussenrealization,brands1994distance}
-% the specified operational distance - where is this specified? A standard? Which standard?
+Overall the relay attack on NFC will have lower feasibility than relay attacks on RFID cards, precisely because the user can be presented with the option of accepting or declining transactions.
+
+Another countermeasure against a relay attack is the use of a distance bounding protocol.
+Using a distance bounding protocol it is possible for an NFC-enabled mobile device (\textit{Verifier}), to check if the payment terminal or access gate (\textit{Prover}) is within a set distance.
+To achieve this, the Verifier sends a challenge to the Prover which has to solve the challenge before the Verifier will allow it to engage in further communication.
+This countermeasure works on the principle that any latency incurred in transmitting the challenge to a Verifier must not exceed a certain threshold, ensuring that both communicating parties are within the allowed range of each other.
+
+%The Prover processes the challenge and replies back to the Verifier.
+The Verifier will measure the round-trip time between the sending of the challenge and the reception of a valid reply from the Prover.
+By subtracting a typical Prover's processing time from the round-trip time, the distance between the two devices can be roughly determined.
+This means that the Prover can not easily fake being closer to the Verifier than it really is.
+%For NFC this will ideally be 10 centimeters, as this is the specified operational distance. \cite{rasmussenrealization,brands1994distance}
+% TODO the specified operational distance - where is this specified? A standard? Which standard?
 %TODO q: how does the Verifier know the processing time of the Prover?
 
 %plaatje relay attack
@@ -67,50 +75,52 @@ For NFC this will ideally be 10 centimeters, as this is the specified operationa
 
 \subsection{Malware distribution}
 Smart poster technology can be used to distribute malware.
-It has proven to be possible to mislead a user to visit a malicious website through a modified RFID-tag using a technique called \textit{Smart poster URI spoofing} which exploits a vulnerability in a user's browser.
-To exploit such a vulnerability, an attacker would target a user known to be running a vulnerable browser with a specially crafted message which contains a malicious \textit{Uniform Resource Identifier} (URI) which is disguised to look innocent.
+It has been proven to be possible to mislead a user to visit a malicious website through a modified RFID-tag using a technique called \textit{Smart poster URI spoofing} which exploits a vulnerability in a user's browser.
+To exploit such a vulnerability, an attacker would target a user known to be running a vulnerable browser with a specially crafted message which contains a malicious \textit{Uniform Resource Identifier} (URI) that is disguised to look innocent.
 By using whitespace characters like space, tab and new line characters in the transmitted URI it can be made to appear to identify a different resource than it actually does when presented to the user.
 The URI addressing malicious content is therefore not shown to user, but the user is still directed there upon visiting the innocent-looking link communicated by the smart poster.
 \cite{mulliner2009vulnerability}
 
 %The user is unaware that he or she is directed to a malicious website, from where a number of further attacks are possible.
 %In the same way it is possible to let the user call or send a text message to a different number, e.g. an 0900-number.
-The different services a user can be directed to through URI spoofing depend on the browser attacked, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
+The different services a user can be directed to through URI spoofing depend on the platform under attack, but could include the World Wide Web, file sharing, instant messaging, (internet) telephony or text messaging.
 
 It is also possible to hide and spread a computer worm which propagates via NFC.
 %For such a worm to propagate, the phone of the user has to be infected with the worm.
-When the phone reads a tag, it will try to change it, like described above.
-The next user that reads the tag will be pointed to a website, where he will be tricked into downloading and installing a copy of the worm.
-\cite{rieback2006your}
+When a phone infected by such a worm is in proximity to an RFID tag it will attempt to overwrite the data contained in the tag with a malicious URL where a copy of the worm is located, likely disguised as benign software.
+If this effort was successful, users that read the tag after its infection will be directed to said website where they will be tricked into downloading and installing a copy of the worm. \cite{rieback2006your}
 
 \subsection{Countermeasures against malware distribution}
 This vector is similar to other networking attacks, the best defense against these kinds of attacks is user vigilance in spotting malicious messages.
 These attacks can possibly be mitigated by taking preventative measures in the client software.
 %TODO reference!
 
-\subsection{Differential Power Analysis Attack}
-A Differential Power Analysis (DPA) attack is a form of side channel attack.
-A side channel attack is based on information that can be collected by analysing the physical operation of a cryptographical system (cryptosystem) e.g. by analysing the power usage, electromagnetic radiation leakage or timing of a cryptosystem.
-It is possible to prevent this from happening by implementing extra shielding and filtering inputs and outputs.
-DPA attacks are a problem for devices where the cryptosystem has to be small, cheap and have low power usage (like the secure elements used in NFC).
+\subsection{Differential Analysis Attacks}
+Differential analysis attacks are a class of side channel attack where signal fluctuations (like power usage and electromagnetic radiation) in the system are collected and statistically analysed to yield information about the key or plaintext.
 
+A side channel attack is based on information that can be collected by analysing the physical operation of a cryptographic system (cryptosystem) e.g. by analysing the power usage, electromagnetic radiation leakage or timing of a cryptosystem.
+It is possible to prevent this from happening by implementing random behaviour to skew measurements, adding extra shielding or filtering inputs and outputs.
+
+DPA attacks are a common problem in devices where the cryptosystem is designed to be small, cheap and have low power usage (like the Secure Elements used in NFC).
 With DPA the power consumption is measured to extract information about the workings of the cryptosystem.
-To measure the power consumption an analog to digital converter is used.
+%To measure the power consumption an analog to digital converter is used.
 When the cryptosystem is processing, the power usage will vary during the different operations.
-The information is statistically analyzed to determine the key or plaintext, or it can give information about the key, which can help to speed up the attack or help a different attack to succeed. %TODO which attack?
+This information can be statistically analyzed to determine the encryption key or plaintext, or it can give information about the key which can be used to aid a different attack (such as a statistical brute-force attack). %TODO which attack?
 
-DPA can also be applied for electromagnetic radiation. %TODO note DFA
-Information about the cryptosystem can be collected from the RF noise given off by the electronic signals representing the data travelling to and from the secure element and memory.
-All these fluctuations in the integrated circuit, wires and electromagnetic radiation can provide information to be analyzed to yield some information about the key or secret data.
+Differential analysis of signals can also be applied to electromagnetic radiation, which is called \textit{Differential Frequency Analysis} (DFA).
+Information about the cryptosystem can be collected from the RF noise given off by the electronic signals representing the data travelling to and from the Secure Element and memory.
 
-One measurement of these variations might not be enough to produce the entire key, because of noise (e.g. inaccuracies, outside influence) that is collected during the measurement, which will provide no information about the key.
-Therefore several measurements are necessary to distinguish the signal from the noise.
+Many measurement of these variations might necessary to produce the entire key because of noise (e.g. inaccuracies, outside influence, intentional random fluctuations) that is collected during measurements.% which will provide no information about the key.
+%Therefore several measurements are necessary to distinguish the signal from the noise.
 By aligning the measurements, an attacker can compare data on single points of interest.
-By averaging the collected data, the usable signal is amplified and the noise is filtered out.
+By averaging the collected data, the usable signal can amplified and the noise is filtered out.
 
-Another way to collect information about the key, besides taking many different measurements, is changing some bits of the key to check if the changes might reveal some information about the encryption process.
-This technique can also be repeated and the resulting data statistically analyzed to get the key.
-Also by resetting or switching off the power during a specific operation, which can be repeated, information about the key might be collected. \cite{kocher2009differential}
+Other kinds of statistical information about the cryptosystem can be collected by techniques called \textit{fuzzing} and \textit{glitching}, where respectively some bits of input are changed or the function of the device is otherwise tampered with, in order to detect statistical anomalies by correlating these changes with changes measured from the cryptosystem's output(s).
+These techniques can also be repeated and the resulting data statistically analyzed to get the key.
+%Also, by resetting or switching off the power during a specific operation which can be repeated, information about the key might be collected.
+%TODO ref fuzzing glitching
+
+\cite{kocher2009differential}
 %TODO ugly sentence, rewrite
 
 \subsection{Countermeasures against Differential Power Analysis}

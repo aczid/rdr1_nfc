@@ -45,7 +45,7 @@ The enhanced security provided by the EMV system has effected a liability shift 
 A similar application of smart cards can be found in mobile telephony networks.
 Worldwide, most mobile telephones make use of the \textit{Global System for Mobile Communications} (GSM) system.
 The GSM standard already provides a mechanism for authentication to the network by means of a smart card, albeit in a different form factor, called a \textit{Universal Integrated Circuit Card} (UICC).
-In GSM networks, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which provides a mobile handset access to the encryption routines required for authentication on the network while the required secret key remains stored securely inside.\footnote{The only difference between a ICC and UICC is that a UICC is only used in mobile telephony networks and run a SIM application in GSM networks}
+In GSM networks, the UICC is running a \textit{Subscriber Identify Module} (SIM) application, which provides a mobile handset access to the encryption routines required for authentication on the network while the required secret key remains stored securely inside.\footnote{The only difference between a ICC and UICC is that a UICC is only used in mobile telephony networks and runs a SIM application in GSM networks}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SIM_in_GSM}
@@ -63,7 +63,7 @@ Due to this, the current generation of mobile devices lacks a common infrastruct
 %These third parties need to be elevated to the role of \textit{Trusted Service Manger}
 %MARK: In de tekst hieronder moet duidelijk worden, dat NFC eist/vraagt dat een UICC wordt opgedeeld voor verschillende applicaties
 
-% ERIK: SIM is een voorbeeld van een "Secure Element". Een Secure Element kan ook een andere smartcard chip in de telefoon zijn.
+% ERIK: SIM is een voorbeeld van een "Secure Element". Een Secure Element kan ook een andere smart card chip in de telefoon zijn.
 
 % In de telefoons die 'we' hebben is de SE geen onderdeel van de SIM, maar een los (al dan niet trusted) component.
 %MARK: zullen we dit verder uitbreiden in het architectuur hoofdstuk en dit hier niet noemen?
@@ -73,16 +73,16 @@ Due to this, the current generation of mobile devices lacks a common infrastruct
 
 \subsection{Secure elements}
 %Modern RFID cards can have features similar to smart cards, which means that NFC devices aiming to be truly compatible with RFID applications must also allow for similar functionality.
-Just like SIM cards and RFID cards, NFC-enabled handsets require a secure storage and processing module to be included in their design as conventional storage on and operation of mobile devices are liable to tampering by the user or malicious third party.
+Just like SIM cards and RFID cards, NFC-enabled handsets require a secure storage and processing module to be included in their design as conventional storage on and operation of mobile devices are liable to tampering by the user or a malicious third party.
 %NFC, being grounded in RFID technology, provides some security capabilities previously unavailable in mobile devices.
 %These capabilities require storage of sensitive data and code, for which a \textit{Secure element} is needed.
-%Currently, four different configurations for a secure element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
+%Currently, four different configurations for a Secure Element are possible, of which the integration on a regular UICC/SIM is suggested as the most likely candidate to be used.
 Secure storage for NFC applications similar to that provided by smart cards has been implemented in the \textit{Secure Element} (SE) architecture.
 The software on the SEs can be updated over-the-air by a \textit{Trusted Services Manager} (TSM), provided the TSM's certificate is trusted by it.
 Several possible configurations proposed by \textit{GlobalPlatform}, the industry forum for smart card infrastructure development, are outlined below. \cite{Reveilhac:2009:PSE:1548884.1549404,GlobalPlatformSEs}
 
-%The secure element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
-%This is a smartcard which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
+%The Secure Element to be used is a \textit{Universal Integrated Circuit Card} (UICC).
+%This is a smart card which is used in a mobile phone to connect to the GSM and UTMS network. % UICC toevoegen aan glossary, Uitleggen dat het SIM is
 %Making use of a UICC is preferred because it has been deployed in real applications where it has proven to be reliable.
 %It is re-usable and standardized, which means a user can switch handsets easily, their personalized secure. 
 
@@ -95,14 +95,14 @@ Several possible configurations proposed by \textit{GlobalPlatform}, the industr
 %ERIK: figuren toevoegen van verschillende telefoon architecturen. 
 
 % SIM ---> telefoon		SIM = secure, tamper-resitent, authenticatie van telefoon aan het netwerk	marketing redenen (onderscheid welke onderdelen van wie zijn) SIM is van de telco
-% a SIM ---> telefoon ---> SE 	SmartMX contactless smartcard  (nokia)
+% a SIM ---> telefoon ---> SE 	SmartMX contactless smart card  (nokia)
 % b SD kaart als a maar vervangbaar SE
 % c NFC-SIM
 
 %The problem of a malicious user can be mitigated by making use of a \textit{Secure Element} (SE) for storing sensitive information.
 %Because of its sheer microscopic scale, it is very difficult and costly for an attacker to tamper with the function of this device.
 
-%Below we will discuss a number of different ways such a secure element can be implemented on a mobile device. 
+%Below we will discuss a number of different ways such a Secure Element can be implemented on a mobile device. 
 
 %\subsubsection{Integrated Secure Element}
 \begin{enumerate}
@@ -115,16 +115,16 @@ This works for the intended cryptographic use, but limits the device to communic
 %The architecture of this phone consists of a SIM card, antenna and an internal Secure Element.
 %The same layout of this architecture can also be used in other mobile devices, see figure \ref{fig:integrated_se}.
 
-The handset hardware consists of the usual components like a processor, memory and possibly others, but also the hardware to provide NFC features and an embedded secure element.
+The handset hardware consists of the usual components like a processor, memory and possibly others, but also the hardware to provide NFC features and an embedded Secure Element.
 The downside to this design is that the data contained in the SE is not easily portable to a new NFC device.
-%The secure element stores sensitive data and enables tag and smart card emulation.
+%The Secure Element stores sensitive data and enables tag and smart card emulation.
 %In the case of the Nokia phone it is divided in two subcomponents, a Java Card, used for payment, and Mifare 4k, used for ticketing.
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/phone_with_SE_nokia}
 \caption[Handset with embedded Secure Element]
 {
-An embedded secure element
+An embedded Secure Element
 }
 \label{fig:integrated_se}
 \end{figure}
@@ -134,14 +134,14 @@ An embedded secure element
 
 %\subsubsection{Modular Secure Element}
 \begin{item}
-Another option is a flash memory card like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the secure element, as depicted in figure \ref{fig:modular_se}.
+Another option is a flash memory card like a \textit{Secure Digital} (SD) card which houses all the hardware needed to enable NFC and also the Secure Element, as depicted in Figure \ref{fig:modular_se}.
 %( http://www.nearfieldcommunicationsworld.com/2009/01/12/3485/tyfone-puts-nfc-into-microsd-cards/)
 In this configuration a third party can issue an SD card to its customers which provides NFC functionality without relying on any aspect of the handset to handle confidential data. If the user wishes to use applications from several third parties, they need to SD cards from all of those parties. This can be a downside, because the user has to switch the SD card if they want to use a different application.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SD_NFC}
 \caption[SE in SD package]
 {
-A secure element in an SD package
+A Secure Element in an SD package
 }
 \label{fig:modular_se}
 \end{figure}
@@ -150,7 +150,7 @@ A secure element in an SD package
 %security problems for this architecture: SD card might get stolen and used by somebody else.
 %\subsubsection{Multiple SIM cards}
 \begin{item}
-Related to the above architecture is the one depicted in figure \ref{fig:multi_sim}.
+Related to the above architecture is the one depicted in Figure \ref{fig:multi_sim}.
 Here the architecture consists of a handset with multiple UICC slots.
 In this design various applications have access to their own UICC which takes on the role of an SE.
 This way, applications from different providers can coexist on the handset, without the need for them to trust one another or a TSM operating on their behalf. % there is no problem with splitting the resources of one SIM card and the trust issue between different companies.
@@ -169,11 +169,11 @@ Multiple SIM cards for different applications
 It is also possible to split the resources available on the SE between various parties, granted they trust each other to not abuse the privilege of being able to access one another's data.
 This sharing of resources is possible because smart cards in general are becoming more powerful.
 This makes two different architectures possible.
-The first one, as pictured in figure \ref{fig:sim_se}, uses the SIM card as secure element.
+The first one, as pictured in Figure \ref{fig:sim_se}, uses the SIM card as Secure Element.
 In this design, the handset will include the NFC communication hardware and utilize a UICC (SIM card) with applications from the Mobile Network Operator and applications from various third parties chosen by the user, e.g. a bank for payment and a public transport company. 
 The second option resembles a combination of the first one and the one with the SD card architecture.
-Here a SIM card has all the hardware needed to make NFC possible and it also acts as a secure element (see figure \ref{fig:integrated_se}).
-Like the first option, the resources of the SIM card will be split among the involved parties.
+Here a SIM card has all the hardware needed to make NFC possible and it also acts as a Secure Element (see Figure \ref{fig:integrated_se}).
+Like in the first option, the resources of the SIM card will be split among the involved parties.
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{images/SIM_is_SE}
 \caption[Trusted SIM cards]
@@ -210,7 +210,7 @@ Trusted SIM card running multiple applications
 
 %\section{Wireless communication}
 %The distance at which the NFC communication takes place is 10 cm, operates at the 13.56 MHz frequency and it has a transfer speed of 106, 216, 424 kbit/s.
-%promising secure element alternatives for NFC technology. */
+%promising Secure Element alternatives for NFC technology. */
 
 
 %\subsection{Advantages and Limitations}

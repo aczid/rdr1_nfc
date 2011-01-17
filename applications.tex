@@ -45,14 +45,16 @@ The proposed system should also improve accuracy and speed, while still meeting 
 In \textit{mFerio}, the \textit{Secure Element} (SE) contains the electronic cash and personal details of the user, which by design will not be accessible by unauthorised users if the SE is hardware protected \cite{1555846}.
 
 %TODO rewrite
-Another possibility is to create an offline payment system with the use of electronic vouchers.
+Another possibility is to create an offline payment system with the use of cryptographically signed vouchers in a \textit{Public Key Infrastructure}. \cite{rivest1978method}
 In this scheme, an \textit{Issuer} can distribute so-called `eVouchers' to \textit{Beneficiaries} via SMS.
-These beneficiaries can then then exchange vouchers amongst themselves or transfer the eVoucher to an \textit{Affiliate} payment terminal.
-%rom an issuer and transfer this eVoucher to other users (via NFC, SMS or an RFID tag) and payment terminals.
-Users are also able to check the balance, history and expiration date of their eVouchers. 
+Beneficiaries can then exchange vouchers amongst themselves or transfer an eVoucher to an \textit{Affiliate}'s payment terminal to exchange it for services or goods using an applet running on the Secure Element.
+The eVoucher issuer holds two RSA keys: one is used for signing (eVouchers and certificates used in affiliate terminals and user devices) and the other is used to encrypt communication to these devices (which can be verified using the aforementioned signing keys).
+The client's eVoucher applet as well as the affiliate payment terminals also hold an RSA keypair and a certificate signed by the issuer, providing the means for mutual authentication between either two of the three parties involved.
 
+%rom an issuer and transfer this eVoucher to other users (via NFC, SMS or an RFID tag) and payment terminals.
+Users are able to check the balance, history and expiration date of the eVouchers they hold.
 %There are three risks concerning this implementation, first the possibility of copying the eVouchers, second counterfeiting them and third loss of eVouchers in a transaction.
-The secure element will only accept software from a Trusted Service Manager, which will have a private key for authentication to the SE.
+The Secure Element will only accept software from an issuer, which will have the private key to authenticate to the SE.
 The SE will store the eVouchers and also encrypt them, if a user decides to sent them to another user. \cite{1592613}
 
 %In \cite{1592613} the authors investigate the technical challenges of a system using cryptographically secure vouchers %which can be exchanged between beneficiaries.
@@ -63,7 +65,7 @@ The SE will store the eVouchers and also encrypt them, if a user decides to sent
 
 \subsection{Advertisement}
 Advertisement is another area in which NFC can be used. By equipping advertisement media (e.g. billboards, flyers, posters) with a NFC/RFID-tag, users can receive the details of a product immediately on their mobile phone.
-For example, by supplying the tag with an URL, a user can immediately visit a website and take further action there, e.g. sign-up or fill in a form.
+For example, by supplying the tag with an URL, a user can immediately visit a website and take further action there, e.g. sign up or fill in a form.
 As we will see later on, this can create a security problem for a user that is unaware. \cite{shannon2009profiling,mulliner2009vulnerability}
 
 \subsection{Access Control}
@@ -76,8 +78,9 @@ Upon arrival and leaving the caretaker holds the phone next to the membershipcar
 \textit{Wireless Personal Area Network} (WPAN) technology is already widely available in mobile devices in the from of Bluetooth.
 %This technology has a range of ten meters, a transfer speed of 24 Mbit/s (in version 3.0), and is used to transfer data between devices at a relatively short distance.
 Bluetooth uses an interactive login to setup a connection between devices, which means that both parties have to type in a key.
-Establishing a connection between devices (a process called `pairing' in Bluetooth terminology) can be performed with lower cognitive load in NFC applications by relying on the close proximity required to setup a connection.
-Using this principle of required proximity, NFC can be used to `bootstrap' a Bluetooth pairing between devices with a higher degree of usability by simply touching the devices and accepting the established connection. \cite{scarfone2008guide}
+Establishing a connection between devices (a process called `pairing' in Bluetooth terminology) can be made simpler by making use of NFC, relying on the close proximity required to setup a connection.
+Using this principle of required proximity, NFC can be used to `bootstrap' a Bluetooth pairing between devices by simply touching the devices and confirming the connection to be established, as opposed to more complex user interface interactions traditionally required for this process.
+\cite{scarfone2008guide}
 %Such ease of use is preferable from both a usability and business perspective.
 %, but for most of the intended use cases this principle is not enough to ensure security, and some actual security measures are required.
 
@@ -89,7 +92,7 @@ Using this principle of required proximity, NFC can be used to `bootstrap' a Blu
 
 
 %\section{Implementation} %goede titel nodig?
-%As mentioned above, there are different NFC applications (of which payment and public transport are the most important) and these applications are starting to be implemented. There are several reasons why NFC hasn't been implemented yet. First of all, the mobile devices that use NFC, still have to be made available to the consumer, but the consumer will only be interested if he or she can actually do something with NFC. So applications are needed, but therefore different parties have to work together. If i.e. a SIM-card is used as a secure element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card. Also the costs involved with trying to get all the shops using NFC, are quite large, because new payterminals have to be purchased.
+%As mentioned above, there are different NFC applications (of which payment and public transport are the most important) and these applications are starting to be implemented. There are several reasons why NFC hasn't been implemented yet. First of all, the mobile devices that use NFC, still have to be made available to the consumer, but the consumer will only be interested if he or she can actually do something with NFC. So applications are needed, but therefore different parties have to work together. If i.e. a SIM-card is used as a Secure Element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card. Also the costs involved with trying to get all the shops using NFC, are quite large, because new payterminals have to be purchased.
 %So all parties have to participate and create agreements to get NFC off the ground, which is what they have been doing, only this takes time. %niet zo sterke zin en gebaseerd op de meeting met erik
 
 
@@ -109,7 +112,7 @@ Using this principle of required proximity, NFC can be used to `bootstrap' a Blu
 %                        malware
 
 %\section{Pilot programs}
-% /* promising secure element alternatives for NFC technology.
+% /* promising Secure Element alternatives for NFC technology.
 %TODO door wie, hoeveel participanten etc is wel nuttig om te weten
 %TODO Er wordt er ook maar 1 genoemd
 
@@ -118,7 +121,7 @@ Using this principle of required proximity, NFC can be used to `bootstrap' a Blu
 %One of the factors holding back the widespread adoption of NFC, is stakeholders (e.g. banks, mobile providers and public transport companies) have so far been unable to agree on standardization of the required security implements. 
 
 % sorry maar even herschreven om niet meteen heel specifiek te gaan.
-%The secure element consists of hardware, software, interfaces and protocols in a mobile device.
+%The Secure Element consists of hardware, software, interfaces and protocols in a mobile device.
 %It provides a secure area for storage, running of applications, protection of payments and can be used for authentication  and for applications which need security mechanism.
 % dit stukje is niet zo precies, en moet in de introductie minder technisch uitgelegd worden denk ik
 
@@ -126,7 +129,7 @@ Using this principle of required proximity, NFC can be used to `bootstrap' a Blu
 %There are several reasons why NFC hasn't been implemented yet.
 %First of all, the mobile devices that use NFC, still have to be made available to the consumer, but the consumer will only be interested if he or she can actually do something with NFC.
 %So applications are needed, but therefore different parties have to work together.
-%If i.e. a SIM-card is used as a secure element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card.
+%If i.e. a SIM-card is used as a Secure Element (see Chapter 3), a bank will need to trust the telecom provider and vice versa, but a bank doesn't like to use a, in their eyes, unsafe SIM-card and a telecom provider doesn't want someone else to mess with their SIM-card.
 %Also the costs involved with trying to get all the shops using NFC, are quite large, because new payterminals have to be purchased.
 %So all parties have to participate and create agreements to get NFC off the ground, which is what they have been doing, only this takes time. %niet zo sterke zin en gebaseerd op de meeting met erik
 
